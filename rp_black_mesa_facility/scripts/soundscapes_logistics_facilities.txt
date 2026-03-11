@@ -1,0 +1,3120 @@
+//Insecurity Soundscapes
+
+//This chapter is strict linear.
+//No random Soundscape needs to be added here!
+
+//RANDOM UTILITY SOUNDS
+
+"ins.util.industrial"	
+{	
+	"playrandom"
+	{
+		"volume"		"0.4,0.6"
+		"pitch"			"90,110"
+		"time"			"10,15"
+		"position"		"random"
+		"soundlevel"	"SNDLVL_140dB"
+		"rndwave"
+		{
+			"wave"		"bms_ambience\soundscape\ind_amb1.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb2.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb3.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb4.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb5.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb6.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb7.wav"
+			"wave"		"bms_ambience\soundscape\ind_amb8.wav"
+			"wave"		"bms_objects\elevators\elevator4_ring.wav"
+		}
+	}
+}
+
+"ins.util.shaftFX"	
+{	
+	"playrandom"
+	{
+		"volume"			"0.3,0.5"
+		"pitch"				"90,110"
+		"time"				"15,30"
+		"position"			"random"
+		"soundlevel"		"SNDLVL_120dB"
+		"rndwave"
+		{
+			"wave"			"bms_ambience\soundscape\misc_amb1.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb2.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb3.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb4.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb5.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb6.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb7.wav"
+			"wave"			"bms_ambience\soundscape\misc_amb8.wav"
+		}
+	}
+}
+
+"ins.util.office"	
+{	
+	"playrandom"
+	{
+		"volume"			"0.2,0.5"
+		"pitch"				"95,105"
+		"time"				"15,20"
+		"position"			"random"
+		"soundlevel"		"SNDLVL_90dB"
+		"rndwave"
+		{
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot1.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot2.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot3.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot4.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot5.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot6.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot7.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot8.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot9.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot10.wav"
+			"wave"			"bshift\bs_soundscape\soundscape_office_oneshot11.wav"
+		}
+	}
+}
+
+//================================================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================================================
+// 						//MAP01 BEGINS HERE!	[bs_c1m0a]
+//						//INSECURITY: AREA 3 SECURITY FACILITIES
+//================================================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================================================
+
+//================================================================================================================================
+//================================================================================================================================
+//						Base Utility Soundscapes - Map 01
+//================================================================================================================================
+//================================================================================================================================
+
+// .base soundscapes
+// 
+//						THESE ENTRIES ARE NOT TO BE USED IN THE ACTUAL VMFs.
+//
+//						They are Building Blocks only, meant for establishing the baseline sound aesthetic
+//						for the overall environments being portrayed.
+//
+//						Scroll down to "Main Map Soundscapes - Map 01" for the soundscapes proper.
+
+
+"insec_area3_checkpoint.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_120dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small3.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"1.0"
+		"pitch"				"90"
+		"soundlevel"		"SNDLVL_100dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab2.wav"
+	}
+}
+
+"insec_area3_mainhall.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_120dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small2.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"90"
+		"soundlevel"		"SNDLVL_100dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab1.wav"
+	}
+}
+
+"insec_area3_lobby.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"pitch"				"110"
+		"soundlevel"		"SNDLVL_70dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_med6.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_70dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab1a.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_70dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_ppl2.wav"
+	}
+}	
+
+"insec_area3_lockers.base"
+{
+	"playlooping"
+	{
+		"volume"			"1"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small3.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab2.wav"
+	}
+}
+
+"insec_area3_sidehall.base"
+{
+	"playlooping"
+	{
+		"volume"			"1"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_120dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small1.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.2"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_120dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab1.wav"
+	}
+}
+
+"insec_area3_upperhall.base"
+{
+	"playlooping"
+	{
+		"volume"			".5"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_110dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_ppl1.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_100dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab1.wav"
+	}
+}
+
+"insec_area3_stairwell.base"
+{
+	"playlooping"
+	{
+		"volume"			".5"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_med12.wav"
+	}
+}				
+
+//================================================================================================================================
+//						Main Map Soundscapes -	Map 01
+//================================================================================================================================
+
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY_AREA 3 CHECKPOINT		//	Shorthand is "sscpe00" in vmf bs_c1m0c
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+
+"insec_area3_checkpoint"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_checkpoint.base"
+		"volume"			"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe00_pos0	[m_ambience_vent2.wav]
+		//	sscpe00_pos1	[m_ambience_vent1.wav]
+		//	sscpe00_pos2	[m_ambience_vent1a.wav]
+		//	sscpe00_pos3	[r_ambience_med12.wav]
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent1a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_100dB"
+		"pitch"				"110"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med12.wav"
+		"position"			"3"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - MAIN HALL		//
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+
+"insec_area3_mainhall"
+{
+	"dsp"					"1"
+	"dsp_volume" 			"1.0"
+	
+	"playsoundscape"
+	{
+		"volume"			"1.0"
+		"name"				"insec_area3_mainhall.base"		
+	}
+	
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe01_pos0				[m_ambience_vent2.wav]
+		//	sscpe01_pos1				[m_ambience_vent1.wav]
+		//	sscpe01_pos2				[m_ambience_vent1a.wav]
+		//	sscpe01_pos3				[r_ambience_med12.wav]
+
+		//	target_blend_sscpe00		//	using Sound Position 6 as an ambientpositionoverride
+										//	to blend transition points between the main hall and the CHECKPOINT staircase
+										//	using "insec_area3_checkpoint.base" as the blend.
+										
+		//	target_blend_sscape02		//	using Sound Position 7 as an ambientpositionoverride
+										//	to blend transition points between the main hall and the staircase
+										//	using "insec_area3_stairwell.base" as the blend.
+		
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2a.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2b.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"3"
+	}
+	
+	"playsoundscape"
+	{
+		"name"						"insec_area3_checkpoint.base"
+		"volume"					"1.0"
+		"ambientpositionoverride"	 "6"
+	}	
+	
+	"playsoundscape"
+	{
+		"name"						"insec_area3_stairwell.base"
+		"volume"					"1.0"
+		"ambientpositionoverride"	 "7"
+	}
+
+// Utility Soundscape for office ambience
+	
+	"playsoundscape"
+	{
+		"volume"	"0.2"
+		"name"		"ins.util.office"		
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - LOBBY			//
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//	
+
+"insec_area3_lobby"
+{
+	"dsp"					"17"
+	"dsp_volume"			"1.0"
+
+	
+	"playsoundscape"
+	{
+		"volume"			"1.0"
+		"name"				"insec_area3_lobby.base"		
+	}	
+
+	"playsoundscape"
+	{
+		"volume"			"0.5"
+		"name"				"ins.util.office"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe04_pos0				[vending_hum.wav]
+		//	sscpe04_pos1				[vending_hum_a.wav]
+		//	sscpe04_pos2				[m_ambience_vent2.wav]
+		//	sscpe04_pos3				[m_ambience_comp1.wav]
+		//	sscpe04_pos4				[m_ambience_comp1a.wav]		
+		//	sscpe04_pos5				[m_ambience_vent1.wav]
+
+		//	target_blend_sscape05		//	using Sound Position 7 as an ambientpositionoverride
+										//	to blend transition points between the main hall and the staircase
+										//	using "insec_area3_lockers.base" as the blend.		
+		
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\vmachine\vending_hum.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"90"
+		"wave"				"bms_objects\vmachine\vending_hum_a.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"120"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1a.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent1.wav"
+		"position"			"5"
+	}
+	
+		"playsoundscape"
+	{
+		"name"						"insec_area3_lockers.base"
+		"volume"					"1.0"
+		"ambientpositionoverride"	 "7"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - LOCKER ROOM		//
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//	
+
+"insec_area3_lockers"
+{
+	"dsp"			"1"
+	"dsp_volume"	"1.0"
+
+	"playsoundscape"
+	{
+		"name"				"insec_area3_lockers.base"
+		"volume"			"1.0"
+	}
+	
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe05_pos0				[hum1.wav]
+		//	sscpe05_pos1				[m_ambience_vent2.wav]
+		//	sscpe05_pos2				[m_ambience_vent2a.wav]
+		//	sscpe05_pos3				[water_flow_loop1.wav]
+
+		//	target_blend_sscpe04		//	using Sound Position 7 as an ambientpositionoverride
+										//	to blend transition points between the main hall and the CHECKPOINT staircase
+										//	using "insec_area3_lobby.base" as the blend.	
+		
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\hum\hum1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"ambient\water\water_flow_loop1.wav"
+		"position"			"3"
+	}
+	
+		"playsoundscape"
+	{
+		"name"						"insec_area3_lobby.base"
+		"volume"					"0.5"						// Lowering volume hear for added effect when crossing back into lobby proper.
+		"ambientpositionoverride"	 "7"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - SIDE HALL		//
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//
+
+"insec_area3_sidehall"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_sidehall.base"
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"	"0.3"
+		"name"		"ins.util.office"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe06_pos0				[hum1.wav]
+		//	sscpe06_pos1				[m_ambience_vent2.wav]
+		//	sscpe06_pos2				[m_ambience_vent2a.wav]
+		//	sscpe06_pos3				[r_ambience_med14.wav]
+		//	sscpe06_pos4				[m_ambience_pipeflow1.wav]
+		//	sscpe06_pos5				[m_ambience_lc5.wav]
+		
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\hum\hum1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med14.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipeflow1.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"120"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_lc5.wav"
+		"position"			"5"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - ELEVATOR		//
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//
+
+"insec_area3_elevator"
+{
+	"dsp"					"2"
+	"dsp_volume"			"1.0"
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_120dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med12.wav"
+	}
+	
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:			NONE TO REPORT
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - UPPER HALL		//
+//												//  Explain STUFF HERE
+//												//  Explain STUFF HERE
+//
+
+"insec_area3_upperhall"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_upperhall.base"
+		"volume"			"1.0"
+	}	
+
+	"playsoundscape"
+	{
+		"volume"	"0.4"
+		"name"		"ins.util.office"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe07_pos0				[m_ambience_pipe1.wav]
+		//	sscpe07_pos1				[m_ambience_pipe1a.wav]
+		//	sscpe07_pos2				[hum2.wav]
+		//	sscpe07_pos3				[m_ambience_vent2.wav] 		
+		//	sscpe07_pos4				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe07_pos5				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe07_pos6				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe07_pos7				[NO SOUND ASSIGNED, info_target doesn't exist]
+
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe1a.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_objects\hum\hum2.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent2.wav"
+		"position"			"3"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - SURVEILLANCE ROOM		//
+//														//  Explain STUFF HERE
+//														//  Explain STUFF HERE
+//
+
+"insec_area3_surveillance"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+
+	"playlooping"
+	{
+		"volume"			".4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_110dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med8.wav"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+		//	sscpe08_pos0				[m_ambience_comp.wav]
+		//	sscpe08_pos1				[m_ambience_data1.wav]
+		//	sscpe08_pos2				[m_ambience_comp3.wav]
+		//	sscpe08_pos3				[m_ambience_comp3.wav]
+		
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_data1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"110"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_lc5.wav"
+		"position"			"3"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - STAIRWELL				//
+//														//  Explain STUFF HERE
+//														//  Explain STUFF HERE
+//
+
+"insec_area3_stairwell"
+{
+	"dsp"	"18"
+	"playsoundscape"
+	{
+		"name"			"insec_area3_stairwell.base"
+		"volume"		"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+		//	sscpe02_pos0				[m_ambience_comp.wav]
+		//	sscpe02_pos1				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe02_pos2				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe02_pos3				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe02_pos4				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe02_pos5				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe02_pos6				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe02_pos7				[NO SOUND ASSIGNED, info_target doesn't exist]
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_110dB"		
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med9.wav"
+		"position"			"0"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - ARMORY					//
+//														//  Explain STUFF HERE
+//														//  Explain STUFF HERE
+//
+
+"insec_area3_armory"
+{
+	"dsp"	"1"
+	"playlooping"
+	{
+		"volume"			".5"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_110dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med4.wav"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+		//	sscpe09_pos0				[r_ambience_med10.wav]
+		//	sscpe09_pos1				[m_ambience_comp3.wav]
+		//	sscpe09_pos2				[fan9.wav]
+		//	sscpe09_pos3				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe09_pos4				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe09_pos5				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe09_pos6				[NO SOUND ASSIGNED, info_target doesn't exist]
+		//	sscpe09_pos7				[NO SOUND ASSIGNED, info_target doesn't exist]
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_110dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med10.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan9.wav"
+		"position"			"2"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 01 - INSECURITY AREA 3 - SHOOTING RANGE			//
+//														//  Explain STUFF HERE
+//														//  Explain STUFF HERE
+//
+
+"insec_area3_range"
+{
+	"dsp"	"1"
+	"dsp_volume"	"0.5"
+	"playlooping"
+	{
+		"volume"			".5"
+		"pitch"				"110"
+		"soundlevel"		"SNDLVL_110dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med12.wav"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+	//	sscpe10_pos				[m_ambience_electrichum4.wav]
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"110"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum4.wav"
+		"position"			"0"
+	}
+}
+
+// alternate variant when the player puts on shooting range gear
+"insec_area3_range_v2"
+{
+	"dsp"	"0"
+	"fadetime"	"0.5"
+	"playlooping"
+	{
+		"volume"			".1"
+		"pitch"				"110"
+		"soundlevel"		"SNDLVL_110dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med12.wav"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+	//	sscpe10_pos				[m_ambience_electrichum4.wav]
+	
+	"playlooping"
+	{
+		"volume"			"0.02"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"110"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum4.wav"
+		"position"			"0"
+	}
+}
+
+//================================================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================================================
+// 						//MAP02 BEGINS HERE!	[bs_c1m0b]
+//						//INSECURITY: AREA 3 PARTICLE LABS AND MAINTENANCE SECTIONS
+//================================================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================================================
+
+//================================================================================================================================
+//================================================================================================================================
+//						Base Utility Soundscapes - Map 02
+//================================================================================================================================
+//================================================================================================================================
+
+// .base soundscapes
+// 
+//						THESE ENTRIES ARE NOT TO BE USED IN THE ACTUAL VMFs.
+//
+//						They are Building Blocks only, meant for establishing the baseline sound aesthetic
+//						for the overall environments being portrayed.
+//
+//						Scroll down to "Main Map Soundscapes - Map 02" for the soundscapes proper.
+
+"insec_area3_generatorroom.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab1.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"80"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_industrial12.wav"
+	}
+}
+
+"insec_area3_generatorroom_exit.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab2.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"1.0"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small3.wav"
+	}
+}
+
+"insec_area3_platform.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large8.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large10.wav"
+	}
+}
+
+"insec_area3_maint1.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large7.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@ambient\atmosphere\corridor.wav"
+	}
+}
+
+"insec_area3_maint2.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large7.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@ambient\atmosphere\corridor.wav"
+	}
+}
+
+"insec_area3_drawbridge.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large7.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@ambient\atmosphere\underground.wav"
+	}
+}
+
+"insec_area3_maint3.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@ambient\atmosphere\corridor2.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@ambient\atmosphere\underground.wav"
+	}
+}
+
+"insec_area3_g_platform.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_70dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large4.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_wind1.wav"
+	}
+}
+
+"insec_area3_g_entrance.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small3.wav"
+	}
+}
+
+//================================================================================================================================
+//						Main Map Soundscapes -	Map 02
+//================================================================================================================================
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - GENERATOR ROOM			//	Shorthand is "sscpe00" in vmf bs_c1m0b
+//														//  
+//														//  
+//
+
+"insec_area3_generatorroom"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_generatorroom.base"
+		"volume"			"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe00_pos0		[field_loop3.wav] 				[HL2 sound]
+	//	position 1		//	sscpe00_pos1		[m_ambience_lc4.wav]
+	//	position 2		//	sscpe00_pos2		[m_ambience_ind2]	
+	//	position 3		//	sscpe00_pos3		[m_ambience_comp3.wav]	
+	//	position 4		//	sscpe00_pos4		[m_ambience_comp3a.wav]
+	//	position 5		//	sscpe00_pos5		[m_ambience_data1.wav}
+	//	position 6		//	sscpe00_pos6		[zapper_ambient_loop1.wav] 		[HL2 sound]
+	//	position 7		//	sscpe00_pos7		[m_ambience_lc2.wav]
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"ambient\levels\citadel\field_loop3.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_lc4.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_85dB"
+		"pitch"				"85"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_ind2.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3a.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_data1.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.65"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"ambient\levels\citadel\zapper_ambient_loop1.wav"
+		"position"			"6"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_lc2.wav"
+		"position"			"7"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - GENERATOR ROOM	EXIT	//	Shorthand is "sscpe01" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_generatorroom_exit"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_generatorroom_exit.base"
+		"volume"			"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+	//	position 0		//	sscpe01_pos0				[fan7.wav]
+	//	position 1		//	sscpe01_pos1				[r_ambience_med8.wav]
+	//	position 2		//	sscpe01_pos2				[vending_hum.wav]	
+
+	//	position 7		//	target_blend_area3plat
+
+	
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan7.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med8.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"85"
+		"wave"				"bms_objects\vmachine\vending_hum.wav"
+		"position"			"2"
+	}
+	
+	"playsoundscape"
+	{
+		"name"						"insec_area3_platform.base"
+		"volume"					"0.65"							// Using 0.65 here so that crossing
+		"ambientpositionoverride"	"7"								// into "insec_area3_platform" proper
+																	// has a more dramatic effect
+	}																	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - TRAM PLATFORM			//	Shorthand is "sscpe02" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_platform"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+
+	"playsoundscape"
+	{
+		"name"				"insec_area3_platform.base"
+		"volume"			"1.0"
+	}	
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe02_pos0	[m_ambience_electrichum1.wav]
+	
+	//	position 1		//	sscpe01_pos1	[r_ambience_med8.wav]		//	REUSING positions 1 and 2 from "sscape01" due to being			
+	//	position 2		//	sscpe01_pos2	[vending_hum]				//	within earshot of adjacent area(s).
+
+	//	position 3		//	sscpe02_pos3	[m_ambience_pipeflow1.wav]	
+	//	position 4		//	sscpe02_pos4	[m_ambience_pipeflow1a.wav]
+	//	position 5		//	sscpe02_pos5	[m_ambience_pipeflow1b.wav}
+	
+	//	position 6		//					[NO SOUND ASSIGNED]
+	//	position 7		//					[NO SOUND ASSIGNED]
+	
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med8.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"85"
+		"wave"				"bms_objects\vmachine\vending_hum.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipeflow1.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipeflow1a.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipeflow1b.wav"
+		"position"			"5"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - MAINTENANCE 1			//	Shorthand is "sscpe03" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_maint1"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_maint1.base"		
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"			"0.35"
+		"name"				"ins.util.shaftFX"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe03_pos0		[m_ambience_electrichum1.wav]
+	//	position 1		//	sscpe03_pos1		[fan3.wav]
+	//	position 2		//	sscpe03_pos2		[m_ambience_pipe3]	
+	//	position 3		//	sscpe03_pos3		[m_ambience_pipe2.wav]	
+	//	position 4		//	sscpe03_pos4		[m_ambience_pipeflow1.wav]
+
+	
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan3.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"115"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe3.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe2.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipeflow1.wav"
+		"position"			"4"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - MAINTENANCE 2			//	Shorthand is "sscpe04" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_maint2"
+{
+	"dsp"				"1"
+	"dsp_volume"		"1.0"
+	
+	"playsoundscape"
+	{
+		"name"			"insec_area3_maint2.base"
+		"volume"		"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe04_pos0		[m_ambience_electrichum2.wav]
+	//	position 2		//	sscpe04_pos1		[m_ambience_energy3.wav]
+	//	position 2		//	sscpe04_pos2		[m_ambience_pipe1.wav]	
+	//	position 3		//	sscpe04_pos3		[m_ambience_pipe2.wav]	
+	//	position 4		//	sscpe04_pos4		[m_ambience_pipeflow1.wav]
+	//	position 5		//						[NO SOUND ASSIGNED]
+	//	position 6		//						[NO SOUND ASSIGNED]
+	//	position 7		//						[NO SOUND ASSIGNED]
+	
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum2.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_energy3.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"115"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe1.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe2.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipeflow1.wav"
+		"position"			"4"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - DRAWBRIDGE				//	Shorthand is "sscpe05" in vmf bs_c1m0b
+//														//  Explain STUFF HERE
+//														//  Explain STUFF HERE
+//
+
+"insec_area3_drawbridge"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_drawbridge.base"	
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"			"0.8"
+		"name"				"ins.util.shaftFX"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe05_pos0				[r_ambience_water7.wav]
+	//	position 1		//	sscpe05_pos1				[r_ambience_water8.wav]
+	//	position 2		//	sscpe05_pos2				[m_ambience_motor1.wav]	
+	//	position 3		//	sscpe05_pos3				[m_ambience_lc5.wav]	
+	//	position 4		//	sscpe05_pos4				[m_ambience_electrical6.wav]
+
+	// including positionals for upcoming "sscape06", for earshot continuity purposes.
+	
+	//	position 5		//	sscpe06_pos0				[m_ambience_pipe1.wav]
+	//	position 6		//								[NO SOUND ASSIGNED]
+	//	position 7		//								[NO SOUND ASSIGNED]
+	
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water7.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water8.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_motor1.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"120"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_lc5.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrical6.wav"
+		"position"			"4"
+	}
+	
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe1.wav"
+		"position"			"5"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY AREA 3 - MAINTENANCE 3			//	Shorthand is "sscpe06" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_maint3"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_maint3.base"	
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"			"0.2"
+		"name"				"ins.util.shaftFX"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+	//	position 0		//	sscpe06_pos0		[m_ambience_pipe1.wav]
+	//	position 1		//	sscpe06_pos1		[m_ambience_electrichum1.wav]
+	//	position 2		//	sscpe06_pos2		[m_ambience_electrichum4.wav]	
+	//	position 3		//	sscpe06_pos3		[m_ambience_electrichum1a.wav]
+
+	// including positionals from preceding sscape05, for earshot continuity purposes.
+	//	position 4		//	sscpe05_pos4		[m_ambience_electrical6.wav]
+	//	position 5		//						[NO SOUND ASSIGNED]
+	//	position 6		//						[NO SOUND ASSIGNED]
+	//	position 7		//						[NO SOUND ASSIGNED]
+	
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"80"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum4.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1a.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrical6.wav"
+		"position"			"4"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY SECTOR G - TRAM PLATFORM			//	Shorthand is "sscpe07" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_g_platform"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_g_platform.base"
+		"volume"			"1.0"		
+	}
+	
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe07_pos0		[m_ambience_comp1.wav]
+	//	position 1		//	sscpe07_pos1		[hum1.wav]
+	//	position 2		//	sscpe07_pos2		[hum1a.wav]	
+	//	position 3		//	sscpe07_pos3		[m_ambience_energy5.wav]	
+	//	position 4		//	sscpe07_pos4		[m_ambience_vent1.wav]
+	//	position 5		//	sscpe07_pos5		[m_ambience_vent1a.wav}
+	
+	//	position 6		//						[NO SOUND ASSIGNED]
+	//	position 7		//						[NO SOUND ASSIGNED]	
+	
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"80"
+		"wave"				"bms_objects\hum\hum1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"80"
+		"wave"				"bms_objects\hum\hum1a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"140"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_energy5.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent1.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent1a.wav"
+		"position"			"5"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 02 - INSECURITY SECTOR G - ENTRANCE AREA			//	Shorthand is "sscpe08" in vmf bs_c1m0b
+//														//
+//														//
+//
+
+"insec_area3_g_entrance"
+{
+	"dsp"					"1"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_area3_g_entrance.base"
+		"volume"			"1.0"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+	//	position 0		//	sscpe08_pos0		[m_ambience_comp1.wav]
+	//	position 1		//	sscpe08_pos1		[r_ambience_large4.wav]
+	//	position 2		//	sscpe08_pos2		[vending_hum.wav]	
+	//	position 3		//	sscpe08_pos3		[m_ambience_comp3.wav]	
+	//	position 4		//	sscpe08_pos4		[fan9.wav]
+	
+	//	position 5		//	sscpe07_pos2		[hum1.wav]					//	REUSING positions 1 and 2 from "sscape07" due to being	
+	//	position 6		//	sscpe07_pos1		[hum1a.wav]					//	within earshot of the area.
+	
+	//	position 7		//	trg_blnd_g_plat
+	
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_large4.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"90"
+		"wave"				"bms_objects\vmachine\vending_hum.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan9.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"80"
+		"wave"				"bms_objects\hum\hum1.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"80"
+		"wave"				"bms_objects\hum\hum1a.wav"
+		"position"			"6"
+	}
+	
+	"playsoundscape"
+	{
+		"name"							"insec_area3_g_platform.base"	// Using 0.35 on volume here so that stepping back out
+		"volume"						"0.35"							// into "insec_area3_g_platform" proper
+		"ambientpositionoverride"		"7"								// will have added dramatic effect when in played at 1.0.
+	}		
+}
+
+//================================================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================================================
+// 						//MAP03 BEGINS HERE!	[bs_c1m0c]
+//						//INSECURITY: HYDRO ELECTRIC
+//================================================================================================================================
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//================================================================================================================================
+
+//================================================================================================================================
+//================================================================================================================================
+//						Base Utility Soundscapes - Map 03
+//================================================================================================================================
+//================================================================================================================================
+
+// .base soundscapes
+// 
+//						THESE ENTRIES ARE NOT TO BE USED IN THE ACTUAL VMFs.
+//
+//						They are Building Blocks only, meant for establishing the baseline sound aesthetic
+//						for the overall environments being portrayed.
+//
+//						Scroll down to "Main Map Soundscapes - Map 03" for the soundscapes proper.
+
+
+"insec_hp_checkpoint.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"110"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small3.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"pitch"				"80"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_lab1.wav"
+	}
+}
+
+"insec_hp_river.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"110"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large8.wav"
+	}
+}
+
+"insec_hp_entrance.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_med9.wav"
+	}
+}
+
+"insec_hp_warehouseA.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_med10.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.2"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_industrial32.wav"
+	}
+}
+
+"insec_hp_warehouseB.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_industrial21.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_industrial28.wav"
+	}
+}
+
+"insec_hp_garage.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large8.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_industrial1.wav"
+	}
+}
+
+"insec_hp_generators.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_med10.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_industrial1.wav"
+	}
+}
+
+"insec_hp_fanroom.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"pitch"				"120"
+		"soundlevel"		"SNDLVL_70dB"
+		"wave"				"@bms_ambience\machine_ambience\m_ambience_lc20.wav"
+	}
+	
+		"playlooping"
+	{
+		"volume"			"0.5"
+		"pitch"				"80"
+		"soundlevel"		"SNDLVL_70dB"
+		"wave"				"@bms_objects\fans\fan4.wav"
+	}
+}
+
+"insec_hp_waitingarea.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_small3.wav"
+	}
+}
+
+"insec_hp_elev_maintenance.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_75dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_med9.wav"
+	}
+}
+
+"insec_hp_elev_shaft.base"
+{
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_disaster_rumble1.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"pitch"				"120"
+		"soundlevel"		"SNDLVL_80dB"
+		"wave"				"@bms_ambience\room_ambience\r_ambience_large4.wav"
+	}
+}
+
+//================================================================================================================================
+//						Main Map Soundscapes -	Map 03
+//================================================================================================================================
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP CHECKPOINT					//	Shorthand is "sscpe00b" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_checkpoint"
+{
+	"dsp"					"7"
+	"dsp_volume"			"1.0"
+
+	"playsoundscape"
+	{
+		"name"				"insec_hp_checkpoint.base"
+		"volume"			"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//position 0	//	sscpe00b_pos0		[m_ambience_electrichum2.wav]
+	//position 1	//	sscpe00b_pos1		[m_ambience_comp1.wav]	
+	//position 2	//	sscpe00b_pos2		[m_ambience_comp3.wav]
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum2.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3.wav"
+		"position"			"2"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP CHECKPOINT, section 2		//	modified version of "sscpe00b"
+//														//  which sets up the river water
+//														//	postional sounds for the upcoming
+//														//	soundcape "insec_hp_river"
+//														//	done so for audio continuity purposes
+
+"insec_hp_checkpoint_s2"
+{
+	"dsp"					"7"
+	"dsp_volume"			"1.0"
+
+	"playsoundscape"
+	{
+		"name"				"insec_hp_checkpoint.base"
+		"volume"			"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//position 0	//	sscpe00b_pos0		[m_ambience_electrichum2.wav]
+	//position 1	//	sscpe00b_pos1		[m_ambience_comp1.wav]	
+	//position 2	//	sscpe00b_pos2		[m_ambience_comp3.wav]
+
+	//	RIVER SOUNDS FROM HP RIVER area. Due to the high decibel nature of their presentation,
+	//	and that these targets are within earshot, they are included here in the positional audio.
+
+	//position 3	//	sscpe00_pos0		[r_ambience_water21.wav]	// RIVER SOUND for nearby soundscape "insec_hp_river"
+	//position 4	//	sscpe00_pos1		[r_ambience_water10.wav]	// RIVER SOUND for nearby soundscape "insec_hp_river"
+
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum2.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_comp3.wav"
+		"position"			"2"
+	}
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water21.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water10.wav"
+		"position"			"4"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP RIVER						//	Shorthand is "sscpe00" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_river"
+{
+	"dsp"					"7"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_hp_river.base"
+		"volume"			"1.0"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//position 0	//	sscpe00_pos0		[r_ambience_water21.wav] // RIVER SOUND
+	//position 1	//	sscpe00_pos1		[r_ambience_water10.wav] // RIVER SOUND	
+	
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water21.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water10.wav"
+		"position"			"1"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP ENTRANCE					//	Shorthand is "sscpe01" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//	
+//														//
+
+"insec_hp_entrance"
+{
+	"dsp"					"17"
+	"dsp_volume"			"1.0"
+
+	"playsoundscape"
+	{
+		"name"				"insec_hp_entrance.base"		
+		"volume"			"1.0"
+	}
+	
+	"playsoundscape"
+	{
+		"volume"			"0.3"
+		"name"				"ins.util.industrial"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe01_pos0		[m_ambience_electrichum1.wav]
+	//	position 1		//	sscpe01_pos1		[m_ambience_electrichum1a.wav]		
+	//	position 2		//	sscpe01_pos2		[hum1.wav]
+	//	position 3		//	sscpe01_pos3		[hum1a.wav]
+	//	position 4		//	sscpe01_pos4		[hum2.wav]
+
+	//	RIVER SOUNDS FROM HP RIVER area. Due to the high decibel nature of their presentation,
+	//	and that these targets are within earshot, they are included here in the positional audio.
+	
+	//	position 5		//	sscpe00_pos0		[r_ambience_water21.wav]
+	//	position 6		//	sscpe00_pos1		[r_ambience_water10.wav]	
+	
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1a.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"120"
+		"wave"				"bms_objects\hum\hum1.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"120"
+		"wave"				"bms_objects\hum\hum1a.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\hum\hum2.wav"
+		"position"			"4"
+	}
+	
+	// please note for this particular implementation of the hp river sounds, 
+	// the volume for both positionals have been reduced to half the original amount.
+	
+	"playlooping"
+	{
+		"volume"			"0.25"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water21.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.35"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_water10.wav"
+		"position"			"6"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP WAREHOUSE A					//	Shorthand is "sscpe02" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_warehouseA"
+{
+	"dsp"					"10"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_hp_warehouseA.base"
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"			"0.4"
+		"name"				"ins.util.industrial"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	sscpe01_pos0		[m_ambience_misc10.wav]
+	//	sscpe01_pos1		[m_ambience_electrichum1.wav]		
+	//	sscpe01_pos2		[m_ambience_motor1.wav]	
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_misc10.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.2"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_motor1.wav"
+		"position"			"2"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP WAREHOUSE B					//	Shorthand is "sscpe04" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_warehouseB"
+{
+	"dsp"					"10"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_hp_warehouseB.base"
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"			"0.5"
+		"name"				"ins.util.industrial"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	sscpe04_pos0		[m_ambience_pipe2.wav]
+	//	sscpe04_pos1		[fan2.wav]		
+	//	sscpe04_pos2		[fan2a.wav]		
+	//	sscpe04_pos3		[m_ambience_electrichum2.wav]	
+	//	sscpe04_pos4		[m_ambience_vent1.wav]	
+	//	sscpe04_pos5		[r_ambience_med12.wav]		
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_75dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_pipe2.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan2.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan2a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum2.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"120"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_vent1.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_90dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med12.wav"
+		"position"			"5"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP GARAGE						//	Shorthand is "sscpe04" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_garage"
+{
+	"dsp"					"19"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_hp_garage.base"		
+		"volume"			"1.0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"			"0.4"
+		"name"				"ins.util.industrial"		
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	sscpe04_pos0		[fan6.wav]
+	//	sscpe04_pos1		[fan2.wav]		
+	//	sscpe04_pos2		[fan2a.wav]		
+	//	sscpe04_pos3		[m_ambience_electrichum1.wav]	
+	//	sscpe04_pos4		[fan4.wav]	
+	//	sscpe04_pos5		[fan4a.wav]	
+	//	sscpe04_pos6		[r_ambience_med14.wav]
+	//	sscpe04_pos7		[m_ambience_motor2.wav]	
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_80dB"
+		"pitch"				"100"
+		"wave"				"common/null.wav" // handled ingame by func_rotating
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan2.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan2a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"120"
+		"wave"				"bms_objects\fans\fan4.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.4"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"120"
+		"wave"				"bms_objects\fans\fan4a.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_90dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med14.wav"
+		"position"			"6"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_motor2.wav"
+		"position"			"7"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP GENERATORS					//	Shorthand is "sscpe05" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_generators"
+{
+	"dsp"					"9"
+	"dsp_volume"			"1.0"
+
+"playsoundscape"
+{
+	"name"					"insec_hp_generators.base"
+	"volume"				"1.0"
+}
+	
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	sscpe05_pos0		[m_ambience_motor1.wav]
+	//	sscpe05_pos1		[r_ambience_industrial12.wav]
+	//	sscpe05_pos2		[m_ambience_ind29.wav]
+	//	sscpe05_pos3		[fan7.wav]
+	
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_motor1.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.6"
+		"soundlevel"		"SNDLVL_85dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_industrial12.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_85dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_ind29.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan7.wav"
+		"position"			"3"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP FANROOM						//	Shorthand is "?????" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_fanroom"
+{
+	"dsp"					"17"
+	"dsp_volume"			"1.0"
+
+	"playsoundscape"
+	{
+	"name"					"insec_hp_fanroom.base"
+	"volume"				"1.0"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP WAITINGAREA					//	Shorthand is "sscpe06" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_waitingarea"
+{
+	"dsp"					"17"
+	"dsp_volume"			"0.75"
+	
+	"playsoundscape"
+	{
+	"name"					"insec_hp_waitingarea.base"
+	"volume"				"1.0"
+	}	
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe06_pos0			[vending_hum.wav]	
+	//	position 1		//	target_blend_fanroom	
+	//	position 2		//							[NO SOUND ASSIGNED]
+	//	position 3		//							[NO SOUND ASSIGNED]	
+	//	position 4		//	sscpe06_pos4			[m_ambience_electrichum1.wav]
+	//	position 5		//	sscpe06_pos5			[fan9.wav]
+	//	position 6		//	sscpe06_pos6			[fan3.wav]
+	//	position 7		//	sscpe06_pos7			[r_ambience_med3.wav]
+
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\vmachine\vending_hum.wav"
+		"position"			"0"
+	}
+
+	"playsoundscape"
+	{
+		"volume"							"1.0"
+		"name"								"insec_hp_fanroom.base"
+		"ambientpositionoverride"			"1"		
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan9.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"85"
+		"wave"				"bms_objects\fans\fan3.wav"
+		"position"			"6"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.45"
+		"soundlevel"		"SNDLVL_95dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med3.wav"
+		"position"			"7"
+	}
+}
+
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP WAITINGAREA SECTION 2		//	Shorthand is "sscpe06B" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_waitingarea_s2"
+{
+	"dsp"					"17"
+	"dsp_volume"			"0.75"
+	
+	"playsoundscape"
+	{
+	"name"					"insec_hp_waitingarea.base"
+	"volume"				"1.0"
+	}	
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	positions 0 and 1 are used to set up nearby "insec_hp_elev_maintenance"
+	//  as this area is within earshot of the player.
+	
+		//	position 0		//	sscpe07_pos0			[m_ambience_energy3.wav]			
+		//	position 1		//	target_blend_elemaint	[ambientpositionoverride for soundscape "insec_hp_elev_maintenance.base"]
+
+		//	position 2		//							[NO SOUND ASSIGNED]
+		//	position 3		//							[NO SOUND ASSIGNED]	
+
+		//	position 4		//	sscpe06_pos4			[m_ambience_electrichum1.wav]
+		//	position 5		//	sscpe06_pos5			[fan9.wav]
+		//	position 6		//	sscpe06_pos6			[fan3.wav]
+		//	position 7		//	sscpe06_pos7			[r_ambience_med3.wav]
+
+	"playlooping"
+	{
+		"volume"			"0.37"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_energy3.wav"
+		"position"			"0"
+	}
+	
+	"playsoundscape"
+	{
+		"name"								"insec_hp_elev_maintenance.base"
+		"volume"							"1.0"								// setting up at 0.5 so that transitioning to the
+		"ambientpositionoverride"			"1"									// soundscape proper will be more impactful.
+	}	
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan9.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"85"
+		"wave"				"bms_objects\fans\fan3.wav"
+		"position"			"6"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.45"
+		"soundlevel"		"SNDLVL_95dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med3.wav"
+		"position"			"7"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP ELEVATOR MAINTENANCE		//	Shorthand is "sscape07" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_elev_maintenance"
+{
+	"dsp"					"18"
+	"dsp_volume"			"1.0"	
+
+	"playsoundscape"
+	{
+		"name"				"insec_hp_elev_maintenance.base"
+		"volume"			"1.0"		
+	}	
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+
+	//	position 0		//	sscpe07_pos0		[m_ambience_energy3.wav]	
+	//	position 1		//	sscpe07_pos1		[m_ambience_misc7.wav]
+	//	position 2		//	sscpe07_pos2		[r_ambience_med13.wav]
+
+	//==================//	including this positional from "sscpe06", due to being within earshot.
+	//==================//	also reduced the volume from 0.45 to 0.20 to simulate wall dampening.
+	//	position 7		//	sscpe06_pos7		[r_ambience_med3.wav]	
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_70dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_energy3.wav"
+		"position"			"0"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_misc7.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med13.wav"
+		"position"			"2"
+	}
+	
+	"playlooping"
+	{
+		"volume"			"0.3"
+		"soundlevel"		"SNDLVL_95dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med3.wav"
+		"position"			"7"
+	}	
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - THE SHAFT!!!					//	Shorthand is "??????" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//
+//
+
+"insec_hp_elev_shaft"
+{
+	"dsp"					"4"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_hp_elev_shaft.base"
+		"volume"			"1.0"		
+	}	
+
+	"playsoundscape"
+	{
+		"volume"			"0.5"
+		"name"				"ins.util.shaftFX"		
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - THE VERY, VERY, VERY,			//	Shorthand is "??????" in vmf bs_c1m0c
+//			VERY LAAAAAARRRRRRRGE CHAMBERRR				//  for this soundscape.
+//														//
+//
+
+"insec_hp_elev_chamber"
+{
+	"dsp"					"9"
+	"dsp_volume"			"1.0"
+	
+	"playlooping"
+	{
+		"volume"			"0.8"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_120dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_disaster_rumble6.wav"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"pitch"				"100"
+		"soundlevel"		"SNDLVL_110dB"
+		"wave"				"bms_ambience\room_ambience\r_ambience_industrial35.wav"
+	}
+}
+
+//---------------------------------------------------------------------------------------
+// Map 03 - INSECURITY - HP WAITINGAREA	SIDE HALL		//	Shorthand is "?????" in vmf bs_c1m0c
+//														//  for this soundscape.
+//														//	I DONT THINK THIS IS USED AT ALL IN THE MAP
+//
+
+"insec_hp_waitingarea_sidehall"
+{
+	"dsp"					"17"
+	"dsp_volume"			"1.0"
+	
+	"playsoundscape"
+	{
+		"name"				"insec_hp_waitingarea"		
+		"volume"			"0.4"
+	}
+
+	//Positional audio for this soundscape.
+	//Info_target(s) are as follows:
+	
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\hum\hum1.wav"
+		"position"			"1"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\hum\hum1a.wav"
+		"position"			"2"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.7"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\hum\hum1b.wav"
+		"position"			"3"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_60dB"
+		"pitch"				"100"
+		"wave"				"bms_ambience\machine_ambience\m_ambience_electrichum1.wav"
+		"position"			"4"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"100"
+		"wave"				"bms_objects\fans\fan9.wav"
+		"position"			"5"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_65dB"
+		"pitch"				"85"
+		"wave"				"bms_objects\fans\fan3.wav"
+		"position"			"6"
+	}
+
+	"playlooping"
+	{
+		"volume"			"0.5"
+		"soundlevel"		"SNDLVL_95dB"
+		"pitch"				"90"
+		"wave"				"bms_ambience\room_ambience\r_ambience_med3.wav"
+		"position"			"7"
+	}
+}

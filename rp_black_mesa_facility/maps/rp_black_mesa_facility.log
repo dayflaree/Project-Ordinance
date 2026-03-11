@@ -1,0 +1,1669 @@
+
+==================================================================
+Date: 2026-02-08 22:39:41
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -leaktest -allowdynamicpropsasstatic -maxlightmapdim 125 -nodrawtriggers -blocksize 4096 -cullverts -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (1)
+Find Visible Detail Sides...
+Merged 3410 detail faces...done (1)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 7775 brushes and 57682 brushsides
+Reduced vertexes from 37868 to 31206
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+Map using power 4 displacements, terrain physics cannot be compressed, map will need additional memory and CPU.
+PERFORMANCE (): Collision model will not support the fastest tracing code
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (1) (4558172 bytes)
+Failed to find studio model on disk: models/riggs9162/rp_black_mesa_facility/tram_architecture_01.mdl
+Failed to find studio model on disk: models/riggs9162/rp_black_mesa_facility/tram_architecture_02.mdl
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Failed to find studio model on disk: models/riggs9162/rp_black_mesa_facility/tram_architecture_05.mdl
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2629.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2638.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2500.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2509.00, 1728.00, -24.00)
+material models/props_blueshift/floor_panel_skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_blueshift/info_stand _skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_blueshift/main_body01_skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+material models/props_blueshift/bs_infrastruct/area3/labceil02b has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 11539 texinfos to 8508
+Reduced 480 texdatas to 416 (13872 bytes to 10451)
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+11 seconds elapsed
+
+==================================================================
+Date: 2026-02-08 22:39:53
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+1975 portalclusters
+4456 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 1848 visible clusters (0.98%)
+Total clusters visible: 187881
+Average clusters visible: 95
+Building PAS...
+Average clusters audible: 301
+visdatasize:285594  compressed from 979600
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-08 22:39:54
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -hdr -ao -StaticPropLighting -StaticPropPolys -textureshadows -worldtextureshadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_office/light_ceiling_cover1'
+Loaded alpha texture 'models\props_industrial\light_lowbay01_wm'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/humans/scientists/cloth_rack_001a'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'Models/props_c17/fence_alpha'
+Loaded alpha texture 'models\props_industrial\steelshelf01'
+Loaded alpha texture 'models\props_industrial\steelshelf01_clean'
+Failed to find material on disk: materials\models\props_lab\,.vmt
+Failed to find material on disk: materials\models\props_lab\terminal_left_screens2.vmt
+Failed to find material on disk: materials\models\props_lab\terminal_left_screens3.vmt
+Loaded alpha texture 'models\props_blackmesa\junctionbox_set01_wires'
+Failed to find material on disk: materials\models\props_industrial\,.vmt
+Loaded alpha texture 'metal\catwalk_grate'
+Loaded alpha texture 'metal/c1a4d_generator_grate_brush'
+Loaded alpha texture 'metal/c1a4d_generator_grate_brush'
+Loaded alpha texture 'tools/toolshide'
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Models/props_c17/metaltruss012b'
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on5.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on6.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on7.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on8.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on9.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on10.vmt
+Failed to find material on disk: materials\models\props_blackmesa\exit_sign2.vmt
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill0_d'
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill2_d'
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill1_d'
+Loaded alpha texture 'models/props_insecurity/rubber_mat'
+Loaded alpha texture 'models\props_vehicles/flatnose_truck_glass'
+Loaded alpha texture 'Decals/concrete/concrete_trim_c2a2deeptnl_03_red'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'Dev/dev_measuregeneric_glass01b'
+Loaded alpha texture 'metal/railing_001_cheap'
+Loaded alpha texture 'glass\unbreakable'
+Loaded alpha texture 'decals\signs\danger_rect_highvoltage'
+Loaded alpha texture 'decals\signs\danger_rect_esp10000volts'
+Loaded alpha texture 'Metal/flr_grt_c2a4_grate1c'
+Loaded alpha texture 'lab/labglasswindowbreak070a'
+Loaded alpha texture 'Glass/glasswindow007a'
+Loaded alpha texture 'Glass/glasswindowbreak070a'
+Loaded alpha texture 'Metal/metaltruss026a'
+Loaded alpha texture 'Metal/metalgrate014a'
+Loaded alpha texture 'lab/labceil02_grate'
+Loaded alpha texture 'metal\lambda_metalgrate_01'
+Loaded alpha texture 'glass\CSREV_offwndwb'
+Loaded alpha texture 'Metal/metaltruss010b'
+Loaded alpha texture 'decals\signs\caution_donotenter_highvoltage'
+Loaded alpha texture 'decals\signs\notice_rect_keepout'
+Loaded alpha texture 'glass\offlightcover'
+Loaded alpha texture 'Metal/flr_grt_c2a4_grate1a'
+Loaded alpha texture 'decals\cautionstripe_01'
+Loaded alpha texture 'decals\cautionstripe_02'
+Loaded alpha texture 'Metal/metaltruss002a'
+Loaded alpha texture 'Metal/metaltruss025a'
+2690 props added to raytrace
+17943 faces
+15 degenerate faces
+848 fake patch planes
+1637541 square feet [235806032.00 square inches]
+77 Displacements
+48788 Square Feet [7025593.50 Square Inches]
+17928 patches before subdivision
+237440 patches after subdivision
+CreateDirectLights...
+1583 lights, 461 styled (0.01 seconds)
+17083/17943 faces visible to lights
+0.Too many light styles on a face at (2607, -2263, -453)
+..1Too many light styles on a face at (3043, -1215, -453)
+Too many light styles on a face at (3101, -1215, -410)
+...2...3...4.Too many light styles on a face at (2672, -2087, -416)
+Too many light styles on a face at (3097, -1210, -413)
+.Too many light styles on a face at (2672, -2325, -416)
+.5...6..Too many light styles on a face at (1090, -1026, -127)
+Too many light styles on a face at (2316, -460, -127)
+Too many light styles on a face at (2304, -520, -127)
+Too many light styles on a face at (2090, -450, -127)
+Too many light styles on a face at (2316, -564, -127)
+Too many light styles on a face at (2519.5, -568.4, -127)
+.7Too many light styles on a face at (2755.38, -321, -320)
+Too many light styles on a face at (2508.12, -511, -320)
+.Too many light styles on a face at (2612, -2262, -455)
+Too many light styles on a face at (3100.15, -1209.35, -455)
+Too many light styles on a face at (2600, -2134, -455)
+Too many light styles on a face at (2864, -1350, -455)
+Too many light styles on a face at (2624, -2118, -455)
+Too many light styles on a face at (1848, -1846, -455)
+Too many light styles on a face at (3152, -1222, -455)
+Too many light styles on a face at (3136, -1203, -455)
+Too many light styles on a face at (3143, -1000, -432)
+Too many light styles on a face at (3106, -1215, -444)
+.Too many light styles on a face at (3016, -1215, -452)
+Too many light styles on a face at (2804, -316, -391)
+Too many light styles on a face at (2864, -328, -391)
+Too many light styles on a face at (1918.06, -321, -357)
+Too many light styles on a face at (1868.12, -321, -352)
+Too many light styles on a face at (2544, -504, -391)
+Too many light styles on a face at (2771.38, -321, -336)
+Too many light styles on a face at (2855.69, -321, -336)
+Too many light styles on a face at (1940, -524, -391)
+Too many light styles on a face at (2000, -328, -391)
+Too many light styles on a face at (1936, -514, -391)
+Too many light styles on a face at (2320, -328, -391)
+Too many light styles on a face at (2098.38, -1885, -428)
+Too many light styles on a face at (2932, -1405, -396)
+Too many light styles on a face at (2693, -2333, -447)
+Too many light styles on a face at (2681, -2079, -435)
+Too many light styles on a face at (2588.06, -511, -336)
+.Too many light styles on a face at (2228, -887, -711)
+Too many light styles on a face at (2148, -904, -711)
+Too many light styles on a face at (2432, -1158, -711)
+Too many light styles on a face at (3660, -890, -711)
+8...9...Too many light styles on a face at (3090, -1213, -448)
+10Too many light styles on a face at (2609, -2155, -432)
+Too many light styles on a face at (2609, -2257, -432)
+0...1...2...3...4...5...6...7...8...9...10transfers 24815970, max 954
+transfer lists: 189.3 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(303653, 284581, 224809)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(60388, 56673, 42560)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(13265, 11461, 7544)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(3620, 2922, 1724)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(1055, 754, 377)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(341, 217, 94)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(115, 64, 23)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #8 added RGB(41, 20, 6)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #9 added RGB(15, 6, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #10 added RGB(5, 2, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #11 added RGB(2, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #12 added RGB(1, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0465 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities              5535/65536    ( 8.4%) 
+models                 273/4096     ( 6.7%) 
+brushes               7775/65535    (11.9%) 
+brushsides           57682/655350   ( 8.8%) 
+planes               22722/65536    (34.7%) 
+vertexes             31206/65536    (47.6%) 
+nodes                 7075/65536    (10.8%) 
+texinfos              8508/655350   ( 1.3%) 
+texdata                416/8192     ( 5.1%) 
+dispinfos               77/16384    ( 0.5%) 
+faces                17943/65536    (27.4%) 
+hdr faces            17943/65536    (27.4%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                7349/65536    (11.2%) 
+leaffaces            23707/65536    (36.2%) 
+leafbrushes          13130/65536    (20.0%) 
+areas                    7/1024     ( 0.7%) 
+surfedges            90906/512000   (17.8%) 
+edges                56898/256000   (22.2%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives            2570/32768    ( 7.8%) 
+primverts                0/65536    ( 0.0%) 
+primindices          54315/65536    (82.9%) VERY FULL!
+cubemapsamples           0/1024     ( 0.0%) 
+overlays               217/8192     ( 2.6%) 
+visdata             285594/16777216 ( 1.7%) 
+entdata            2032962/393216   (517.0%) FULL!!!
+LDR ambient table     7349/65536    (11.2%) 
+HDR ambient table     7349/65536    (11.2%) 
+LDR worldlights            0       
+HDR worldlights            1583    
+LDR lightdata              0       
+HDR lightdata              41655860
+LDR leaf ambient           7349    
+HDR leaf ambient           24657   
+occluders                  1       
+occluder polygons          3       
+occluder vert ind          12      
+detail props               12      
+static props               321640  
+pakfile                    4955793 
+physics                    4558172 
+physics terrain            0       
+
+Level flags = 2
+
+Total triangle count: 54895
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+41 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 00:13:57
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Can't find surfaceprop concretegrit for material CONCRETE/CONCRETE_CEILING_CRETE3CEIL02A, using default
+Can't find surfaceprop metalpipe for material METAL/BA_MAINT0003_01B, using default
+Can't find surfaceprop concretegrit for material CONCRETE/CSREV_CONCRETEFLOOR_02, using default
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (1)
+Find Visible Detail Sides...
+Merged 3410 detail faces...done (1)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 7775 brushes and 57682 brushsides
+Reduced vertexes from 37868 to 31206
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+Map using power 4 displacements, terrain physics cannot be compressed, map will need additional memory and CPU.
+PERFORMANCE (): Collision model will not support the fastest tracing code
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (1) (4558173 bytes)
+material models/props_pipes/gaspipe01_chrome has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+material models/props_industrial/steelshelf01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Error! Variable "$bumpmap" is multiply defined in material "models/props_office/table_square_skin1"!
+material models/props_residue/trashcan01 has a normal map and $basealphaenvmapmask.  Must use $normalmapalphaenvmapmask to get specular.
+
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2629.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2638.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2500.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2509.00, 1728.00, -24.00)
+material models/props_blueshift/floor_panel_skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_am/bench has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_blueshift/info_stand _skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_blueshift/main_body01_skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+material models/props_blueshift/bs_infrastruct/area3/labceil02b has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_canteen/canteentable01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 11702 texinfos to 8508
+Reduced 489 texdatas to 416 (14388 bytes to 10451)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+27 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 00:14:24
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+1975 portalclusters
+4456 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 1840 visible clusters (0.98%)
+Total clusters visible: 187871
+Average clusters visible: 95
+Building PAS...
+Average clusters audible: 301
+visdatasize:285594  compressed from 979600
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 00:14:25
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_office/light_ceiling_cover1'
+Loaded alpha texture 'models\props_industrial\light_lowbay01_wm'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/humans/scientists/cloth_rack_001a'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'Models/props_c17/fence_alpha'
+Loaded alpha texture 'models\props_industrial\steelshelf01'
+Loaded alpha texture 'models\props_industrial\steelshelf01_clean'
+Failed to find material on disk: materials\models\props_lab\,.vmt
+Failed to find material on disk: materials\models\props_lab\terminal_left_screens2.vmt
+Failed to find material on disk: materials\models\props_lab\terminal_left_screens3.vmt
+Loaded alpha texture 'models\props_blackmesa\junctionbox_set01_wires'
+Failed to find material on disk: materials\models\props_industrial\,.vmt
+Loaded alpha texture 'metal\catwalk_grate'
+Loaded alpha texture 'metal/c1a4d_generator_grate_brush'
+Loaded alpha texture 'metal/c1a4d_generator_grate_brush'
+Loaded alpha texture 'tools/toolshide'
+Loaded alpha texture 'models/props_blueshift/alarmpull02'
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Models/props_c17/metaltruss012b'
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on5.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on6.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on7.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on8.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on9.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on10.vmt
+Failed to find material on disk: materials\models\props_blackmesa\exit_sign2.vmt
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill0_d'
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill2_d'
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill1_d'
+Loaded alpha texture 'models/props_insecurity/rubber_mat'
+Loaded alpha texture 'models\props_vehicles/flatnose_truck_glass'
+Loaded alpha texture 'Decals/concrete/concrete_trim_c2a2deeptnl_03_red'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'Dev/dev_measuregeneric_glass01b'
+Loaded alpha texture 'metal/railing_001_cheap'
+Loaded alpha texture 'glass\unbreakable'
+Loaded alpha texture 'decals\signs\danger_rect_highvoltage'
+Loaded alpha texture 'decals\signs\danger_rect_esp10000volts'
+Loaded alpha texture 'Metal/flr_grt_c2a4_grate1c'
+Loaded alpha texture 'lab/labglasswindowbreak070a'
+Loaded alpha texture 'Glass/glasswindow007a'
+Loaded alpha texture 'Glass/glasswindowbreak070a'
+Loaded alpha texture 'Metal/metaltruss026a'
+Loaded alpha texture 'Metal/metalgrate014a'
+Loaded alpha texture 'lab/labceil02_grate'
+Loaded alpha texture 'metal\lambda_metalgrate_01'
+Loaded alpha texture 'glass\CSREV_offwndwb'
+Loaded alpha texture 'Metal/metaltruss010b'
+Loaded alpha texture 'decals\signs\caution_donotenter_highvoltage'
+Loaded alpha texture 'decals\signs\notice_rect_keepout'
+Loaded alpha texture 'glass\offlightcover'
+Loaded alpha texture 'Metal/flr_grt_c2a4_grate1a'
+Loaded alpha texture 'decals\cautionstripe_01'
+Loaded alpha texture 'decals\cautionstripe_02'
+Loaded alpha texture 'Metal/metaltruss002a'
+Loaded alpha texture 'Metal/metaltruss025a'
+2690 props added to raytrace
+17943 faces
+15 degenerate faces
+848 fake patch planes
+1637541 square feet [235806032.00 square inches]
+77 Displacements
+48788 Square Feet [7025593.50 Square Inches]
+17928 patches before subdivision
+237440 patches after subdivision
+CreateDirectLights...
+1583 lights, 461 styled (0.01 seconds)
+17068/17943 faces visible to lights
+0.Too many light styles on a face at (2607, -2263, -453)
+..1Too many light styles on a face at (3043, -1215, -453)
+Too many light styles on a face at (3101, -1215, -410)
+...2...3...4.Too many light styles on a face at (2672, -2087, -416)
+..Too many light styles on a face at (3097, -1210, -413)
+5Too many light styles on a face at (2672, -2325, -416)
+...6..Too many light styles on a face at (1090, -1026, -127)
+Too many light styles on a face at (2316, -460, -127)
+Too many light styles on a face at (2316, -564, -127)
+Too many light styles on a face at (2304, -520, -127)
+Too many light styles on a face at (2090, -450, -127)
+Too many light styles on a face at (2519.5, -568.4, -127)
+.7Too many light styles on a face at (2755.38, -321, -320)
+Too many light styles on a face at (2508.12, -511, -320)
+.Too many light styles on a face at (2612, -2262, -455)
+Too many light styles on a face at (3100.15, -1209.35, -455)
+Too many light styles on a face at (2600, -2134, -455)
+Too many light styles on a face at (2624, -2118, -455)
+Too many light styles on a face at (2864, -1350, -455)
+Too many light styles on a face at (1848, -1846, -455)
+Too many light styles on a face at (3152, -1222, -455)
+Too many light styles on a face at (3136, -1203, -455)
+Too many light styles on a face at (3143, -1000, -432)
+Too many light styles on a face at (3106, -1215, -444)
+Too many light styles on a face at (3016, -1215, -452)
+.Too many light styles on a face at (2000, -328, -391)
+Too many light styles on a face at (2804, -316, -391)
+Too many light styles on a face at (2864, -328, -391)
+Too many light styles on a face at (1936, -514, -391)
+Too many light styles on a face at (2320, -328, -391)
+Too many light styles on a face at (1940, -524, -391)
+Too many light styles on a face at (2544, -504, -391)
+Too many light styles on a face at (1918.06, -321, -357)
+Too many light styles on a face at (2771.38, -321, -336)
+Too many light styles on a face at (2855.69, -321, -336)
+Too many light styles on a face at (1868.12, -321, -352)
+Too many light styles on a face at (2588.06, -511, -336)
+Too many light styles on a face at (2098.38, -1885, -428)
+Too many light styles on a face at (2932, -1405, -396)
+Too many light styles on a face at (2681, -2079, -435)
+Too many light styles on a face at (2693, -2333, -447)
+.Too many light styles on a face at (2228, -887, -711)
+Too many light styles on a face at (2148, -904, -711)
+Too many light styles on a face at (3660, -890, -711)
+Too many light styles on a face at (2432, -1158, -711)
+8...9...Too many light styles on a face at (3090, -1213, -448)
+Too many light styles on a face at (2609, -2155, -432)
+Too many light styles on a face at (2609, -2257, -432)
+100...1...2...3...4...5...6...7...8...9...10transfers 24807929, max 954
+transfer lists: 189.3 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(299723, 280511, 220313)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(58887, 55605, 41470)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(12777, 11191, 7355)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(3416, 2861, 1702)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(965, 733, 378)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(300, 212, 97)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(96, 61, 24)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #8 added RGB(32, 19, 7)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #9 added RGB(11, 6, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #10 added RGB(4, 2, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #11 added RGB(1, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #12 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0469 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities              5535/65536    ( 8.4%) 
+models                 273/4096     ( 6.7%) 
+brushes               7775/65535    (11.9%) 
+brushsides           57682/655350   ( 8.8%) 
+planes               22722/65536    (34.7%) 
+vertexes             31206/65536    (47.6%) 
+nodes                 7075/65536    (10.8%) 
+texinfos              8508/655350   ( 1.3%) 
+texdata                416/8192     ( 5.1%) 
+dispinfos               77/16384    ( 0.5%) 
+faces                17943/65536    (27.4%) 
+hdr faces            17943/65536    (27.4%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                7349/65536    (11.2%) 
+leaffaces            23707/65536    (36.2%) 
+leafbrushes          13130/65536    (20.0%) 
+areas                    7/1024     ( 0.7%) 
+surfedges            90906/512000   (17.8%) 
+edges                56898/256000   (22.2%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives            2570/32768    ( 7.8%) 
+primverts                0/65536    ( 0.0%) 
+primindices          54315/65536    (82.9%) VERY FULL!
+cubemapsamples           0/1024     ( 0.0%) 
+overlays               217/8192     ( 2.6%) 
+visdata             285594/16777216 ( 1.7%) 
+entdata            2032962/393216   (517.0%) FULL!!!
+LDR ambient table     7349/65536    (11.2%) 
+HDR ambient table     7349/65536    (11.2%) 
+LDR worldlights            0       
+HDR worldlights            1583    
+LDR lightdata              0       
+HDR lightdata              43697144
+LDR leaf ambient           7349    
+HDR leaf ambient           24682   
+occluders                  1       
+occluder polygons          3       
+occluder vert ind          12      
+detail props               12      
+static props               323140  
+pakfile                    4631949 
+physics                    4558173 
+physics terrain            0       
+
+Level flags = 2
+
+Total triangle count: 54895
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+42 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:27:36
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 44 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 609 brushes and 4682 brushsides
+Reduced vertexes from 2412 to 2065
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (0) (222698 bytes)
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 951 texinfos to 469
+Reduced 83 texdatas to 71 (2344 bytes to 1780)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+2 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:27:39
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+ 175 portalclusters
+ 359 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 10 visible clusters (0.17%)
+Total clusters visible: 5957
+Average clusters visible: 34
+Building PAS...
+Average clusters audible: 69
+visdatasize:7946  compressed from 8400
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:27:39
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'glass\unbreakable'
+77 props added to raytrace
+1284 faces
+2 degenerate faces
+83 fake patch planes
+124637 square feet [17947790.00 square inches]
+2 Displacements
+199 Square Feet [28672.51 Square Inches]
+1282 patches before subdivision
+11060 patches after subdivision
+CreateDirectLights...
+171 lights, 142 styled (0.00 seconds)
+1208/1284 faces visible to lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 563977, max 273
+transfer lists:   4.3 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(4314, 6330, 5130)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(621, 803, 594)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(110, 115, 78)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(24, 19, 11)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(6, 4, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(2, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0022 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities               465/65536    ( 0.7%) 
+models                  29/4096     ( 0.7%) 
+brushes                609/65535    ( 0.9%) 
+brushsides            4682/655350   ( 0.7%) 
+planes                2480/65536    ( 3.8%) 
+vertexes              2065/65536    ( 3.2%) 
+nodes                  688/65536    ( 1.0%) 
+texinfos               469/655350   ( 0.1%) 
+texdata                 71/8192     ( 0.9%) 
+dispinfos                2/16384    ( 0.0%) 
+faces                 1284/65536    ( 2.0%) 
+hdr faces             1284/65536    ( 2.0%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                 718/65536    ( 1.1%) 
+leaffaces             1531/65536    ( 2.3%) 
+leafbrushes           1069/65536    ( 1.6%) 
+areas                    3/1024     ( 0.3%) 
+surfedges             6412/512000   ( 1.3%) 
+edges                 3969/256000   ( 1.6%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives             198/32768    ( 0.6%) 
+primverts                0/65536    ( 0.0%) 
+primindices           3990/65536    ( 6.1%) 
+cubemapsamples           0/1024     ( 0.0%) 
+overlays                 6/8192     ( 0.1%) 
+visdata               7946/16777216 ( 0.0%) 
+entdata             200384/393216   (51.0%) 
+LDR ambient table      718/65536    ( 1.1%) 
+HDR ambient table      718/65536    ( 1.1%) 
+LDR worldlights            0       
+HDR worldlights            171     
+LDR lightdata              0       
+HDR lightdata              2168012 
+LDR leaf ambient           718     
+HDR leaf ambient           1210    
+occluders                  0       
+occluder polygons          0       
+occluder vert ind          0       
+detail props               12      
+static props               12136   
+pakfile                    268014  
+physics                    222698  
+physics terrain            416     
+
+Level flags = 2
+
+Total triangle count: 3829
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+1 second elapsed
+
+==================================================================
+Date: 2026-02-10 19:40:03
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 44 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 615 brushes and 4718 brushsides
+Reduced vertexes from 2473 to 2130
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (0) (225050 bytes)
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 952 texinfos to 470
+Reduced 84 texdatas to 72 (2371 bytes to 1807)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+2 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:40:05
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+ 184 portalclusters
+ 372 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 17 visible clusters (0.26%)
+Total clusters visible: 6611
+Average clusters visible: 35
+Building PAS...
+Average clusters audible: 69
+visdatasize:8557  compressed from 8832
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:40:06
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'glass\unbreakable'
+77 props added to raytrace
+1331 faces
+2 degenerate faces
+83 fake patch planes
+124636 square feet [17947664.00 square inches]
+2 Displacements
+199 Square Feet [28672.51 Square Inches]
+1329 patches before subdivision
+11001 patches after subdivision
+CreateDirectLights...
+181 lights, 152 styled (0.00 seconds)
+1267/1331 faces visible to lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 569257, max 300
+transfer lists:   4.3 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(4341, 6453, 5241)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(643, 852, 631)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(116, 125, 84)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(25, 20, 12)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(6, 4, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(2, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0020 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities               505/65536    ( 0.8%) 
+models                  29/4096     ( 0.7%) 
+brushes                615/65535    ( 0.9%) 
+brushsides            4718/655350   ( 0.7%) 
+planes                2480/65536    ( 3.8%) 
+vertexes              2130/65536    ( 3.3%) 
+nodes                  697/65536    ( 1.1%) 
+texinfos               470/655350   ( 0.1%) 
+texdata                 72/8192     ( 0.9%) 
+dispinfos                2/16384    ( 0.0%) 
+faces                 1331/65536    ( 2.0%) 
+hdr faces             1331/65536    ( 2.0%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                 727/65536    ( 1.1%) 
+leaffaces             1577/65536    ( 2.4%) 
+leafbrushes           1054/65536    ( 1.6%) 
+areas                    3/1024     ( 0.3%) 
+surfedges             6648/512000   ( 1.3%) 
+edges                 4084/256000   ( 1.6%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives             203/32768    ( 0.6%) 
+primverts                0/65536    ( 0.0%) 
+primindices           4080/65536    ( 6.2%) 
+cubemapsamples           0/1024     ( 0.0%) 
+overlays                 7/8192     ( 0.1%) 
+visdata               8557/16777216 ( 0.1%) 
+entdata             222073/393216   (56.5%) 
+LDR ambient table      727/65536    ( 1.1%) 
+HDR ambient table      727/65536    ( 1.1%) 
+LDR worldlights            0       
+HDR worldlights            181     
+LDR lightdata              0       
+HDR lightdata              2188976 
+LDR leaf ambient           727     
+HDR leaf ambient           1138    
+occluders                  0       
+occluder polygons          0       
+occluder vert ind          0       
+detail props               12      
+static props               12122   
+pakfile                    268014  
+physics                    225050  
+physics terrain            416     
+
+Level flags = 2
+
+Total triangle count: 3971
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+1 second elapsed
+
+==================================================================
+Date: 2026-02-10 19:44:07
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 3412 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 7995 brushes and 59333 brushsides
+Reduced vertexes from 38920 to 32107
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+Map using power 4 displacements, terrain physics cannot be compressed, map will need additional memory and CPU.
+PERFORMANCE (): Collision model will not support the fastest tracing code
+PERFORMANCE (): Collision model will not support the fastest tracing code
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (0) (4640358 bytes)
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2629.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2638.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2500.00, 1728.00, -24.00)
+Static prop models/props_vents/vent_medium_grill002.mdl outside the map (-2509.00, 1728.00, -24.00)
+material models/props_blueshift/floor_panel_skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_blueshift/info_stand _skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+material models/props_blueshift/main_body01_skin01 has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+material models/props_blueshift/bs_infrastruct/area3/labceil02b has a normal map and an envmapmask.  Must use $normalmapalphaenvmapmask.
+
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 11775 texinfos to 8631
+Reduced 483 texdatas to 419 (13961 bytes to 10540)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+12 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:44:19
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+2067 portalclusters
+4612 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 1863 visible clusters (0.96%)
+Total clusters visible: 194096
+Average clusters visible: 93
+Building PAS...
+Average clusters audible: 295
+visdatasize:298836  compressed from 1091376
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:44:20
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_office/light_ceiling_cover1'
+Loaded alpha texture 'models\props_industrial\light_lowbay01_wm'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/humans/scientists/cloth_rack_001a'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'Models/props_c17/fence_alpha'
+Loaded alpha texture 'models\props_industrial\steelshelf01'
+Loaded alpha texture 'models\props_industrial\steelshelf01_clean'
+Failed to find material on disk: materials\models\props_lab\,.vmt
+Failed to find material on disk: materials\models\props_lab\terminal_left_screens2.vmt
+Failed to find material on disk: materials\models\props_lab\terminal_left_screens3.vmt
+Loaded alpha texture 'models\props_blackmesa\junctionbox_set01_wires'
+Failed to find material on disk: materials\models\props_industrial\,.vmt
+Loaded alpha texture 'metal\catwalk_grate'
+Loaded alpha texture 'metal/c1a4d_generator_grate_brush'
+Loaded alpha texture 'metal/c1a4d_generator_grate_brush'
+Loaded alpha texture 'tools/toolshide'
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Models/props_c17/metaltruss012b'
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on5.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on6.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on7.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on8.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on9.vmt
+Failed to find material on disk: materials\models\props_blueshift\bs_generic\bs_securitystation_screens_on10.vmt
+Failed to find material on disk: materials\models\props_blackmesa\exit_sign2.vmt
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill0_d'
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill2_d'
+Loaded alpha texture 'models/props_xen/foliage/fungal_frills/fungal_frill1_d'
+Loaded alpha texture 'models/props_insecurity/rubber_mat'
+Loaded alpha texture 'models\props_vehicles/flatnose_truck_glass'
+Loaded alpha texture 'Decals/concrete/concrete_trim_c2a2deeptnl_03_red'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'Dev/dev_measuregeneric_glass01b'
+Loaded alpha texture 'metal/railing_001_cheap'
+Loaded alpha texture 'glass\unbreakable'
+Loaded alpha texture 'decals\signs\danger_rect_highvoltage'
+Loaded alpha texture 'decals\signs\danger_rect_esp10000volts'
+Loaded alpha texture 'Metal/flr_grt_c2a4_grate1c'
+Loaded alpha texture 'lab/labglasswindowbreak070a'
+Loaded alpha texture 'Glass/glasswindow007a'
+Loaded alpha texture 'Glass/glasswindowbreak070a'
+Loaded alpha texture 'Metal/metaltruss026a'
+Loaded alpha texture 'Metal/metalgrate014a'
+Loaded alpha texture 'lab/labceil02_grate'
+Loaded alpha texture 'metal\lambda_metalgrate_01'
+Loaded alpha texture 'glass\CSREV_offwndwb'
+Loaded alpha texture 'Metal/metaltruss010b'
+Loaded alpha texture 'decals\signs\caution_donotenter_highvoltage'
+Loaded alpha texture 'decals\signs\notice_rect_keepout'
+Loaded alpha texture 'glass\offlightcover'
+Loaded alpha texture 'Metal/flr_grt_c2a4_grate1a'
+Loaded alpha texture 'decals\cautionstripe_01'
+Loaded alpha texture 'decals\cautionstripe_02'
+Loaded alpha texture 'Metal/metaltruss002a'
+Loaded alpha texture 'Metal/metaltruss025a'
+2692 props added to raytrace
+18512 faces
+15 degenerate faces
+917 fake patch planes
+1696012 square feet [244225808.00 square inches]
+77 Displacements
+48788 Square Feet [7025593.50 Square Inches]
+18497 patches before subdivision
+240591 patches after subdivision
+CreateDirectLights...
+1679 lights, 550 styled (0.01 seconds)
+17607/18512 faces visible to lights
+0.Too many light styles on a face at (2607, -2263, -453)
+..1Too many light styles on a face at (3043, -1215, -453)
+Too many light styles on a face at (3101, -1215, -410)
+...2...3...4.Too many light styles on a face at (2672, -2087, -416)
+..Too many light styles on a face at (3097, -1210, -413)
+Too many light styles on a face at (2672, -2325, -416)
+5...6..Too many light styles on a face at (1090, -1026, -127)
+Too many light styles on a face at (2316, -460, -127)
+Too many light styles on a face at (2316, -564, -127)
+Too many light styles on a face at (2304, -520, -127)
+Too many light styles on a face at (2090, -450, -127)
+Too many light styles on a face at (2519.5, -568.4, -127)
+.7Too many light styles on a face at (2755.38, -321, -320)
+.Too many light styles on a face at (2508.12, -511, -320)
+Too many light styles on a face at (2612, -2262, -455)
+Too many light styles on a face at (3100.15, -1209.35, -455)
+Too many light styles on a face at (2600, -2134, -455)
+Too many light styles on a face at (2624, -2118, -455)
+Too many light styles on a face at (2864, -1350, -455)
+Too many light styles on a face at (1848, -1846, -455)
+Too many light styles on a face at (3152, -1222, -455)
+Too many light styles on a face at (3136, -1203, -455)
+Too many light styles on a face at (3143, -1000, -432)
+.Too many light styles on a face at (3106, -1215, -444)
+Too many light styles on a face at (3016, -1215, -452)
+Too many light styles on a face at (2804, -316, -391)
+Too many light styles on a face at (2000, -328, -391)
+Too many light styles on a face at (1936, -514, -391)
+Too many light styles on a face at (2864, -328, -391)
+Too many light styles on a face at (2320, -328, -391)
+Too many light styles on a face at (1940, -524, -391)
+Too many light styles on a face at (2544, -504, -391)
+Too many light styles on a face at (1918.06, -321, -357)
+Too many light styles on a face at (2771.38, -321, -336)
+Too many light styles on a face at (2855.69, -321, -336)
+Too many light styles on a face at (1868.12, -321, -352)
+Too many light styles on a face at (2588.06, -511, -336)
+Too many light styles on a face at (2932, -1405, -396)
+Too many light styles on a face at (2098.38, -1885, -428)
+Too many light styles on a face at (2693, -2333, -447)
+Too many light styles on a face at (2681, -2079, -435)
+.Too many light styles on a face at (2228, -887, -711)
+Too many light styles on a face at (2148, -904, -711)
+Too many light styles on a face at (3660, -890, -711)
+Too many light styles on a face at (2432, -1158, -711)
+8...9...Too many light styles on a face at (3090, -1213, -448)
+Too many light styles on a face at (2609, -2155, -432)
+Too many light styles on a face at (2609, -2257, -432)
+100...1.
+==================================================================
+Date: 2026-02-10 19:44:47
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 44 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 615 brushes and 4718 brushsides
+Reduced vertexes from 2473 to 2130
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (0) (225050 bytes)
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 952 texinfos to 470
+Reduced 84 texdatas to 72 (2371 bytes to 1807)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+2 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:44:49
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+ 184 portalclusters
+ 372 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 15 visible clusters (0.23%)
+Total clusters visible: 6609
+Average clusters visible: 35
+Building PAS...
+Average clusters audible: 69
+visdatasize:8557  compressed from 8832
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:44:50
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'glass\unbreakable'
+77 props added to raytrace
+1331 faces
+2 degenerate faces
+83 fake patch planes
+124636 square feet [17947664.00 square inches]
+2 Displacements
+199 Square Feet [28672.51 Square Inches]
+1329 patches before subdivision
+11001 patches after subdivision
+CreateDirectLights...
+190 lights, 161 styled (0.00 seconds)
+1267/1331 faces visible to lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 569257, max 300
+transfer lists:   4.3 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(4341, 6453, 5241)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(643, 852, 631)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(116, 125, 84)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(25, 20, 12)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(6, 4, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(2, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0019 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities               514/65536    ( 0.8%) 
+models                  29/4096     ( 0.7%) 
+brushes                615/65535    ( 0.9%) 
+brushsides            4718/655350   ( 0.7%) 
+planes                2480/65536    ( 3.8%) 
+vertexes              2130/65536    ( 3.3%) 
+nodes                  697/65536    ( 1.1%) 
+texinfos               470/655350   ( 0.1%) 
+texdata                 72/8192     ( 0.9%) 
+dispinfos                2/16384    ( 0.0%) 
+faces                 1331/65536    ( 2.0%) 
+hdr faces             1331/65536    ( 2.0%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                 727/65536    ( 1.1%) 
+leaffaces             1577/65536    ( 2.4%) 
+leafbrushes           1054/65536    ( 1.6%) 
+areas                    3/1024     ( 0.3%) 
+surfedges             6648/512000   ( 1.3%) 
+edges                 4084/256000   ( 1.6%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives             203/32768    ( 0.6%) 
+primverts                0/65536    ( 0.0%) 
+primindices           4080/65536    ( 6.2%) 
+cubemapsamples           0/1024     ( 0.0%) 
+overlays                 7/8192     ( 0.1%) 
+visdata               8557/16777216 ( 0.1%) 
+entdata             224953/393216   (57.2%) 
+LDR ambient table      727/65536    ( 1.1%) 
+HDR ambient table      727/65536    ( 1.1%) 
+LDR worldlights            0       
+HDR worldlights            190     
+LDR lightdata              0       
+HDR lightdata              2192728 
+LDR leaf ambient           727     
+HDR leaf ambient           1138    
+occluders                  0       
+occluder polygons          0       
+occluder vert ind          0       
+detail props               12      
+static props               12122   
+pakfile                    268014  
+physics                    225050  
+physics terrain            416     
+
+Level flags = 2
+
+Total triangle count: 3971
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+1 second elapsed
+
+==================================================================
+Date: 2026-02-10 19:53:06
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 44 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 613 brushes and 4724 brushsides
+Reduced vertexes from 2463 to 2117
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (0) (224842 bytes)
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 953 texinfos to 471
+Reduced 84 texdatas to 72 (2371 bytes to 1807)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+2 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:53:09
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+ 188 portalclusters
+ 381 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 15 visible clusters (0.22%)
+Total clusters visible: 6677
+Average clusters visible: 35
+Building PAS...
+Average clusters audible: 70
+visdatasize:9375  compressed from 9024
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 19:53:09
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'glass\unbreakable'
+77 props added to raytrace
+1339 faces
+2 degenerate faces
+83 fake patch planes
+124882 square feet [17983056.00 square inches]
+2 Displacements
+199 Square Feet [28672.51 Square Inches]
+1337 patches before subdivision
+11013 patches after subdivision
+CreateDirectLights...
+192 lights, 163 styled (0.00 seconds)
+1275/1339 faces visible to lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 570425, max 298
+transfer lists:   4.4 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(4341, 6454, 5242)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(643, 852, 631)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(116, 125, 84)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(25, 20, 12)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(6, 4, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(2, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0019 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities               521/65536    ( 0.8%) 
+models                  29/4096     ( 0.7%) 
+brushes                613/65535    ( 0.9%) 
+brushsides            4724/655350   ( 0.7%) 
+planes                2492/65536    ( 3.8%) 
+vertexes              2117/65536    ( 3.2%) 
+nodes                  703/65536    ( 1.1%) 
+texinfos               471/655350   ( 0.1%) 
+texdata                 72/8192     ( 0.9%) 
+dispinfos                2/16384    ( 0.0%) 
+faces                 1339/65536    ( 2.0%) 
+hdr faces             1339/65536    ( 2.0%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                 733/65536    ( 1.1%) 
+leaffaces             1591/65536    ( 2.4%) 
+leafbrushes           1053/65536    ( 1.6%) 
+areas                    3/1024     ( 0.3%) 
+surfedges             6671/512000   ( 1.3%) 
+edges                 4066/256000   ( 1.6%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives             204/32768    ( 0.6%) 
+primverts                0/65536    ( 0.0%) 
+primindices           4089/65536    ( 6.2%) 
+cubemapsamples           0/1024     ( 0.0%) 
+overlays                 7/8192     ( 0.1%) 
+visdata               9375/16777216 ( 0.1%) 
+entdata             227573/393216   (57.9%) 
+LDR ambient table      733/65536    ( 1.1%) 
+HDR ambient table      733/65536    ( 1.1%) 
+LDR worldlights            0       
+HDR worldlights            192     
+LDR lightdata              0       
+HDR lightdata              2194300 
+LDR leaf ambient           733     
+HDR leaf ambient           1132    
+occluders                  0       
+occluder polygons          0       
+occluder vert ind          0       
+detail props               12      
+static props               12122   
+pakfile                    268014  
+physics                    224842  
+physics terrain            416     
+
+Level flags = 2
+
+Total triangle count: 3978
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+1 second elapsed
+
+==================================================================
+Date: 2026-02-10 20:03:16
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vbspplusplus.exe -allowdynamicpropsasstatic -maxlightmapdim 125 -blocksize 4096 -cullverts -nodrawtriggers -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+Loading C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+Locating GameData file 'garrysmod.fgd'...
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\garrysmod.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\halflife2.fgd
+Parsing GameData file c:\program files (x86)\steam\steamapps\common\garrysmod\bin\base.fgd
+fixing up env_cubemap materials on brush sides...
+FloodEntities...
+FloodEntities...
+Processing areas...done (0)
+Building Faces...done (0)
+Chop Details...done (0)
+Find Visible Detail Sides...
+Merged 44 detail faces...done (0)
+Merging details...done (0)
+FixTjuncs...
+PruneNodes...
+WriteBSP...
+done (0)
+writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt...
+Building visibility clusters...
+done (0)
+Generating blank default cubemaps...
+Generating blank default cubemaps...
+Emitted 613 brushes and 4724 brushsides
+Reduced vertexes from 2463 to 2117
+Finding displacement neighbors...
+Finding lightmap sample positions...
+Building Physics collision data...
+PERFORMANCE (): Collision model will not support the fastest tracing code
+done (0) (224842 bytes)
+Warning in .VMT file (models/props_blueshift/bs_generic/bs_sprinkler_skin1): no ']' or '}' found in vector key "$envmaplightscaleminmax".
+Did you forget to surround the vector with "s?
+Error in .VMT file: error parsing vector element "$phongfresnelranges" in "models/props_foliage/desert_foliage/creosotebush"
+Placing detail props : 0...1...2...3...4...5...6...7...8...9...10
+Compacting texture/material tables...
+Reduced 953 texinfos to 471
+Reduced 84 texdatas to 72 (2371 bytes to 1807)
+Writing C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+2 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 20:03:18
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vvisplusplus.exe -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+24 threads
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+reading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.prt
+ 188 portalclusters
+ 381 numportals
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10Optimized: 15 visible clusters (0.22%)
+Total clusters visible: 6677
+Average clusters visible: 35
+Building PAS...
+Average clusters audible: 70
+visdatasize:9375  compressed from 9024
+writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+0 seconds elapsed
+
+==================================================================
+Date: 2026-02-10 20:03:19
+C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\win64\vradplusplus.exe -final -StaticPropLighting -StaticPropPolys -hdr -ao -worldtextureshadows -TextureShadows -translucentshadows -forcetextureshadows -game C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.vmf
+==================================================================
+---------------
+gamedir: C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\
+---------------
+24 threads
+Compiling in HDR mode
+Reading texlights from 'lights.rad'...
+51 texlights parsed
+Loading c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+Loaded alpha texture 'models/props_foliage/palm'
+Loaded alpha texture 'models/props_foliage/palm_plant'
+Loaded alpha texture 'models/props_foliage/fern'
+Loaded alpha texture 'models/props_blackmesa/fireextinguisher_case'
+Loaded alpha texture 'models/props_industrial/light_strip03_off'
+Loaded alpha texture 'models/props_industrial/light_strip03_on'
+Loaded alpha texture 'models/props_blackmesa/firealarm_light_skin1'
+Failed to find material on disk: materials\models\props_blueshift\guard_bench_skin01.vmt
+Loaded alpha texture 'models/props_foliage/desert_foliage/creosotebush'
+Loaded alpha texture 'Glass/labglass_c2a4_2windowbreak070a'
+Loaded alpha texture 'lab/labglass2windowbreak070a'
+Loaded alpha texture 'glass\unbreakable'
+77 props added to raytrace
+1339 faces
+2 degenerate faces
+83 fake patch planes
+124882 square feet [17983056.00 square inches]
+2 Displacements
+199 Square Feet [28672.51 Square Inches]
+1337 patches before subdivision
+11013 patches after subdivision
+CreateDirectLights...
+192 lights, 163 styled (0.00 seconds)
+1275/1339 faces visible to lights
+0...1...2...3...4...5...6...7...8...9...100...1...2...3...4...5...6...7...8...9...10transfers 570425, max 298
+transfer lists:   4.4 megs
+0...1...2...3...4...5...6...7...8...9...10	Bounce #1 added RGB(4341, 6454, 5242)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #2 added RGB(643, 852, 631)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #3 added RGB(116, 125, 84)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #4 added RGB(25, 20, 12)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #5 added RGB(6, 4, 2)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #6 added RGB(2, 1, 0)
+0...1...2...3...4...5...6...7...8...9...10	Bounce #7 added RGB(0, 0, 0)
+Build Patch/Sample Hash Table(s).....Done<0.0022 sec>
+0...1...2...3...4...5...6...7...8...9...10FinalLightFace Done
+0...1...2...3...4...5...6...7...8...9...10Setting up leaf ambient computation...
+0 of 0 (0% of) surface lights went in leaf ambient cubes.
+0...1...2...3...4...5...6...7...8...9...10Writing leaf ambient...done
+Ready to Finish
+
+Object names       Objects/Maxobjs  Fullness 
+------------       ---------------  -------- 
+entities               521/65536    ( 0.8%) 
+models                  29/4096     ( 0.7%) 
+brushes                613/65535    ( 0.9%) 
+brushsides            4724/655350   ( 0.7%) 
+planes                2492/65536    ( 3.8%) 
+vertexes              2117/65536    ( 3.2%) 
+nodes                  703/65536    ( 1.1%) 
+texinfos               471/655350   ( 0.1%) 
+texdata                 72/8192     ( 0.9%) 
+dispinfos                2/16384    ( 0.0%) 
+faces                 1339/65536    ( 2.0%) 
+hdr faces             1339/65536    ( 2.0%) 
+origfaces                0/65536    ( 0.0%) 
+leaves                 733/65536    ( 1.1%) 
+leaffaces             1591/65536    ( 2.4%) 
+leafbrushes           1053/65536    ( 1.6%) 
+areas                    3/1024     ( 0.3%) 
+surfedges             6671/512000   ( 1.3%) 
+edges                 4066/256000   ( 1.6%) 
+leafwaterdata            0/32768    ( 0.0%) 
+primitives             204/32768    ( 0.6%) 
+primverts                0/65536    ( 0.0%) 
+primindices           4089/65536    ( 6.2%) 
+cubemapsamples           0/1024     ( 0.0%) 
+overlays                 7/8192     ( 0.1%) 
+visdata               9375/16777216 ( 0.1%) 
+entdata             227573/393216   (57.9%) 
+LDR ambient table      733/65536    ( 1.1%) 
+HDR ambient table      733/65536    ( 1.1%) 
+LDR worldlights            0       
+HDR worldlights            192     
+LDR lightdata              0       
+HDR lightdata              2194300 
+LDR leaf ambient           733     
+HDR leaf ambient           1132    
+occluders                  0       
+occluder polygons          0       
+occluder vert ind          0       
+detail props               12      
+static props               12122   
+pakfile                    268014  
+physics                    224842  
+physics terrain            416     
+
+Level flags = 2
+
+Total triangle count: 3978
+Writing c:\program files (x86)\steam\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_facility\maps\rp_black_mesa_facility.bsp
+1 second elapsed
