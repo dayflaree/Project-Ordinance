@@ -1,0 +1,18 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "concrete/HL2REV_concretewall065b"
+	"$bumpmap" "concrete/HL2REV_concretewall065b_normal"
+	"$surfaceprop" "concrete"
+
+	"$basetexture2" "ground/snow01"
+	"$surfaceprop2" "snow"
+
+	"$blendmodulatetexture" "ground/snowblendtexture"
+
+	"$detail" "detail\bm_concrete_detail_04"
+	"$detailscale" "10"
+	"$detailblendfactor" "2.2"
+	"$detailblendmode" "0"
+
+	"%keywords" "bms, CSREV, Andrea"
+}

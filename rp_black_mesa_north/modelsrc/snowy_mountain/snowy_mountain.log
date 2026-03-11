@@ -1,0 +1,138 @@
+StudioMDL.exe (Aug 28 2025) - Garry's Mod Edition
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Counter-Strike Source\cstrike'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Half-Life 2\ep2'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Half-Life 2\episodic'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Half-Life 2\hl2'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Half-Life 2\hl2_complete'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Half-Life 2\hl2mp'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Half-Life 2\lostcoast'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\csgo'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Day of Defeat Source\dod'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Left 4 Dead 2\left4dead2'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Left 4 Dead 2\left4dead2_dlc1'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Left 4 Dead 2\left4dead2_dlc2'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Left 4 Dead 2\left4dead2_dlc3'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\sourcemods\mapbase_episodic'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\sourcemods\mapbase_hl2'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\sourcemods\mapbase_shared'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Black Mesa\bms'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Black Mesa\bshift'
+Adding mount.cfg path: 'S:\SteamLibrary\steamapps\common\Black Mesa\bmhecu'
+Adding mount.cfg path: 'S:\Garry's Mod Addons\Black Mesa Content\predisaster'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\advanced-dupe-2'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\advanced-material-reborn'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\glide-blackmesa'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\glide-halflife-2'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\gmod-content-export-tools'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\half-life-2-sandbox'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\improved-hook-library'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\improved-properties'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\improved-spawnmenu'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\improved-stacker'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_base'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_bm'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_cars'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_helicopters'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_hl1'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_hl2'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\lvs_hlvr'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\minerva_uprising'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\minerva_white_forest'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\precision-tool'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\retros-screen-grab'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\rp_blackmesa'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_north'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\rp_santego_military_base'
+Adding filesystem addon 's:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\smart-snap'
+qdir:    "s:\steamlibrary\steamapps\common\garrysmod\garrysmod\addons\rp_black_mesa_north\modelsrc\riggs9162\bmrp\snowy_mountain\"
+gamedir: "S:\SteamLibrary\steamapps\common\GarrysMod\garrysmod\"
+g_path:  "S:\SteamLibrary\steamapps\common\GarrysMod\garrysmod\addons\rp_black_mesa_north\modelsrc\riggs9162\bmrp\snowy_mountain\snowy_mountain.qc"
+Building binary model files...
+Working on "snowy_mountain.qc"
+SMD MODEL snowy_mountain.smd
+SMD MODEL anims/idle.smd
+WARNING: model has too many verts (137656/21845), cutting into multiple models
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+Processing LOD for material: snowy_mountain
+---------------------
+writing S:\SteamLibrary\steamapps\common\GarrysMod\garrysmod\models/riggs9162/bmrp/snowy_mountain.mdl:
+bones          964 bytes (1)
+animations     112 bytes (1 anims) (1 frames) [0:00]
+sequences      220 bytes (1 seq) 
+ik/pose       1312 bytes
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+eyeballs         0 bytes (0 eyeballs)
+flexes           0 bytes (0 flexes)
+textures        72 bytes
+keyvalues        0 bytes
+bone transforms        0 bytes
+bone flex driver       0 bytes
+collision        0 bytes
+total         3780
+---------------------
+writing S:\SteamLibrary\steamapps\common\GarrysMod\garrysmod\models/riggs9162/bmrp/snowy_mountain.vvd:
+vertices   1048464 bytes (21843 vertices)
+vertices   1048464 bytes (21843 vertices)
+vertices   1048464 bytes (21843 vertices)
+vertices   1048464 bytes (21843 vertices)
+vertices   1048464 bytes (21843 vertices)
+vertices   1048464 bytes (21843 vertices)
+vertices   1048464 bytes (21843 vertices)
+vertices    789072 bytes (16439 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    349488 bytes (21843 vertices)
+tangents    263024 bytes (16439 vertices)
+total      10837824 bytes
+---------------------
+Generating optimized mesh "S:\SteamLibrary\steamapps\common\GarrysMod\garrysmod\models/riggs9162/bmrp/snowy_mountain.dx80.vtx":
+body parts:        64 bytes
+models:           160 bytes
+model LODs:        96 bytes
+meshes:            72 bytes
+strip groups:     200 bytes
+strips:           216 bytes
+verts:        1524060 bytes
+indices:      1563852 bytes
+bone changes:      72 bytes
+everything:   3088732 bytes
+---------------------
+Generating optimized mesh "S:\SteamLibrary\steamapps\common\GarrysMod\garrysmod\models/riggs9162/bmrp/snowy_mountain.dx90.vtx":
+body parts:        64 bytes
+models:           160 bytes
+model LODs:        96 bytes
+meshes:            72 bytes
+strip groups:     200 bytes
+strips:           216 bytes
+verts:        1524060 bytes
+indices:      1563852 bytes
+bone changes:      72 bytes
+everything:   3088732 bytes
+
+Completed "snowy_mountain.qc"
+
+
+

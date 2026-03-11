@@ -1,0 +1,13 @@
+
+LightmappedGeneric
+{
+	$basetexture "lab/labcrete00a2_bshift"
+	$bumpmap "lab/labcrete00a2_bshift_normal"
+	$surfaceprop Concrete
+
+	$detail "detail/bm_cinderblock_detail_01"
+	$detailblendfactor 0.9
+	
+
+	%keywords "bshift , rimas"
+}

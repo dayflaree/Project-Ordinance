@@ -1,0 +1,18 @@
+"WorldVertexTransition"
+{
+	"$basetexture" "concrete/crete2_wall01"
+	"$bumpmap" "concrete/crete2_wall01_normal"
+	"$surfaceprop" "concrete"
+
+	"$basetexture2" "ground/snow01"
+	"$surfaceprop2" "snow"
+
+	"$blendmodulatetexture" "ground/snowblendtexture"
+
+	"$detail" "detail\bm_concrete_detail_01"
+	"$detailscale" "6.283"
+	"$detailblendfactor" "0.8"
+	"$detailblendmode" "0"
+
+	"%keywords" "bms"
+}

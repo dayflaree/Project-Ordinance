@@ -1,0 +1,18 @@
+LightmappedGeneric
+{
+	$basetexture "carpet/bs_office_carpet3"
+	$bumpmap "carpet/bs_office_carpet_normal"
+	$surfaceprop Carpet
+	//"$heightmap"	"carpet/bs_office_carpet_heightmap"
+	//"$POMSCALE" ".02"
+	//"$POMMINSAMPLES" "250"
+	//"$POMMAXSAMPLES" "300"
+
+	$detail "detail/dt_carpet1"
+	$detailscale 11
+
+//	$basetexturetransform "center 1 1 scale 2 2 rotate 0 translate 0.5 0"
+//	$bumptransform "center 1 1 scale 2 2 rotate 0 translate 0.5 0"
+
+	%keywords "bshift , rimas"
+}
