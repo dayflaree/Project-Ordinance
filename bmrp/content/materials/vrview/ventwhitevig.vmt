@@ -1,0 +1,10 @@
+"Modulate"
+{
+    "$znearer" 1
+    "$basetexture" "vrview/ventwhitevig"
+    "$translucent" "1"
+    "$additive" "1"
+    "$mod2x" "1"
+    "$vertexalpha" 1
+    "$vertexcolor" 1
+}

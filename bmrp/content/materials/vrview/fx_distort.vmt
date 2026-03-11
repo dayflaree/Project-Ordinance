@@ -1,0 +1,7 @@
+
+Refract
+{
+	$normalmap "vrview/fx_distort"
+	$refracttint "[1 1 1]"
+	$refractamount .002
+}

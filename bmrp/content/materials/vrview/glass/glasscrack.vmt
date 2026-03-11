@@ -1,0 +1,6 @@
+Refract
+{
+	$normalmap "vrview/glass/glasscrack"
+	$refracttint "[1 1 1]"
+	$refractamount .05
+}

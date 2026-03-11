@@ -1,0 +1,10 @@
+DeriveGamemode("parallax")
+
+hook.Remove("PrePlayerDraw", "CONVRenderOutlinesFast")
+hook.Remove("PostPlayerDraw", "CONVRenderOutlinesFast")
+hook.Remove("PreDrawViewModels", "CONVRenderOutlinesFast")
+hook.Remove("PreDrawEffects", "CONVRenderOutlinesFast")
+hook.Remove("PostDrawEffects", "CONVRenderOutlinesFast")
+hook.Remove("CalcView", "CameraAnimationView")
+hook.Remove("CalcViewModelView", "OverrideViewModelBobAndSway")
+hook.Remove("Think", "SmoothMoveAndSway")

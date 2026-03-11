@@ -1,0 +1,68 @@
+
+local MODULE = MODULE
+
+function MODULE:SaveData()
+    local data = {}
+
+    for _, entity in ipairs(ents.FindByClass("ax_arc9_weapon_bench")) do
+        local bodygroups = {}
+
+        for _, v in ipairs(entity:GetBodyGroups() or {}) do
+            bodygroups[v.id] = entity:GetBodygroup(v.id)
+        end
+
+        data[#data + 1] = {
+            pos = entity:GetPos(),
+            angles = entity:GetAngles(),
+            model = entity:GetModel(),
+            skin = entity:GetSkin(),
+            bodygroups = bodygroups,
+        }
+    end
+
+    self:SetData(data)
+end
+
+function MODULE:LoadData()
+    for _, v in ipairs(self:GetData() or {}) do
+        local entity = ents.Create("ax_arc9_weapon_bench")
+        entity:SetPos(v.pos)
+        entity:SetAngles(v.angles)
+        entity:Spawn()
+
+        entity:SetModel(v.model)
+        entity:SetSkin(v.skin or 0)
+
+        for id, bodygroup in pairs(v.bodygroups or {}) do
+            entity:SetBodygroup(id, bodygroup)
+        end
+
+        entity:SetSolid(SOLID_VPHYSICS)
+        entity:PhysicsInit(SOLID_VPHYSICS)
+
+        local physObj = entity:GetPhysicsObject()
+        if (IsValid(physObj)) then
+            physObj:EnableMotion(false)
+            physObj:Sleep()
+        end
+    end
+end
+
+-- hacky fix to prevent PostPlayerLoadout from being called an extra time incorrectly, prevents att duping from preset application
+function MODULE:PostPlayerLoadout(client)
+    local chararcter = client:GetCharacter()
+
+    if chararcter and chararcter:GetInventory() and client.loadoutPredictedARC9 then
+        for _, item in pairs(chararcter:GetInventory():GetItems()) do
+            if item.isARC9Weapon and item:GetData("equip", false) then
+                item:Call("OnPostLoadout", client)
+            end
+        end
+        client.loadoutPredictedARC9 = nil
+    end
+end
+
+function MODULE:PlayerLoadedCharacter(client, chararcter, prevChar)
+    client.loadoutPredictedARC9 = true
+    client.ARC9_AttInv = {}
+end

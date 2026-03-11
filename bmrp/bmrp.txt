@@ -1,0 +1,7 @@
+"bmrp"
+{
+    "base"              "parallax"
+    "title"             "Project Ordinance: Black Mesa Roleplay"
+    "author"            "Riggs"
+    "menusystem"        "1"
+}

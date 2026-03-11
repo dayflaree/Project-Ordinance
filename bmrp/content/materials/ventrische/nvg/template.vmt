@@ -1,0 +1,24 @@
+"VertexLitGeneric"
+{
+	"$basetexture" 				"ventrische\nvg\ch09_3600_hedset_color"
+	"$bumpmap" 					"ventrische\nvg\ch09_3600_hedset_norm"
+	"$color2" 					"[ 0.3 0.3 0.3 ]"
+
+          $rimlight               0
+	$rimlightexponent       2
+	$rimlightboost          2
+
+          $normalmapalphaenvmapmask "1"
+          $envmap                       "env_cubemap"
+          $envmaptint                   "[.004 .004 .004]"
+          "$envmapfresnel"				"1"
+
+	"$phong" 					"1"
+          "$phongexponenttexture" 	"ventrische\nvg\ch09_3600_hedset_exp"
+	$phongtint                    "[.4 .4 .4]"
+          $phongboost                   ".55"
+          $phongfresnelranges "[.5 5 3]"
+
+          $surfaceprop "metal"
+          $nocull             "1"
+}

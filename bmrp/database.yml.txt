@@ -1,0 +1,7 @@
+database:
+  adapter: "mysqloo"
+  hostname: "db.glnodes.com"
+  username: "u47_YMhX9hjoVn"
+  password: "dD02q4wLANmNhlwD93^k+U+0"
+  database: "s47_parallax"
+  port: 50000
