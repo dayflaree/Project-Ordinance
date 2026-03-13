@@ -9,7 +9,7 @@
     Attribution is required. If you use or modify this file, you must retain this notice.
 ]]
 
-BMS_SPLASH_LOGO = ax.util:GetMaterial("riggs9162/bms/ui/logo.png", "smooth mips")
+BMS_SPLASH_LOGO = ax.util:GetMaterial("riggs9162/bms/ui/logo-new.png", "smooth mips")
 
 local function GetRatioSize(originalW, originalH, maxW, maxH)
     local ratio = math.min(maxW / originalW, maxH / originalH)
@@ -58,7 +58,7 @@ function PANEL:Init()
     self:SetYOffset(ax.util:ScreenScaleH(24))
     self:SetHeightOffset(-ax.util:ScreenScaleH(48))
 
-    self.logoSizeW, self.logoSizeH = GetRatioSize(609, 69, ax.util:ScreenScale(256), ax.util:ScreenScaleH(24))
+    self.logoSizeW, self.logoSizeH = GetRatioSize(BMS_SPLASH_LOGO:Width(), BMS_SPLASH_LOGO:Height(), ax.util:ScreenScale(520), ax.util:ScreenScaleH(78))
     self.lastPlayedCharacter = nil
 
     self.logo = self:Add("EditablePanel")
