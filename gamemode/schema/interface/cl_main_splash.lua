@@ -78,7 +78,7 @@ function PANEL:Init()
 
     self.resume = self:Add("bms.button.resume")
     self.resume:SetFont("ax.regular.bold")
-    self.resume:SetText("RESUME", true)
+    self.resume:SetText("CONTINUE", true)
     self.resume:SetVisible(false)
     self.resume:SetEnabled(false)
     self.resume:SetMouseInputEnabled(false)

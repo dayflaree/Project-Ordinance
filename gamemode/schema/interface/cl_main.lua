@@ -82,6 +82,7 @@ function PANEL:Init()
     self.options = self:Add("ax.main.options")
     self.options:StartAtBottom()
 
+    self.activePanel = self.splash
     self.splash:StartAtTop()
     self.splash:SlideToFront()
 
@@ -147,24 +148,49 @@ function PANEL:Init()
     -- Options button
     local allowOptions = hook.Run("ShouldCreateOptionsButton", self)
     if ( allowOptions != false ) then
-        local optionsButton = self.nav:Add("bms.button")
-        optionsButton:Dock(LEFT)
-        optionsButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
-        optionsButton:SetText("mainmenu.options")
-        optionsButton:SetTextColor(color_white)
-        optionsButton.DoClick = function()
-            if ( self.options:IsVisible() ) then
+        self.optionsButton = self.nav:Add("bms.button")
+        self.optionsButton:Dock(LEFT)
+        self.optionsButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+        self.optionsButton:SetText("mainmenu.options")
+        self.optionsButton:SetTextColor(color_white)
+        self.optionsButton.DoClick = function()
+            if ( self.activePanel == self.options ) then
                 self.options:SlideDown()
                 self.splash:SlideToFront()
+                self.activePanel = self.splash
+
+                if ( IsValid(self.optionsBackButton) ) then
+                    self.optionsBackButton:SetToggled(false)
+                    self.optionsBackButton:SetAlpha(255)
+                    self.optionsBackButton:SetEnabled(false)
+
+                    timer.Create("ax_options_back_hide_" .. tostring(self), 0.12, 1, function()
+                        if ( IsValid(self) and IsValid(self.optionsBackButton) and self.activePanel != self.options ) then
+                            self.optionsBackButton:SetVisible(false)
+                        end
+                    end)
+                end
+
                 return
+            end
+
+            if ( self.activePanel and self.activePanel != self.splash and self.activePanel != self.options ) then
+                self.activePanel:SlideDown()
             end
 
             self.splash:SlideDown()
             self.options:SlideToFront()
-        end
+            self.activePanel = self.options
 
-        self.options.OnHidden = function()
-            optionsButton:SetToggled(false)
+            if ( IsValid(self.optionsBackButton) ) then
+                timer.Remove("ax_options_back_hide_" .. tostring(self))
+
+                self.optionsBackButton:SetText("BACK")
+                self.optionsBackButton:SetToggled(false)
+                self.optionsBackButton:SetAlpha(255)
+                self.optionsBackButton:SetVisible(true)
+                self.optionsBackButton:SetEnabled(true)
+            end
         end
 
         local workshopButton = self.nav:Add("bms.button")
@@ -181,29 +207,6 @@ function PANEL:Init()
                 end
             end)
         end
-    end
-
-    -- Back button
-    local backButton = self.navBottom:Add("bms.button")
-    backButton:Dock(LEFT)
-    backButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
-    backButton:SetText("BACK")
-    backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
-    backButton:SetFillHeightHover(1)
-    backButton.DoClick = function()
-        if ( self.create:IsVisible() ) then
-            self.create:SlideDown()
-        end
-
-        if ( self.load:IsVisible() ) then
-            self.load:SlideDown()
-        end
-
-        if ( self.options:IsVisible() ) then
-            self.options:SlideDown()
-        end
-
-        self.splash:SlideToFront()
     end
 
     -- Disconnect button
@@ -225,6 +228,47 @@ function PANEL:Init()
                 end
             )
         end
+
+        local backButton = self.navBottom:Add("bms.button")
+        backButton:Dock(LEFT)
+        backButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+        backButton:SetText("BACK")
+        backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
+        backButton:SetFillHeightHover(1)
+                backButton:SetToggled(false)
+                backButton:SetAlpha(255)
+                backButton:SetToggled(false)
+                backButton:SetAlpha(255)
+                backButton:SetEnabled(false)
+
+                timer.Create("ax_options_back_hide_" .. tostring(self), 0.12, 1, function()
+                    if ( IsValid(self) and IsValid(backButton) and self.activePanel != self.options ) then
+                        backButton:SetVisible(false)
+                    end
+                end)
+
+        backButton.DoClick = function()
+            if ( self.activePanel == self.options ) then
+                self.options:SlideDown()
+                self.splash:SlideToFront()
+                self.activePanel = self.splash
+
+                backButton:SetVisible(false)
+                backButton:SetEnabled(false)
+            end
+        end
+
+        self.optionsBackButton = backButton
+    end
+
+    self.options.OnHidden = function()
+        if ( IsValid(self.optionsButton) ) then
+            self.optionsButton:SetToggled(false)
+        end
+    end
+
+    self.OnRemove = function()
+        timer.Remove("ax_options_back_hide_" .. tostring(self))
     end
 
     -- Discord button

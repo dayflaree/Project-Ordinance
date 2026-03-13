@@ -19,11 +19,6 @@ function PANEL:Init()
     self:SetYOffset(ax.util:ScreenScaleH(24))
     self:SetHeightOffset(-ax.util:ScreenScaleH(48))
 
-    self:CreateNavigation(self, "back", function()
-        self:SlideDown()
-        parent.splash:SlideToFront()
-    end)
-
     local settings = self:Add("ax.store")
     settings:SetType("option")
     settings:DockMargin(ax.util:ScreenScale(32), ax.util:ScreenScaleH(32), ax.util:ScreenScale(32), ax.util:ScreenScaleH(32))
