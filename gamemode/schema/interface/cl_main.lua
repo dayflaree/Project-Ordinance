@@ -13,7 +13,9 @@ BMS_NAV_COLOR = Color(228, 113, 37)
 BMS_NAV_COLOR_BOTTOM = Color(0, 0, 0, 100)
 BMS_NAV_LOGO = ax.util:GetMaterial("riggs9162/bms/ui/project-ordinance.png", "smooth mips")
 BMS_MAIN_GRADIENT_COLOR = Color(228, 113, 37, 25)
+BMS_MAIN_OVERLAY_COLOR = Color(90, 90, 90, 120)
 BMS_MAIN_LOGO_MARK = ax.util:GetMaterial("riggs9162/bms/ui/logo-mark.png", "smooth mips")
+BMS_DISCORD_ICON = ax.util:GetMaterial("riggs9162/bms/ui/discord-white.png", "smooth mips")
 
 local function GetRatioSize(originalW, originalH, maxW, maxH)
     local ratio = math.min(maxW / originalW, maxH / originalH)
@@ -99,6 +101,7 @@ function PANEL:Init()
         playButton:Dock(LEFT)
         playButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         playButton:SetText("mainmenu.play")
+        playButton:SetTextColor(color_white)
         playButton.DoClick = function()
             ax.client:EmitSound("ax.gui.menu.close")
             self:Remove()
@@ -112,6 +115,7 @@ function PANEL:Init()
         createButton:Dock(LEFT)
         createButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         createButton:SetText("mainmenu.create")
+        createButton:SetTextColor(color_white)
         createButton.DoClick = function()
             self.splash:SlideDown()
             self.create:SlideToFront()
@@ -129,6 +133,7 @@ function PANEL:Init()
         loadButton:Dock(LEFT)
         loadButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         loadButton:SetText("mainmenu.load")
+        loadButton:SetTextColor(color_white)
         loadButton.DoClick = function()
             self.splash:SlideDown()
             self.load:SlideToFront()
@@ -146,7 +151,14 @@ function PANEL:Init()
         optionsButton:Dock(LEFT)
         optionsButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         optionsButton:SetText("mainmenu.options")
+        optionsButton:SetTextColor(color_white)
         optionsButton.DoClick = function()
+            if ( self.options:IsVisible() ) then
+                self.options:SlideDown()
+                self.splash:SlideToFront()
+                return
+            end
+
             self.splash:SlideDown()
             self.options:SlideToFront()
         end
@@ -154,6 +166,44 @@ function PANEL:Init()
         self.options.OnHidden = function()
             optionsButton:SetToggled(false)
         end
+
+        local workshopButton = self.nav:Add("bms.button")
+        workshopButton:Dock(LEFT)
+        workshopButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+        workshopButton:SetText("STEAM WORKSHOP")
+        workshopButton:SetTextColor(color_white)
+        workshopButton.DoClick = function()
+            gui.OpenURL("https://steamcommunity.com/workshop/filedetails/?id=3684369184")
+
+            timer.Simple(0, function()
+                if ( IsValid(workshopButton) ) then
+                    workshopButton:SetToggled(false)
+                end
+            end)
+        end
+    end
+
+    -- Back button
+    local backButton = self.navBottom:Add("bms.button")
+    backButton:Dock(LEFT)
+    backButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+    backButton:SetText("BACK")
+    backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
+    backButton:SetFillHeightHover(1)
+    backButton.DoClick = function()
+        if ( self.create:IsVisible() ) then
+            self.create:SlideDown()
+        end
+
+        if ( self.load:IsVisible() ) then
+            self.load:SlideDown()
+        end
+
+        if ( self.options:IsVisible() ) then
+            self.options:SlideDown()
+        end
+
+        self.splash:SlideToFront()
     end
 
     -- Disconnect button
@@ -163,6 +213,8 @@ function PANEL:Init()
         disconnectButton:Dock(LEFT)
         disconnectButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         disconnectButton:SetText("mainmenu.disconnect")
+        disconnectButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
+        disconnectButton:SetFillHeightHover(1)
         disconnectButton.DoClick = function()
             Derma_Query("Are you sure you want to disconnect?", "Disconnect",
                 "Yes", function()
@@ -175,13 +227,29 @@ function PANEL:Init()
         end
     end
 
+    -- Discord button
+    local discordButton = self.navBottom:Add("bms.button")
+    discordButton:Dock(RIGHT)
+    discordButton:DockMargin(ax.util:ScreenScale(4), 0, ax.util:ScreenScale(4), 0)
+    discordButton:SetText("")
+    discordButton:SetWide(ax.util:ScreenScale(64))
+    discordButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
+    discordButton:SetFillHeightHover(1)
+    discordButton.PaintAdditional = function(this, width, height)
+        local iconW, iconH = GetRatioSize(BMS_DISCORD_ICON:Width(), BMS_DISCORD_ICON:Height(), width * 0.82, height * 0.82)
+        local iconX = math.floor((width - iconW) * 0.5)
+        local iconY = math.floor((height - iconH) * 0.5)
+        ax.render.DrawMaterial(0, iconX, iconY, iconW, iconH, color_white, BMS_DISCORD_ICON)
+    end
+    discordButton.DoClick = function()
+        gui.OpenURL("https://discord.gg/McHbSUAdUg")
+    end
+
     hook.Run("PostMainMenuCreated", self)
 end
 
 function PANEL:Paint(width, height)
-    ax.render().Rect(0, 0, width, height)
-        :Blur(0.5)
-        :Draw()
+    ax.render.Draw(0, 0, 0, width, height, BMS_MAIN_OVERLAY_COLOR)
 
     ax.util:DrawGradient(0, "left", 0, 0, width, height, BMS_MAIN_GRADIENT_COLOR)
 
@@ -207,3 +275,4 @@ concommand.Add("ax_menu", function()
 
     vgui.Create("ax.main")
 end)
+
