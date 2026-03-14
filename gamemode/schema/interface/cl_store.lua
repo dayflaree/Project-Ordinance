@@ -290,6 +290,50 @@ function PANEL:HandleError(message)
     ax.util:PrintError(string.format("ax.store.%s: %s for key '%s'", self.elementType or "base", message, tostring(self.key)))
 end
 
+local BASE_BUTTON = baseclass.Get("ax.button")
+
+function PANEL:UpdateHint()
+    local hintLabel = ax.gui and ax.gui.optionsHint
+    if ( !IsValid(hintLabel) ) then
+        return
+    end
+
+    local defaultText = (ax.gui and ax.gui.optionsDefaultHintText) or "Select a setting to view its description."
+    local hintText = nil
+
+    if ( self.key and self.type ) then
+        local phraseKey = string.format("%s.%s.help", tostring(self.type), tostring(self.key))
+        if ( ax.localization and isfunction(ax.localization.GetPhrase) ) then
+            local phrase = ax.localization:GetPhrase(phraseKey)
+            if ( phrase and phrase != phraseKey ) then
+                hintText = phrase
+            end
+        end
+    end
+
+    if ( !hintText ) then
+        local store = self:GetStore()
+        if ( store and isfunction(store.GetData) ) then
+            local data = store:GetData(self.key)
+            if ( istable(data) ) then
+                hintText = data.help or data.description or data.desc
+            end
+        end
+    end
+
+    hintLabel:SetText((hintText and hintText != "" and hintText) or defaultText)
+end
+
+function PANEL:OnMousePressed(mousecode)
+    if ( mousecode == MOUSE_LEFT ) then
+        self:UpdateHint()
+    end
+
+    if ( BASE_BUTTON and BASE_BUTTON.OnMousePressed ) then
+        BASE_BUTTON.OnMousePressed(self, mousecode)
+    end
+end
+
 function PANEL:SetType(type)
     if ( !type or type == "" ) then
         self:HandleError("Invalid type")
@@ -303,7 +347,6 @@ function PANEL:SetType(type)
     end
 
     self.type = type
-    self:SetText( "just type set ahadhahdawdhuahduahd" )
 
     if ( self.UpdateDisplay ) then
         self:UpdateDisplay()

@@ -22,6 +22,31 @@ local function GetRatioSize(originalW, originalH, maxW, maxH)
     return originalW * ratio, originalH * ratio
 end
 
+local function SetupMainUnderlineButton(button)
+    if ( !IsValid(button) ) then
+        return
+    end
+
+    button:SetFillColor(color_white)
+    button:SetFillHeightHover(0.10)
+    button:SetFillHeightMotion(0)
+    button:SetToggled(false)
+    button.GetToggled = function()
+        return false
+    end
+
+    button.mainUnderlineActive = false
+
+    local originalIsHovered = button.IsHovered
+    button.IsHovered = function(this)
+        if ( this.mainUnderlineActive ) then
+            return true
+        end
+
+        return originalIsHovered(this)
+    end
+end
+
 local PANEL = {}
 
 function PANEL:Init()
@@ -61,6 +86,39 @@ function PANEL:Init()
         local logoPos = (height - logoSize) / 2
         ax.render.DrawMaterial(0, logoPos + ax.util:ScreenScale(8), logoPos, logoSize, logoSize, color_white, BMS_NAV_LOGO)
     end
+
+    self.mainNavButtons = {}
+
+    function self:SetMainNavActive(activeButton)
+        for _, navButton in ipairs(self.mainNavButtons) do
+            if ( IsValid(navButton) ) then
+                navButton.mainUnderlineActive = (navButton == activeButton)
+            end
+        end
+    end
+
+    self.optionsSubnav = self:Add("EditablePanel")
+    self.optionsSubnav:Dock(TOP)
+    self.optionsSubnav:DockPadding(ax.util:ScreenScale(32), 0, ax.util:ScreenScale(32), ax.util:ScreenScaleH(2))
+    self.optionsSubnav:SetTall(ax.util:ScreenScaleH(24))
+    self.optionsSubnavTargetHeight = self.optionsSubnav:GetTall()
+    self.optionsSubnav:SetVisible(false)
+    self.optionsSubnav.Paint = function(this, width, height)
+        ax.render.Draw(0, 0, 0, width, height, Color(0, 0, 0, 140))
+    end
+
+    self.optionsSubnavLoading = self.optionsSubnav:Add("DLabel")
+    self.optionsSubnavLoading:Dock(FILL)
+    self.optionsSubnavLoading:SetFont("ax.medium.bold")
+    self.optionsSubnavLoading:SetText("Loading categories...")
+    self.optionsSubnavLoading:SetTextColor(color_white)
+    self.optionsSubnavLoading:SetContentAlignment(5)
+    self.optionsSubnavLoading:SetZPos(1)
+
+    self.optionsSubnavInner = self.optionsSubnav:Add("EditablePanel")
+    self.optionsSubnavInner:Dock(FILL)
+    self.optionsSubnavInner:SetZPos(2)
+    self.optionsSubnavInner.Paint = nil
 
     self.navBottom = self:Add("EditablePanel")
     self.navBottom:Dock(BOTTOM)
@@ -103,6 +161,8 @@ function PANEL:Init()
         playButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         playButton:SetText("mainmenu.play")
         playButton:SetTextColor(color_white)
+        SetupMainUnderlineButton(playButton)
+        table.insert(self.mainNavButtons, playButton)
         playButton.DoClick = function()
             ax.client:EmitSound("ax.gui.menu.close")
             self:Remove()
@@ -117,13 +177,16 @@ function PANEL:Init()
         createButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         createButton:SetText("mainmenu.create")
         createButton:SetTextColor(color_white)
+        SetupMainUnderlineButton(createButton)
+        table.insert(self.mainNavButtons, createButton)
         createButton.DoClick = function()
             self.splash:SlideDown()
             self.create:SlideToFront()
+            self:SetMainNavActive(createButton)
         end
 
         self.create.OnHidden = function()
-            createButton:SetToggled(false)
+            createButton.mainUnderlineActive = false
         end
     end
 
@@ -135,13 +198,16 @@ function PANEL:Init()
         loadButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         loadButton:SetText("mainmenu.load")
         loadButton:SetTextColor(color_white)
+        SetupMainUnderlineButton(loadButton)
+        table.insert(self.mainNavButtons, loadButton)
         loadButton.DoClick = function()
             self.splash:SlideDown()
             self.load:SlideToFront()
+            self:SetMainNavActive(loadButton)
         end
 
         self.load.OnHidden = function()
-            loadButton:SetToggled(false)
+            loadButton.mainUnderlineActive = false
         end
     end
 
@@ -153,11 +219,24 @@ function PANEL:Init()
         self.optionsButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         self.optionsButton:SetText("mainmenu.options")
         self.optionsButton:SetTextColor(color_white)
+        SetupMainUnderlineButton(self.optionsButton)
+        table.insert(self.mainNavButtons, self.optionsButton)
         self.optionsButton.DoClick = function()
             if ( self.activePanel == self.options ) then
                 self.options:SlideDown()
                 self.splash:SlideToFront()
                 self.activePanel = self.splash
+                self:SetMainNavActive(nil)
+
+                if ( IsValid(self.optionsSubnav) ) then
+                    local targetHeight = self.optionsSubnavTargetHeight or self.optionsSubnav:GetTall()
+
+                    self.optionsSubnav:SizeTo(self.optionsSubnav:GetWide(), 0, 0.2, 0, -1, function()
+                        if ( IsValid(self.optionsSubnav) ) then
+                            self.optionsSubnav:SetVisible(false)
+                        end
+                    end)
+                end
 
                 if ( IsValid(self.optionsBackButton) ) then
                     self.optionsBackButton:SetToggled(false)
@@ -181,6 +260,34 @@ function PANEL:Init()
             self.splash:SlideDown()
             self.options:SlideToFront()
             self.activePanel = self.options
+            self:SetMainNavActive(self.optionsButton)
+
+            if ( IsValid(self.optionsSubnav) ) then
+                local targetHeight = self.optionsSubnavTargetHeight or self.optionsSubnav:GetTall()
+                self.optionsSubnav:SetVisible(true)
+                self.optionsSubnav:SetZPos(100)
+                self.optionsSubnav:MoveToFront()
+                self.optionsSubnav:SetTall(0)
+                self.optionsSubnav:SizeTo(self.optionsSubnav:GetWide(), targetHeight, 0.2, 0, -1)
+            end
+
+            if ( isfunction(self.BuildOptionsSubnav) ) then
+                timer.Simple(0, function()
+                    if ( IsValid(self) ) then
+                        self:BuildOptionsSubnav()
+                    end
+                end)
+
+                timer.Create("ax_options_subnav_retry_" .. tostring(self), 0.1, 10, function()
+                    if ( !IsValid(self) ) then
+                        return
+                    end
+
+                    if ( self:BuildOptionsSubnav() > 0 ) then
+                        timer.Remove("ax_options_subnav_retry_" .. tostring(self))
+                    end
+                end)
+            end
 
             if ( IsValid(self.optionsBackButton) ) then
                 timer.Remove("ax_options_back_hide_" .. tostring(self))
@@ -193,11 +300,158 @@ function PANEL:Init()
             end
         end
 
+        function self:UpdateOptionsSubnavActive(categoryID)
+            if ( !istable(self.optionsSubnavButtons) ) then
+                return
+            end
+
+            self.optionsSubnavActive = nil
+
+            for id, button in pairs(self.optionsSubnavButtons) do
+                if ( IsValid(button) ) then
+                    local active = (id == categoryID)
+                    button.bmsSubnavActive = active
+                    button.underlineMotion = 0
+
+                    if ( active ) then
+                        self.optionsSubnavActive = button
+                        button.selectMotion = 0
+                        button:SetTextColorInternal(color_white)
+                    else
+                        button:SetTextColorInternal(color_white)
+                    end
+
+                    local target = active and 1 or 0
+                    button:Motion(button:GetAnimationDuration(), {
+                        Target = {
+                            selectMotion = target
+                        },
+                        Easing = button.easing
+                    })
+
+                    button:InvalidateLayout(true)
+                    button:InvalidateParent(true)
+                end
+            end
+        end
+
+        function self:BuildOptionsSubnav()
+            if ( !IsValid(self.optionsSubnavInner) ) then
+                return 0
+            end
+
+            self.optionsSubnavInner:Clear()
+            self.optionsSubnavButtons = {}
+
+            local categoryButtons = nil
+            if ( IsValid(self.options) and IsValid(self.options.settings) ) then
+                categoryButtons = self.options.settings.categoryButtons
+            end
+
+            local created = 0
+            if ( istable(categoryButtons) ) then
+                for categoryID, sourceButton in SortedPairs(categoryButtons) do
+                    if ( IsValid(sourceButton) ) then
+                        local categoryButton = self.optionsSubnavInner:Add("bms.button")
+                        categoryButton:Dock(LEFT)
+                        categoryButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+                        categoryButton:SetText(sourceButton:GetText() or string.upper(tostring(categoryID)))
+                        categoryButton:SetTextColor(color_white)
+                        categoryButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
+                        categoryButton:SetFillHeightHover(0)
+                        categoryButton:SetFillHeightMotion(0)
+                        categoryButton:SetToggled(false)
+                        categoryButton.GetToggled = function()
+                            return false
+                        end
+                        categoryButton:SetTextColorToggled(color_white)
+                        categoryButton:SetTall(self.optionsSubnavInner:GetTall())
+                        categoryButton.underlineMotion = 0
+                        categoryButton.selectMotion = 0
+
+                        categoryButton.OnThink = function(this)
+                            local hoverUnderline = this:IsHovered() and !this.bmsSubnavActive
+                            local underlineTarget = hoverUnderline and 1 or 0
+                            local step = FrameTime() / math.max(this:GetAnimationDuration(), 0.001)
+
+                            this.underlineMotion = math.Approach(this.underlineMotion or 0, underlineTarget, step)
+
+                            if ( this.bmsSubnavActive ) then
+                                this:SetTextColorInternal(color_white)
+                            elseif ( this:IsHovered() ) then
+                                this:SetTextColorInternal(BMS_BUTTON_HOVER_COLOR)
+                            else
+                                this:SetTextColorInternal(color_white)
+                            end
+                        end
+
+                        categoryButton.PaintAdditional = function(this, width, height)
+                            local selectAmount = math.Clamp(this.selectMotion or 0, 0, 1)
+                            if ( selectAmount > 0 ) then
+                                local fillHeight = math.max(1, math.Round(height * selectAmount))
+
+                                surface.SetDrawColor(BMS_BUTTON_HOVER_COLOR)
+                                surface.DrawRect(0, height - fillHeight, width, fillHeight)
+                            end
+
+                            if ( !this.bmsSubnavActive ) then
+                                local amount = math.Clamp(this.underlineMotion or 0, 0, 1)
+                                if ( amount > 0 ) then
+                                    local lineHeight = math.max(1, math.Round(height * 0.1 * amount))
+
+                                    surface.SetDrawColor(BMS_BUTTON_HOVER_COLOR)
+                                    surface.DrawRect(0, height - lineHeight, width, lineHeight)
+                                end
+                            end
+                        end
+
+                        categoryButton.DoClick = function()
+                            if ( IsValid(self.options) and isfunction(self.options.SetSectionTitle) ) then
+                                self.options:SetSectionTitle(categoryButton:GetText())
+                            end
+
+                            if ( isfunction(self.UpdateOptionsSubnavActive) ) then
+                                self:UpdateOptionsSubnavActive(categoryID)
+                            end
+
+                            if ( IsValid(sourceButton) and isfunction(sourceButton.DoClick) ) then
+                                sourceButton:DoClick()
+                                return
+                            end
+
+                            if ( IsValid(self.options) and self.options.SelectCategory ) then
+                                self.options:SelectCategory(categoryID)
+                            end
+                        end
+
+                        self.optionsSubnavButtons[categoryID] = categoryButton
+                        created = created + 1
+                    end
+                end
+            end
+
+            if ( isfunction(self.UpdateOptionsSubnavActive) and ax.gui.storeLastOption ) then
+                self:UpdateOptionsSubnavActive(ax.gui.storeLastOption)
+
+                if ( IsValid(self.options) and isfunction(self.options.SetSectionTitle) and self.optionsSubnavButtons[ax.gui.storeLastOption] ) then
+                    self.options:SetSectionTitle(self.optionsSubnavButtons[ax.gui.storeLastOption]:GetText())
+                end
+            end
+
+            if ( IsValid(self.optionsSubnavLoading) ) then
+                self.optionsSubnavLoading:SetVisible(created == 0)
+            end
+
+            return created
+        end
+
         local workshopButton = self.nav:Add("bms.button")
         workshopButton:Dock(LEFT)
         workshopButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
         workshopButton:SetText("STEAM WORKSHOP")
         workshopButton:SetTextColor(color_white)
+        SetupMainUnderlineButton(workshopButton)
+        table.insert(self.mainNavButtons, workshopButton)
         workshopButton.DoClick = function()
             gui.OpenURL("https://steamcommunity.com/workshop/filedetails/?id=3684369184")
 
@@ -235,8 +489,17 @@ function PANEL:Init()
         backButton:SetText("BACK")
         backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
         backButton:SetFillHeightHover(1)
-                backButton:SetToggled(false)
-                backButton:SetAlpha(255)
+        backButton:SetToggled(false)
+        backButton:SetAlpha(255)
+        backButton:SetEnabled(false)
+        backButton:SetVisible(false)
+        backButton.DoClick = function()
+            if ( self.activePanel == self.options ) then
+                self.options:SlideDown()
+                self.splash:SlideToFront()
+                self.activePanel = self.splash
+                self:SetMainNavActive(nil)
+
                 backButton:SetToggled(false)
                 backButton:SetAlpha(255)
                 backButton:SetEnabled(false)
@@ -246,15 +509,6 @@ function PANEL:Init()
                         backButton:SetVisible(false)
                     end
                 end)
-
-        backButton.DoClick = function()
-            if ( self.activePanel == self.options ) then
-                self.options:SlideDown()
-                self.splash:SlideToFront()
-                self.activePanel = self.splash
-
-                backButton:SetVisible(false)
-                backButton:SetEnabled(false)
             end
         end
 
@@ -263,7 +517,15 @@ function PANEL:Init()
 
     self.options.OnHidden = function()
         if ( IsValid(self.optionsButton) ) then
-            self.optionsButton:SetToggled(false)
+            self.optionsButton.mainUnderlineActive = false
+        end
+
+        if ( IsValid(self.optionsSubnav) ) then
+            self.optionsSubnav:SizeTo(self.optionsSubnav:GetWide(), 0, 0.2, 0, -1, function()
+                if ( IsValid(self.optionsSubnav) ) then
+                    self.optionsSubnav:SetVisible(false)
+                end
+            end)
         end
     end
 
@@ -319,4 +581,3 @@ concommand.Add("ax_menu", function()
 
     vgui.Create("ax.main")
 end)
-
