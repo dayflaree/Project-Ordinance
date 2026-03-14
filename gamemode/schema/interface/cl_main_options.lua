@@ -20,6 +20,30 @@ local OPTIONS_SCROLLBAR_TRACK = Color(255, 255, 255, 28)
 local OPTIONS_SCROLLBAR_GRIP = Color(228, 113, 37, 220)
 local OPTIONS_WARNING_ICON = ax.util:GetMaterial("riggs9162/bms/ui/warning.png", "smooth mips")
 
+local CATEGORY_HINTS = {
+    ["admin"] = "Admin settings: moderation visibility, admin-only tools, and staff diagnostics.",
+    ["audio"] = "Audio settings: ambient/music playback, volume behavior, and sound-related immersion options.",
+    ["camera"] = "Camera settings: third-person enablement, camera offsets, follow behavior, and smoothing.",
+    ["chat"] = "Chat settings: chatbox layout, timestamps, message behavior, and chat feedback options.",
+    ["interface"] = "Interface settings: HUD visibility, notifications, theme, scaling, and menu presentation.",
+    ["visual"] = "Visual settings: post-processing and shader-style effects that alter scene appearance.",
+    ["zones"] = "Zones settings: zone debug overlays, HUD/world diagnostics, and tracking detail controls."
+}
+
+local CATEGORY_ALIASES = {
+    ["administrator"] = "admin",
+    ["admins"] = "admin",
+    ["sound"] = "audio",
+    ["sounds"] = "audio",
+    ["cam"] = "camera",
+    ["view"] = "camera",
+    ["ui"] = "interface",
+    ["hud"] = "interface",
+    ["graphics"] = "visual",
+    ["video"] = "visual",
+    ["zone"] = "zones"
+}
+
 local function StyleOptionsScroller(scroller)
     if ( !IsValid(scroller) or !scroller.GetVBar ) then
         return
@@ -64,6 +88,34 @@ function PANEL:SetHintText(text)
     local hintText = text and text != "" and text or (self.defaultHintText or "Select a setting to view its description.")
     if ( IsValid(self.hint) ) then
         self.hint:SetText(hintText)
+    end
+end
+
+function PANEL:SetCategoryHint(categoryName)
+    if ( !isstring(categoryName) ) then
+        self.activeCategoryKey = nil
+        self.activeCategoryHint = self.defaultHintText
+        self:SetHintText(self.defaultHintText)
+
+        if ( ax.gui ) then
+            ax.gui.optionsDefaultHintText = self.defaultHintText
+        end
+        return
+    end
+
+    local normalized = string.Trim(string.lower(categoryName))
+    normalized = string.gsub(normalized, "^category%.", "")
+    normalized = string.gsub(normalized, "[^%a]", "")
+
+    local resolvedCategory = CATEGORY_HINTS[normalized] and normalized or CATEGORY_ALIASES[normalized]
+    local categoryHint = CATEGORY_HINTS[resolvedCategory or ""] or self.defaultHintText
+
+    self.activeCategoryKey = resolvedCategory
+    self.activeCategoryHint = categoryHint
+    self:SetHintText(categoryHint)
+
+    if ( ax.gui ) then
+        ax.gui.optionsDefaultHintText = categoryHint
     end
 end
 
@@ -145,6 +197,8 @@ function PANEL:Init()
 
     ax.gui.optionsHint = self.hint
     ax.gui.optionsDefaultHintText = self.defaultHintText
+    self.activeCategoryKey = nil
+    self.activeCategoryHint = self.defaultHintText
 
     self.body = self.wrapper:Add("EditablePanel")
     self.body:Dock(FILL)
@@ -169,7 +223,8 @@ function PANEL:Init()
             self.settings.container:DockMargin(0, 0, 0, 0)
         end
 
-        for _, page in ipairs(self.settings:GetPages()) do
+        local pages = isfunction(self.settings.GetPages) and self.settings:GetPages() or {}
+        for _, page in ipairs(pages) do
             if ( IsValid(page) ) then
                 page:SetXOffset(0)
                 page:SetWidthOffset(0)
@@ -177,20 +232,29 @@ function PANEL:Init()
         end
 
         self.settings:InvalidateLayout(true)
-        self.settings:PerformLayout()
+
+        if ( isfunction(self.settings.PerformLayout) ) then
+            self.settings:PerformLayout()
+        end
 
         if ( IsValid(self.settings.container) ) then
             self.settings.container:InvalidateLayout(true)
-            self.settings.container:PerformLayout()
+
+            if ( isfunction(self.settings.container.PerformLayout) ) then
+                self.settings.container:PerformLayout()
+            end
         end
+
+        self.categoryByPageIndex = {}
 
         local categoryButtons = self.settings.categoryButtons
         if ( istable(categoryButtons) ) then
             local firstButton = nil
 
-            for _, button in SortedPairs(categoryButtons) do
+            for categoryKey, button in SortedPairs(categoryButtons) do
                 if ( IsValid(button) and IsValid(button.tab) and isnumber(button.tab.index) ) then
-                    firstButton = button
+                    firstButton = firstButton or button
+                    self.categoryByPageIndex[button.tab.index] = categoryKey
 
                     local originalDoClick = button.DoClick
                     button.DoClick = function(this, ...)
@@ -198,11 +262,17 @@ function PANEL:Init()
                             originalDoClick(this, ...)
                         end
 
+                        local resolvedCategory = this.category or categoryKey or this:GetText()
+
                         if ( IsValid(self) and isfunction(self.SetSectionTitle) ) then
                             self:SetSectionTitle(this:GetText())
                         end
 
-                        if ( IsValid(this.tab) and IsValid(self.settings) ) then
+                        if ( IsValid(self) and isfunction(self.SetCategoryHint) ) then
+                            self:SetCategoryHint(resolvedCategory)
+                        end
+
+                        if ( IsValid(this.tab) and IsValid(self.settings) and isfunction(self.settings.GetPage) ) then
                             local page = self.settings:GetPage(this.tab.index)
                             if ( IsValid(page) ) then
                                 local scroller = page:GetChildren()[1]
@@ -222,6 +292,44 @@ function PANEL:Init()
     end)
 
     hook.Run("PostMainMenuOptionsCreated", self)
+end
+
+function PANEL:Think()
+    if ( !IsValid(self.settings) ) then
+        return
+    end
+
+    if ( self._nextCategorySync and self._nextCategorySync > CurTime() ) then
+        return
+    end
+
+    self._nextCategorySync = CurTime() + 0.1
+
+    local categoryKey = ax.gui and ax.gui.storeLastOption or nil
+    if ( !isstring(categoryKey) or categoryKey == "" ) then
+        categoryKey = nil
+    end
+
+    local activePage = nil
+    if ( isfunction(self.settings.GetActivePage) ) then
+        activePage = self.settings:GetActivePage()
+    end
+
+    if ( IsValid(activePage) and isnumber(activePage.index) and istable(self.categoryByPageIndex) ) then
+        categoryKey = self.categoryByPageIndex[activePage.index] or categoryKey
+    end
+
+    if ( !isstring(categoryKey) or categoryKey == "" ) then
+        return
+    end
+
+    if ( self._lastSyncedCategory == categoryKey ) then
+        return
+    end
+
+    self._lastSyncedCategory = categoryKey
+    self:SetSectionTitle(ax.localization:GetPhrase("category." .. categoryKey))
+    self:SetCategoryHint(categoryKey)
 end
 
 function PANEL:Paint(width, height)

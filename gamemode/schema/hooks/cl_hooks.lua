@@ -166,8 +166,13 @@ function SCHEMA:PlayerPostThink(client)
     if ( tracesHitTram >= #traces / 1.5 ) then
         client:SetDSP(2)
     else
-        -- default back to scape dsp
-        client:SetDSP(client:GetActiveScapeDSPPreset())
+        -- default back to scape dsp, but guard against nil/invalid preset
+        local dspPreset = client.GetActiveScapeDSPPreset and client:GetActiveScapeDSPPreset() or nil
+        if ( !isnumber(dspPreset) ) then
+            dspPreset = 0
+        end
+
+        client:SetDSP(dspPreset)
     end
 end
 

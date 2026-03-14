@@ -49,6 +49,66 @@ end
 
 local PANEL = {}
 
+local function AnimateBackButtonIn(parent, backButton)
+    if ( !IsValid(parent) or !IsValid(backButton) ) then
+        return
+    end
+
+    local wrap = parent.optionsBackWrap
+    if ( !IsValid(wrap) ) then
+        return
+    end
+
+    backButton:Stop()
+    wrap:Stop()
+    wrap:SetVisible(true)
+    backButton:SetVisible(true)
+    backButton:SetEnabled(true)
+    backButton:SetToggled(false)
+
+    local baseX = wrap._axBaseX or wrap:GetX()
+    local baseY = wrap._axBaseY or wrap:GetY()
+    wrap._axBaseX = baseX
+    wrap._axBaseY = baseY
+
+    local offset = ax.util:ScreenScaleH(12)
+    wrap:SetPos(baseX, baseY + offset)
+    backButton:SetAlpha(0)
+    wrap:MoveTo(baseX, baseY, 0.2, 0, -1)
+    backButton:AlphaTo(255, 0.2, 0)
+end
+
+local function AnimateBackButtonOut(parent, backButton)
+    if ( !IsValid(parent) or !IsValid(backButton) ) then
+        return
+    end
+
+    local wrap = parent.optionsBackWrap
+    if ( !IsValid(wrap) ) then
+        return
+    end
+
+    backButton:Stop()
+    wrap:Stop()
+    backButton:SetEnabled(false)
+    backButton:SetToggled(false)
+
+    local baseX = wrap._axBaseX or wrap:GetX()
+    local baseY = wrap._axBaseY or wrap:GetY()
+    wrap._axBaseX = baseX
+    wrap._axBaseY = baseY
+
+    local offset = ax.util:ScreenScaleH(12)
+    wrap:MoveTo(baseX, baseY + offset, 0.2, 0, -1, function()
+        if ( IsValid(parent) and IsValid(backButton) and IsValid(wrap) and parent.activePanel != parent.options ) then
+            backButton:SetVisible(false)
+            wrap:SetVisible(false)
+            wrap:SetPos(baseX, baseY)
+        end
+    end)
+    backButton:AlphaTo(0, 0.2, 0)
+end
+
 function PANEL:Init()
     if ( IsValid(ax.gui.main) ) then
         ax.gui.main:Remove()
@@ -239,15 +299,8 @@ function PANEL:Init()
                 end
 
                 if ( IsValid(self.optionsBackButton) ) then
-                    self.optionsBackButton:SetToggled(false)
-                    self.optionsBackButton:SetAlpha(255)
-                    self.optionsBackButton:SetEnabled(false)
-
-                    timer.Create("ax_options_back_hide_" .. tostring(self), 0.12, 1, function()
-                        if ( IsValid(self) and IsValid(self.optionsBackButton) and self.activePanel != self.options ) then
-                            self.optionsBackButton:SetVisible(false)
-                        end
-                    end)
+                    timer.Remove("ax_options_back_hide_" .. tostring(self))
+                    AnimateBackButtonOut(self, self.optionsBackButton)
                 end
 
                 return
@@ -291,12 +344,8 @@ function PANEL:Init()
 
             if ( IsValid(self.optionsBackButton) ) then
                 timer.Remove("ax_options_back_hide_" .. tostring(self))
-
                 self.optionsBackButton:SetText("BACK")
-                self.optionsBackButton:SetToggled(false)
-                self.optionsBackButton:SetAlpha(255)
-                self.optionsBackButton:SetVisible(true)
-                self.optionsBackButton:SetEnabled(true)
+                AnimateBackButtonIn(self, self.optionsBackButton)
             end
         end
 
@@ -430,11 +479,25 @@ function PANEL:Init()
                 end
             end
 
-            if ( isfunction(self.UpdateOptionsSubnavActive) and ax.gui.storeLastOption ) then
-                self:UpdateOptionsSubnavActive(ax.gui.storeLastOption)
+            local selectedCategoryID = ax.gui.storeLastOption
+            if ( !selectedCategoryID or !self.optionsSubnavButtons[selectedCategoryID] ) then
+                for id, _ in SortedPairs(self.optionsSubnavButtons) do
+                    selectedCategoryID = id
+                    break
+                end
+            end
 
-                if ( IsValid(self.options) and isfunction(self.options.SetSectionTitle) and self.optionsSubnavButtons[ax.gui.storeLastOption] ) then
-                    self.options:SetSectionTitle(self.optionsSubnavButtons[ax.gui.storeLastOption]:GetText())
+            if ( selectedCategoryID and self.optionsSubnavButtons[selectedCategoryID] ) then
+                if ( !ax.gui.optionsFirstCategoryInitialized ) then
+                    ax.gui.optionsFirstCategoryInitialized = true
+                    ax.gui.storeLastOption = selectedCategoryID
+                    self.optionsSubnavButtons[selectedCategoryID]:DoClick()
+                elseif ( isfunction(self.UpdateOptionsSubnavActive) ) then
+                    self:UpdateOptionsSubnavActive(selectedCategoryID)
+
+                    if ( IsValid(self.options) and isfunction(self.options.SetSectionTitle) ) then
+                        self.options:SetSectionTitle(self.optionsSubnavButtons[selectedCategoryID]:GetText())
+                    end
                 end
             end
 
@@ -483,9 +546,13 @@ function PANEL:Init()
             )
         end
 
-        local backButton = self.navBottom:Add("bms.button")
-        backButton:Dock(LEFT)
-        backButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+        self.optionsBackWrap = self.navBottom:Add("EditablePanel")
+        self.optionsBackWrap:SetTall(self.navBottom:GetTall())
+        self.optionsBackWrap:SetVisible(false)
+        self.optionsBackWrap.Paint = nil
+
+        local backButton = self.optionsBackWrap:Add("bms.button")
+        backButton:Dock(FILL)
         backButton:SetText("BACK")
         backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
         backButton:SetFillHeightHover(1)
@@ -493,6 +560,24 @@ function PANEL:Init()
         backButton:SetAlpha(255)
         backButton:SetEnabled(false)
         backButton:SetVisible(false)
+
+        local backTextW = select(1, backButton:GetContentSize())
+        local backPadding = ax.util:ScreenScale(18)
+        local backWidth = math.max(ax.util:ScreenScale(52), backTextW + backPadding)
+        self.optionsBackWrap:SetWide(backWidth)
+
+        local disconnectWidth = disconnectButton:GetWide()
+        if ( disconnectWidth <= 0 ) then
+            disconnectButton:SizeToContentsX()
+            disconnectWidth = disconnectButton:GetWide()
+        end
+
+        local leftPadding = ax.util:ScreenScale(16)
+        local spacing = ax.util:ScreenScale(4)
+        self.optionsBackWrap:SetPos(leftPadding + disconnectWidth + spacing, 0)
+        self.optionsBackWrap._axBaseX = self.optionsBackWrap:GetX()
+        self.optionsBackWrap._axBaseY = self.optionsBackWrap:GetY()
+
         backButton.DoClick = function()
             if ( self.activePanel == self.options ) then
                 self.options:SlideDown()
@@ -500,15 +585,7 @@ function PANEL:Init()
                 self.activePanel = self.splash
                 self:SetMainNavActive(nil)
 
-                backButton:SetToggled(false)
-                backButton:SetAlpha(255)
-                backButton:SetEnabled(false)
-
-                timer.Create("ax_options_back_hide_" .. tostring(self), 0.12, 1, function()
-                    if ( IsValid(self) and IsValid(backButton) and self.activePanel != self.options ) then
-                        backButton:SetVisible(false)
-                    end
-                end)
+                AnimateBackButtonOut(self, backButton)
             end
         end
 
