@@ -516,11 +516,24 @@ function PANEL:Init()
         SetupMainUnderlineButton(workshopButton)
         table.insert(self.mainNavButtons, workshopButton)
         workshopButton.DoClick = function()
+            local timerID = "ax_workshop_button_state_" .. tostring(self)
+
+            if ( IsValid(self) ) then
+                self:SetMainNavActive(workshopButton)
+            end
+
             gui.OpenURL("https://steamcommunity.com/workshop/filedetails/?id=3684369184")
 
-            timer.Simple(0, function()
-                if ( IsValid(workshopButton) ) then
-                    workshopButton:SetToggled(false)
+            timer.Remove(timerID)
+            timer.Create(timerID, 0.05, 0, function()
+                if ( !IsValid(self) or !IsValid(workshopButton) ) then
+                    timer.Remove(timerID)
+                    return
+                end
+
+                if ( !gui.IsGameUIVisible() ) then
+                    workshopButton.mainUnderlineActive = false
+                    timer.Remove(timerID)
                 end
             end)
         end
