@@ -36,7 +36,7 @@ StepPlan (mutable):
         { name="foot", alias=<string>|nil, file=<string>|nil, vol=<0..1>, pitch=<50..150>, delay=<seconds>, pos=<Vector>, tags={<string>...}? },
         -- more layers: gear, cloth, armor, env...
     },
-    fx={ hpf?, lpf?, reverb?, eq? },
+    fx={ hpf?, lpf?, eq? },
     dbg={<string>...}?
 }
 ]]

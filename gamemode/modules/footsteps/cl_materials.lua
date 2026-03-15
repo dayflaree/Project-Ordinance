@@ -33,17 +33,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/cardboard_land2.ogg",
             "riggs9162/bms/footsteps/static/cardboard_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbwood-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-09.ogg"
-        }
     },
 
     carpet = {
@@ -67,7 +56,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/carpet_land2.ogg",
             "riggs9162/bms/footsteps/static/carpet_land3.ogg"
         }
-        -- No reverb for carpet (soft materials)
     },
 
     concrete = {
@@ -106,17 +94,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/concrete_grit_land2.ogg",
             "riggs9162/bms/footsteps/static/concrete_grit_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverb-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-09.ogg"
-        }
     },
 
     dirt = {
@@ -141,14 +118,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/earth_land2.ogg",
             "riggs9162/bms/footsteps/static/earth_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     },
 
     flesh = {
@@ -180,7 +149,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/flesh_land2.ogg",
             "riggs9162/bms/footsteps/static/flesh_land3.ogg"
         }
-        -- No reverb for flesh (organic materials)
     },
 
     glass = {
@@ -204,16 +172,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/glasssolid_land2.ogg",
             "riggs9162/bms/footsteps/static/glasssolid_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbtile-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-08.ogg"
-        }
     },
 
     gravel = {
@@ -238,14 +196,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/gravel_land2.ogg",
             "riggs9162/bms/footsteps/static/gravel_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     },
 
     ladder = {
@@ -262,17 +212,6 @@ MODULE.Materials = {
         },
         jump = nil,
         land = nil,
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbmetal-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-09.ogg"
-        }
     },
 
     grass = {
@@ -311,16 +250,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/leaves2_land2.ogg",
             "riggs9162/bms/footsteps/static/leaves2_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbgrass-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbgrass-08.ogg"
-        }
     },
 
     tile = {
@@ -344,16 +273,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/marble_land2.ogg",
             "riggs9162/bms/footsteps/static/marble_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbtile-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-08.ogg"
-        }
     },
 
     metal = {
@@ -378,17 +297,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/metalsolid_land2.ogg",
             "riggs9162/bms/footsteps/static/metalsolid_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbmetal-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-09.ogg"
-        }
     },
 
     metalgrate = {
@@ -412,17 +320,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/metalgrate_land2.ogg",
             "riggs9162/bms/footsteps/static/metalgrate_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbmetal-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-09.ogg"
-        }
     },
 
     metalsolid = {
@@ -446,17 +343,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/metalsolid_land2.ogg",
             "riggs9162/bms/footsteps/static/metalsolid_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbmetal-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-09.ogg"
-        }
     },
 
     metalthin = {
@@ -480,17 +366,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/metalthin_land2.ogg",
             "riggs9162/bms/footsteps/static/metalthin_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbmetal-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-09.ogg"
-        }
     },
 
     panel = {
@@ -514,16 +389,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/panel_land2.ogg",
             "riggs9162/bms/footsteps/static/panel_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbtile-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-08.ogg"
-        }
     },
 
     plaster = {
@@ -547,17 +412,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/plaster_land2.ogg",
             "riggs9162/bms/footsteps/static/plaster_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverb-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-09.ogg"
-        }
     },
 
     plastersolid = {
@@ -581,17 +435,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/plastersolid_land2.ogg",
             "riggs9162/bms/footsteps/static/plastersolid_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverb-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverb-09.ogg"
-        }
     },
 
     rock = {
@@ -615,14 +458,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/earth_land2.ogg",
             "riggs9162/bms/footsteps/static/earth_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     },
 
     rubber = {
@@ -646,14 +481,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/rubber_land2.ogg",
             "riggs9162/bms/footsteps/static/rubber_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     },
 
     sand = {
@@ -678,14 +505,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/earth_land2.ogg",
             "riggs9162/bms/footsteps/static/earth_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     },
 
     squish = {
@@ -709,14 +528,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/squish_land2.ogg",
             "riggs9162/bms/footsteps/static/squish_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     },
 
     vent = {
@@ -740,17 +551,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/vent_land2.ogg",
             "riggs9162/bms/footsteps/static/vent_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbmetal-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbmetal-09.ogg"
-        }
     },
 
     water = {
@@ -774,7 +574,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/water_land2.ogg",
             "riggs9162/bms/footsteps/static/water_land3.ogg"
         }
-        -- No reverb for water (liquid materials)
     },
 
     wood = {
@@ -798,17 +597,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/wood_land2.ogg",
             "riggs9162/bms/footsteps/static/wood_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbwood-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-09.ogg"
-        }
     },
 
     woodcrate = {
@@ -832,17 +620,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/woodcrate_land2.ogg",
             "riggs9162/bms/footsteps/static/woodcrate_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbwood-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-08.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbwood-09.ogg"
-        }
     },
 
     plastic = {
@@ -866,16 +643,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/plastic_land2.ogg",
             "riggs9162/bms/footsteps/static/plastic_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbtile-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-08.ogg"
-        }
     },
 
     plasticsolid = {
@@ -899,16 +666,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/plasticsolid_land2.ogg",
             "riggs9162/bms/footsteps/static/plasticsolid_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbtile-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-06.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-07.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbtile-08.ogg"
-        }
     },
 
     rock_alt = {
@@ -933,14 +690,6 @@ MODULE.Materials = {
             "riggs9162/bms/footsteps/static/rock_land2.ogg",
             "riggs9162/bms/footsteps/static/rock_land3.ogg"
         },
-        reverb = {
-            "riggs9162/bms/footsteps/reverb/reverbdirt-01.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-02.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-03.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-04.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-05.ogg",
-            "riggs9162/bms/footsteps/reverb/reverbdirt-06.ogg"
-        }
     }
 }
 
@@ -1074,16 +823,3 @@ function ax.footsteps:GetLandSound(surfaceName)
     return material and material.land or nil
 end
 
-function ax.footsteps:GetReverbSound(surfaceName)
-    local material = self:GetMaterialForSurface(surfaceName)
-    if (!material or !material.reverb) then
-        return nil
-    end
-
-    local reverbs = material.reverb
-    if (istable(reverbs)) then
-        return reverbs[math.random(#reverbs)]
-    end
-
-    return reverbs
-end

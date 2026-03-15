@@ -166,13 +166,6 @@ local function getLandSound(surfaceName)
     return ax.footsteps:GetLandSound(surfaceName)
 end
 
-local function getReverbSound(surfaceName)
-    if (!ax.footsteps or !ax.footsteps.GetReverbSound) then
-        return nil
-    end
-    return ax.footsteps:GetReverbSound(surfaceName)
-end
-
 local function pickDefaultAlias(ctx)
     if ( band(ctx.flags, LADDER) != 0 ) then
         return ctx.side and (ladderSurface and ladderSurface.stepRightSound or "Default.StepRight")
@@ -381,33 +374,6 @@ hook.Add("Think", "Footsteps_Think", function()
         }
 
         hook.Run("ParallaxFootsteps_BaseLayer", ctx, plan)
-
-        -- Add reverb layer if enabled
-        if ( ax.config:Get("footstepReverbEnable", true) ) then
-            local surfName = ctx.contact.surfaceName
-            local reverbSound = getReverbSound(surfName)
-
-            if ( reverbSound ) then
-                local reverbVol = ax.config:Get("footstepReverbVolume", 0.25)
-                local baseVol = band(ctx.flags, RUNNING) != 0 and 0.5 or 0.20
-
-                -- Reverb volume - use config value directly, scale slightly with base volume
-                reverbVol = clamp(reverbVol * 0.8, 0, 1)
-
-                if ( band(ctx.flags, CROUCHING) != 0 ) then
-                    reverbVol = reverbVol * 0.5
-                end
-
-                plan.layers[#plan.layers + 1] = {
-                    name = "reverb",
-                    alias = reverbSound,
-                    vol = reverbVol,
-                    pitch = plan.bus.pitch,
-                    delay = ax.config:Get("footstepReverbDelay", 0.0),
-                    pos = ctx.contact.pos
-                }
-            end
-        end
 
         -- 3) Modifiers (volume/pitch/overlays)
         hook.Run("ParallaxFootsteps_Modifiers", ctx, plan)

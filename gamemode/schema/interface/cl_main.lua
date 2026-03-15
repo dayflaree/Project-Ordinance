@@ -549,14 +549,114 @@ function PANEL:Init()
         disconnectButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
         disconnectButton:SetFillHeightHover(1)
         disconnectButton.DoClick = function()
-            Derma_Query("Are you sure you want to disconnect?", "Disconnect",
-                "Yes", function()
-                    RunConsoleCommand("disconnect")
-                end,
-                "No", function()
-                    disconnectButton:SetToggled(false)
+            if ( IsValid(self.disconnectConfirmFrame) ) then
+                self.disconnectConfirmFrame:Remove()
+            end
+
+            local frame = vgui.Create("DFrame")
+            self.disconnectConfirmFrame = frame
+
+            frame:SetTitle("")
+            frame:ShowCloseButton(false)
+            frame:SetDraggable(false)
+            frame:SetDeleteOnClose(true)
+            frame:SetSize(ax.util:ScreenScale(300), ax.util:ScreenScaleH(120))
+            frame:Center()
+            frame:MakePopup()
+
+            local headerTall = ax.util:ScreenScaleH(24)
+            local bodyColor = Color(14, 18, 24, 220)
+            local headerColor = Color(195, 102, 36, 245)
+            local borderColor = Color(195, 102, 36, 180)
+
+            frame.Paint = function(this, width, height)
+                ax.render.Draw(0, 0, 0, width, height, bodyColor)
+                ax.render.Draw(0, 0, 0, width, headerTall, headerColor)
+
+                surface.SetDrawColor(borderColor)
+                surface.DrawOutlinedRect(0, 0, width, height, 1)
+            end
+
+            local title = frame:Add("DLabel")
+            title:SetFont("ax.large.bold")
+            title:SetText("DISCONNECT")
+            title:SetTextColor(color_white)
+            title:SetContentAlignment(4)
+            title:Dock(TOP)
+            title:DockMargin(ax.util:ScreenScale(10), 0, 0, 0)
+            title:SetTall(headerTall)
+
+            local message = frame:Add("DLabel")
+            message:SetFont("ax.medium")
+            message:SetText("Are you sure you want to disconnect?")
+            message:SetTextColor(color_white)
+            message:SetContentAlignment(4)
+            message:Dock(TOP)
+            message:DockMargin(ax.util:ScreenScale(12), ax.util:ScreenScaleH(8), ax.util:ScreenScale(12), 0)
+            message:SetTall(ax.util:ScreenScaleH(18))
+
+            local buttonRow = frame:Add("EditablePanel")
+            buttonRow:Dock(BOTTOM)
+            buttonRow:DockMargin(ax.util:ScreenScale(10), ax.util:ScreenScaleH(10), ax.util:ScreenScale(10), ax.util:ScreenScaleH(10))
+            buttonRow:SetTall(ax.util:ScreenScaleH(24))
+            buttonRow.Paint = nil
+
+            local noButton = buttonRow:Add("bms.button")
+            noButton:Dock(RIGHT)
+            noButton:SetWide(ax.util:ScreenScale(72))
+            noButton:SetText("NO")
+            noButton:SetFillColor(color_white)
+            noButton:SetFillHeightHover(0)
+            noButton:SetFillHeightMotion(0)
+            noButton.PaintAdditional = function(this, width, height)
+                if ( this:IsHovered() ) then
+                    surface.SetDrawColor(BMS_BUTTON_HOVER_COLOR)
+                else
+                    surface.SetDrawColor(color_white)
                 end
-            )
+
+                surface.DrawOutlinedRect(0, 0, width, height, 2)
+            end
+            noButton.DoClick = function()
+                if ( IsValid(frame) ) then
+                    frame:Close()
+                end
+
+                disconnectButton:SetToggled(false)
+            end
+
+            local yesButton = buttonRow:Add("bms.button")
+            yesButton:Dock(RIGHT)
+            yesButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+            yesButton:SetWide(ax.util:ScreenScale(72))
+            yesButton:SetText("YES")
+            yesButton:SetFillColor(color_white)
+            yesButton:SetFillHeightHover(0)
+            yesButton:SetFillHeightMotion(0)
+            yesButton.PaintAdditional = function(this, width, height)
+                if ( this:IsHovered() ) then
+                    surface.SetDrawColor(BMS_BUTTON_HOVER_COLOR)
+                else
+                    surface.SetDrawColor(color_white)
+                end
+
+                surface.DrawOutlinedRect(0, 0, width, height, 2)
+            end
+            yesButton.DoClick = function()
+                if ( IsValid(frame) ) then
+                    frame:Close()
+                end
+
+                RunConsoleCommand("disconnect")
+            end
+
+            frame.OnClose = function()
+                if ( IsValid(self) and self.disconnectConfirmFrame == frame ) then
+                    self.disconnectConfirmFrame = nil
+                end
+
+                disconnectButton:SetToggled(false)
+            end
         end
 
         self.optionsBackWrap = self.navBottom:Add("EditablePanel")
