@@ -213,22 +213,6 @@ function PANEL:Init()
     end
 
     -- Now create our own buttons
-    -- Play button (only show if we have a character)
-    local allowPlay = hook.Run("ShouldCreatePlayButton", self)
-    if ( ax.client.axCharacter and allowPlay != false ) then
-        local playButton = self.nav:Add("bms.button")
-        playButton:Dock(LEFT)
-        playButton:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
-        playButton:SetText("mainmenu.play")
-        playButton:SetTextColor(color_white)
-        SetupMainUnderlineButton(playButton)
-        table.insert(self.mainNavButtons, playButton)
-        playButton.DoClick = function()
-            ax.client:EmitSound("ax.gui.menu.close")
-            self:Remove()
-        end
-    end
-
     -- Create character button
     local allowCreate = hook.Run("ShouldCreateCreateButton", self)
     if ( allowCreate != false ) then
