@@ -16,25 +16,20 @@ function PANEL:Init()
 
     local parent = self:GetParent()
 
-    self:SetYOffset(ax.util:ScreenScaleH(24))
-    self:SetHeightOffset(-ax.util:ScreenScaleH(48))
+    self:SetYOffset(ax.util:ScreenScaleH(64))
+    self:SetHeightOffset(-ax.util:ScreenScaleH(128))
 
     self.characterList = self:Add("ax.transition")
     self.characterList:StartAtBottom()
 
-    self:CreateNavigation(self.characterList, "back", function()
-        if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
-        ax.gui.main.lastButtonClickTime = SysTime()
-
-        self:SlideDown()
-        parent.splash:SlideToFront()
-    end)
-
-    self.characters = self.characterList:Add("ax.scroller.vertical")
-    self.characters:Dock(FILL)
-    self.characters:DockMargin(ax.util:ScreenScale(144), ax.util:ScreenScaleH(40), ax.util:ScreenScale(144), ax.util:ScreenScaleH(40))
+    self.characters = self.characterList:Add("ax.scroller.horizontal")
+    self.characters:Dock(TOP)
+    self.characters:SetTall(ax.util:ScreenScaleH(220))
+    self.characters:DockMargin(ax.util:ScreenScale(48), ax.util:ScreenScaleH(40), ax.util:ScreenScale(48), 0)
     self.characters:InvalidateParent(true)
-    self.characters:GetVBar():SetWide(0)
+
+    self.characters.btnLeft:SetAlpha(0)
+    self.characters.btnRight:SetAlpha(0)
     self.characters.Paint = nil
 
     self.deletePanel = self:Add("ax.transition")
@@ -47,10 +42,51 @@ function PANEL:Init()
     hook.Run("PostMainMenuLoadCreated", self)
 end
 
+function PANEL:CreateNavigation() end
+
+function PANEL:ResetHoverStates()
+    for _, btn in pairs(self.characterButtons or {}) do
+        if ( IsValid(btn) ) then
+            btn:Stop()
+            btn.inertia = 0
+            if ( IsValid(btn.loadBtn) ) then
+                btn.loadBtn:Stop()
+                btn.loadBtn:SetVisible(false)
+                btn.loadBtn:SetAlpha(0)
+
+                btn.loadBtn:SetWasHovered(false)
+                btn.loadBtn.lastFillHeightTarget = btn.loadBtn:GetFillHeightIdle()
+                btn.loadBtn:SetFillHeightMotion(btn.loadBtn:GetFillHeightIdle())
+                btn.loadBtn.lastTextColorTarget = btn.loadBtn.textColor
+                btn.loadBtn.textColorMotion = btn.loadBtn.textColor
+                btn.loadBtn:SetTextColorInternal(btn.loadBtn.textColor)
+            end
+            if ( IsValid(btn.deleteBtn) ) then
+                btn.deleteBtn:Stop()
+                btn.deleteBtn:SetVisible(false)
+                btn.deleteBtn:SetAlpha(0)
+
+                btn.deleteBtn:SetWasHovered(false)
+                btn.deleteBtn.lastFillHeightTarget = btn.deleteBtn:GetFillHeightIdle()
+                btn.deleteBtn:SetFillHeightMotion(btn.deleteBtn:GetFillHeightIdle())
+                btn.deleteBtn.lastTextColorTarget = btn.deleteBtn.textColor
+                btn.deleteBtn.textColorMotion = btn.deleteBtn.textColor
+                btn.deleteBtn:SetTextColorInternal(btn.deleteBtn.textColor)
+            end
+        end
+    end
+    self.activeHovered = nil
+end
+
+function PANEL:OnHidden()
+    self:ResetHoverStates()
+end
+
 function PANEL:OnSlideStart()
     if ( !IsValid(self.characters) ) then return end
     if ( !IsValid(self.deleteContainer) ) then return end
 
+    self:ResetHoverStates()
     self.characterList:SlideToFront()
     self:PopulateCharacterList()
 end
@@ -59,100 +95,153 @@ function PANEL:PopulateCharacterList()
     self.characters:Clear()
     local clientTable = ax.client:GetTable()
     if ( !istable(clientTable.axCharacters) ) then clientTable.axCharacters = {} end
-    if ( clientTable.axCharacters[1] == nil ) then return end -- literally no reason to continue
+    if ( clientTable.axCharacters[1] == nil ) then return end
+
+    local buttonWidth = ax.util:ScreenScale(150)
+    self.characterButtons = {}
 
     for k, v in pairs(clientTable.axCharacters or {}) do
-        local button = self.characters:Add("ax.button")
-        button:Dock(TOP)
-        button:DockMargin(0, 0, 0, ax.util:ScreenScaleH(4))
-        button:SetText("", true, true, true)
-        button:SetTall(self.characters:GetWide() / 8)
+        local name = v:GetName():upper()
+        local lastPlayed = os.date("%a %b %d %H:%M:%S %Y", v:GetLastPlayed())
+        local faction = v:GetFactionData()
+        local banner = hook.Run("GetCharacterBanner", v.id) or (faction and faction.image) or "parallax/banners/unknown.png"
+        if ( isstring(banner) ) then
+            banner = ax.util:GetMaterial(banner)
+        end
 
-        button.DoClick = function()
+        local card = self.characters:Add("EditablePanel")
+        card:SetWide(buttonWidth)
+        card:Dock(LEFT)
+        card:DockMargin(ax.util:ScreenScale(12), 0, ax.util:ScreenScale(12), 0)
+        card.inertia = 0
+        table.insert(self.characterButtons, card)
+
+        local loadBtn = card:Add("bms.button.resume")
+        card.loadBtn = loadBtn
+        loadBtn:SetText("LOAD")
+        loadBtn:SetWide(ax.util:ScreenScale(52))
+        loadBtn:SetTall(ax.util:ScreenScaleH(24))
+        loadBtn:SetFont("ax.regular.bold")
+        loadBtn:SetOutlineThickness(4)
+        loadBtn:SetAlpha(0)
+        loadBtn:SetVisible(false)
+        loadBtn.DoClick = function()
             if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
             ax.gui.main.lastButtonClickTime = SysTime()
 
             ax.net:Start("character.load", v.id)
         end
 
-        local faction = v:GetFactionData()
-        local banner = hook.Run("GetCharacterBanner", v.id) or (faction and faction.image) or "gamepadui/hl2/chapter14"
-        if ( isstring(banner) ) then
-            banner = ax.util:GetMaterial(banner)
-        end
-
-        local image = button:Add("EditablePanel")
-        image:Dock(LEFT)
-        image:DockMargin(0, 0, ax.util:ScreenScale(8), 0)
-        image:SetSize(button:GetTall() * 1.75, button:GetTall())
-        image:SetMouseInputEnabled(false)
-        image.Paint = function(this, width, height)
-            surface.SetDrawColor(color_white)
-            surface.SetMaterial(banner)
-            surface.DrawTexturedRect(0, 0, width, height)
-        end
-
-        local deleteButton = button:Add("ax.button")
-        deleteButton:Dock(RIGHT)
-        deleteButton:DockMargin(ax.util:ScreenScale(8), 0, 0, 0)
-        deleteButton:SetText("X")
-        deleteButton:SetTextColor(Color(200, 100, 100))
-        deleteButton:SetBackgroundColorActive(Color(200, 100, 100, 200))
-        deleteButton:SetBlur(0.75)
-        deleteButton:SetSize(0, button:GetTall())
-        deleteButton:SetContentAlignment(5)
-        deleteButton.width = 0
-        deleteButton.DoClick = function()
+        local deleteBtn = card:Add("bms.button.resume")
+        card.deleteBtn = deleteBtn
+        deleteBtn:SetText("DELETE")
+        deleteBtn:SetWide(ax.util:ScreenScale(52))
+        deleteBtn:SetTall(ax.util:ScreenScaleH(24))
+        deleteBtn:SetFont("ax.regular.bold")
+        deleteBtn:SetOutlineThickness(4)
+        deleteBtn:SetAlpha(0)
+        deleteBtn:SetVisible(false)
+        deleteBtn.DoClick = function()
             if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
             ax.gui.main.lastButtonClickTime = SysTime()
 
             self:PopulateDeletePanel(v)
         end
 
-        -- Sorry for this pyramid of code, but eon wanted me to make the delete button extend when hovered over the character button.
-        local isDeleteButtonExtended = false
-        button.OnThink = function()
-            if ( button:IsHovered() or deleteButton:IsHovered() ) then
-                if ( !isDeleteButtonExtended ) then
-                    isDeleteButtonExtended = true
-                    deleteButton:Motion(0.2, {
-                        Target = {width = button:GetTall()},
-                        Easing = "OutQuad",
-                        Think = function(this)
-                            deleteButton:SetWide(this.width)
-                        end
-                    })
+        card.OnCursorEntered = function(this)
+            for _, btn in ipairs(self.characterButtons or {}) do
+                if ( IsValid(btn) and btn != this ) then
+                    btn:Motion(0.1, { Target = { inertia = 0 }, Easing = "Linear" })
+                    btn.inertia = 0
+                    if ( IsValid(btn.loadBtn) ) then btn.loadBtn:SetVisible(false); btn.loadBtn:SetAlpha(0) end
+                    if ( IsValid(btn.deleteBtn) ) then btn.deleteBtn:SetVisible(false); btn.deleteBtn:SetAlpha(0) end
                 end
-            else
-                if ( isDeleteButtonExtended ) then
-                    isDeleteButtonExtended = false
-                    deleteButton:Motion(0.2, {
-                        Target = {width = 0},
-                        Easing = "OutQuad",
-                        Think = function(this)
-                            deleteButton:SetWide(this.width)
-                        end
-                    })
+            end
+
+            self.activeHovered = this
+            loadBtn:SetVisible(true)
+            deleteBtn:SetVisible(true)
+            this:Motion(0.2, {
+                Target = { inertia = 1 },
+                Easing = "OutQuint"
+            })
+        end
+
+        card.OnCursorExited = function(this)
+            timer.Simple(0, function()
+                if ( !IsValid(this) or this:IsHovered() or (IsValid(loadBtn) and loadBtn:IsHovered()) or (IsValid(deleteBtn) and deleteBtn:IsHovered()) ) then return end
+                
+                if ( self.activeHovered == this ) then
+                    self.activeHovered = nil
                 end
+
+                this:Motion(0.2, {
+                    Target = { inertia = 0 },
+                    Easing = "OutQuint"
+                }, function()
+                    if ( IsValid(loadBtn) and this.inertia == 0 ) then
+                        loadBtn:SetVisible(false)
+                    end
+                    if ( IsValid(deleteBtn) and this.inertia == 0 ) then
+                        deleteBtn:SetVisible(false)
+                    end
+                end)
+            end)
+        end
+
+        card.PerformLayout = function(this, w, h)
+            local sidePadding = ax.util:ScreenScale(6)
+            loadBtn:SetPos(sidePadding, h - loadBtn:GetTall() - sidePadding)
+            deleteBtn:SetPos(w - deleteBtn:GetWide() - sidePadding, h - deleteBtn:GetTall() - sidePadding)
+        end
+
+        card.Paint = function(this, width, height)
+            local glass = ax.theme:GetGlass()
+            local inertia = this.inertia or 0
+            local orange = BMS_NAV_COLOR or Color(228, 113, 37)
+
+            if ( self.activeHovered != this ) then
+                inertia = 0
+            end
+
+            loadBtn:SetAlpha(255 * inertia)
+            deleteBtn:SetAlpha(255 * inertia)
+
+            local imageHeight = math.Round(width * (9 / 16))
+            ax.render.DrawMaterial(0, 0, 0, width, imageHeight, color_white, banner)
+
+            if ( inertia > 0 ) then
+                surface.SetDrawColor(0, 0, 0, 180 * inertia)
+                surface.DrawRect(0, imageHeight, width, height - imageHeight)
+
+                surface.SetDrawColor(orange.r, orange.g, orange.b, 255 * inertia)
+                surface.DrawOutlinedRect(0, 0, width, height, 1)
+                
+                surface.DrawLine(0, 0, width, 0)
+                surface.DrawLine(0, 0, 0, imageHeight)
+                surface.DrawLine(width - 1, 0, width - 1, imageHeight)
+            end
+
+            local textColor = inertia > 0.5 and glass.textHover or glass.text
+            local titleFont = "ax.large.bold"
+            local subtitleFont = "ax.regular"
+            local sidePadding = ax.util:ScreenScale(6)
+
+            local titleY = imageHeight + ax.util:ScreenScaleH(8)
+            draw.SimpleText(name, titleFont, sidePadding, titleY, textColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+            titleY = titleY + ax.util:GetTextHeight(titleFont)
+
+            local subtitleY = titleY + ax.util:ScreenScaleH(2)
+            local subtitleColor = ColorAlpha(textColor, 160 + (95 * inertia))
+            local descriptionWrapped = ax.util:GetWrappedText(lastPlayed, subtitleFont, width - sidePadding * 2)
+
+            for d = 1, #descriptionWrapped do
+                draw.SimpleText(descriptionWrapped[d], subtitleFont, sidePadding, subtitleY, subtitleColor, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
+                subtitleY = subtitleY + ax.util:GetTextHeight(subtitleFont)
             end
         end
 
-        local name = button:Add("ax.text")
-        name:Dock(TOP)
-        name:SetFont("ax.giant.bold")
-        name:SetText(v:GetName():upper())
-        name.Think = function(this)
-            this:SetTextColor(button:GetTextColor())
-        end
-
-        local lastPlayed = button:Add("ax.text")
-        lastPlayed:Dock(BOTTOM)
-        lastPlayed:DockMargin(0, 0, 0, ax.util:ScreenScaleH(8))
-        lastPlayed:SetFont("ax.large")
-        lastPlayed:SetText(os.date("%a %b %d %H:%M:%S %Y", v:GetLastPlayed()), true)
-        lastPlayed.Think = function(this)
-            this:SetTextColor(button:GetTextColor())
-        end
+        self.characters:AddPanel(card)
     end
 end
 
@@ -195,13 +284,14 @@ function PANEL:PopulateDeletePanel(character)
         this:RunAnimation()
     end
 
-    self:CreateNavigation(self.deleteContainer, "back", function()
-        if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
-        ax.gui.main.lastButtonClickTime = SysTime()
-
-        self.characterList:SlideToFront()
-        self.deletePanel:SlideRight()
-    end, "confirm", function()
+    local confirmBtn = self.deleteContainer:Add("bms.button.resume")
+    confirmBtn:SetText("CONFIRM")
+    confirmBtn:SetWide(ax.util:ScreenScale(64))
+    confirmBtn:SetTall(ax.util:ScreenScaleH(28))
+    confirmBtn:SetFont("ax.large.bold")
+    confirmBtn:SetOutlineThickness(4)
+    confirmBtn:SetPos(ax.util:ScreenScale(72), ax.util:ScreenScaleH(150)) -- Positioned under the name
+    confirmBtn.DoClick = function()
         if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
         ax.gui.main.lastButtonClickTime = SysTime()
 
@@ -210,7 +300,7 @@ function PANEL:PopulateDeletePanel(character)
         self:PopulateCharacterList()
         self.characterList:SlideToFront()
         self.deletePanel:SlideRight()
-    end)
+    end
 end
 
 function PANEL:Paint(width, height)

@@ -123,7 +123,7 @@ local function AnimateBackButtonOut(parent, backButton)
 
     local offset = ax.util:ScreenScaleH(12)
     wrap:MoveTo(baseX, baseY + offset, 0.2, 0, -1, function()
-        if ( IsValid(parent) and IsValid(backButton) and IsValid(wrap) and parent.activePanel != parent.options and parent.activePanel != parent.create ) then
+        if ( IsValid(parent) and IsValid(backButton) and IsValid(wrap) and parent.activePanel != parent.options and parent.activePanel != parent.create and parent.activePanel != parent.load ) then
             backButton:SetVisible(false)
             wrap:SetVisible(false)
             wrap:SetPos(baseX, baseY)
@@ -207,6 +207,7 @@ function PANEL:Init()
     self.navBottom:Dock(BOTTOM)
     self.navBottom:DockPadding(ax.util:ScreenScale(16), 0, 0, 0)
     self.navBottom:SetTall(ax.util:ScreenScaleH(24))
+    self.navBottom:SetZPos(1000)
     self.navBottom.Paint = function(this, width, height)
         ax.render.Draw(0, 0, 0, width, height, BMS_NAV_COLOR_BOTTOM)
     end
@@ -325,12 +326,18 @@ function PANEL:Init()
             self:SetMainNavActive(loadButton)
 
             if ( IsValid(self.optionsBackButton) ) then
-                AnimateBackButtonOut(self, self.optionsBackButton)
+                timer.Remove("ax_options_back_hide_" .. tostring(self))
+                self.optionsBackButton:SetText("BACK")
+                AnimateBackButtonIn(self, self.optionsBackButton)
             end
         end
 
         self.load.OnHidden = function()
             loadButton.mainUnderlineActive = false
+
+            if ( IsValid(self.optionsBackButton) ) then
+                AnimateBackButtonOut(self, self.optionsBackButton)
+            end
         end
     end
 
@@ -718,6 +725,7 @@ function PANEL:Init()
         self.optionsBackWrap.Paint = nil
 
         local backButton = self.optionsBackWrap:Add("bms.button")
+
         backButton:Dock(FILL)
         backButton:SetText("BACK")
         backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
@@ -774,6 +782,19 @@ function PANEL:Init()
                 self:SetMainNavActive(nil)
 
                 AnimateBackButtonOut(self, backButton)
+            elseif ( self.activePanel == self.load ) then
+                if ( !IsValid(self.load.characterList) or self.load.characterList:IsVisible() ) then
+                    self.load:SlideDown()
+
+                    self.splash:SlideToFront()
+                    self.activePanel = self.splash
+                    self:SetMainNavActive(nil)
+
+                    AnimateBackButtonOut(self, backButton)
+                else
+                    self.load.characterList:SlideToFront()
+                    self.load.deletePanel:SlideRight()
+                end
             elseif ( self.activePanel == self.create ) then
                 if ( !IsValid(self.create.currentTab) or self.create.currentTab.index <= 1 ) then
                     self.create:SlideDown()
