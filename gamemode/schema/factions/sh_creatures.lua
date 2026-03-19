@@ -12,7 +12,7 @@
 */
 
 FACTION.name = "Creature"
-FACTION.description = "A diverse collective of living beings, the Creatures are best understood by looking at their three distinct groups. First are the Xenian forms, organisms from a distant realm whose unusual biology continues to pique scientific interest. Next are the Race-X entities, mysterious in origin with traits that defy easy explanation. Finally, the Terrestrial Adapted consist of native Earth species that have evolved remarkable adaptations under extraordinary conditions. Together, these groups form a community that challenges our understanding of life and evolution."
+FACTION.description = "A diverse collective of living beings that occupy the borderworld known as Xen."
 FACTION.color = Color(100, 50, 200)
 FACTION.isDefault = false
 

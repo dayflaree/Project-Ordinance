@@ -12,7 +12,7 @@
 */
 
 FACTION.name = "Hazardous Environment Combat Unit"
-FACTION.description = "The Hazardous Environment Combat Unit (HECU) is a specialized detachment of the United States Marine Corps, trained for deployment into high-risk, anomalous environments. Tasked with crisis containment, direct engagement, and facility lockdown, HECU operatives are equipped to deal with biological threats, experimental hazards, and potential insurgent activity. Their operations inside Black Mesa are sanctioned under emergency military protocols, prioritizing national security and asset control. While nominally under the Department of Defense, the HECU answers directly to high-level military command during blacksite deployments. They are not peacekeepers — they are an armed response."
+FACTION.description = "The Hazardous Environment Combat Unit (HECU) is a specialized detachment of the United States Marine Corps."
 FACTION.color = Color(60, 100, 70)
 FACTION.isDefault = false
 

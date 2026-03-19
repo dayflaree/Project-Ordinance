@@ -13,4 +13,4 @@ local MODULE = MODULE
 
 MODULE.name = "Funding"
 MODULE.description = "A module for managing funding and financial transactions within the game."
-MODULE.author = "Author"
+MODULE.author = "dayflare"

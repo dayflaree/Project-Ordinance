@@ -7,8 +7,8 @@
     Seek permission from the author at riggs9162@gmx.de before proceeding.
 */
 
-FACTION.name = "Maintenance and Service Department"
-FACTION.description = "The Maintenance and Service Department keeps Black Mesa operational through two coordinated divisions: Maintenance and Service. Maintenance handles sanitation, systems repair, and infrastructure restoration. Service handles medical response, logistics, and day-to-day support coverage across the site. Department leadership is handled by divisional supervisors and a department director."
+FACTION.name = "Service Department"
+FACTION.description = "The Service Department keeps Black Mesa operational by providing essential support services, including maintenance, custodial work, and other critical functions that ensure the facility runs smoothly."
 FACTION.color = Color(200, 100, 100, 255)
 FACTION.isDefault = true
 

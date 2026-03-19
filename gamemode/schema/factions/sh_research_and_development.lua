@@ -12,7 +12,7 @@
 */
 
 FACTION.name = "Research & Development"
-FACTION.description = "The Science Team is a diverse collective of innovators pushing the boundaries of knowledge in research fields as varied as particle physics, xenobiology, and space travel. United by a relentless pursuit of discovery, these scientists work tirelessly in high-stakes laboratories and hazardous environments alike, devising breakthrough technologies and conducting experiments that challenge conventional wisdom. With each member contributing a unique perspective and a commitment to safety during complex operations, the team embodies Black Mesa's spirit of scientific excellence and resilience in the face of extraordinary challenges."
+FACTION.description = "The Science Team is a diverse collective of innovators pushing the boundaries of knowledge in research fields as varied as particle physics, xenobiology, and space travel."
 FACTION.color = Color(80, 80, 80, 255)
 FACTION.isDefault = true
 

@@ -12,7 +12,7 @@
 */
 
 FACTION.name = "Black Operations"
-FACTION.description = "Black Operations is a covert paramilitary force operating under the jurisdiction of the Federal Government of the United States. Unlike traditional military branches, BlackOps units act on classified directives with complete operational secrecy, often without formal oversight or public acknowledgement. Their role within Black Mesa includes the elimination of compromised personnel, suppression of sensitive information, and extraction of critical research materials. Highly trained in infiltration, sabotage, and silent takedowns, BlackOps operatives are deployed only when deniability is paramount. Their presence signals that the situation has escalated beyond recovery — their objective is resolution, not containment."
+FACTION.description = "Black Operations is a covert paramilitary force operating under the jurisdiction of the Federal Government of the United States."
 FACTION.color = Color(30, 30, 30)
 FACTION.isDefault = false
 

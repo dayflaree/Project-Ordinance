@@ -68,8 +68,9 @@ local function AnimateBackButtonIn(parent, backButton)
 
     local baseX = wrap._axBaseX or wrap:GetX()
     local baseY = wrap._axBaseY or wrap:GetY()
-    wrap._axBaseX = baseX
-    wrap._axBaseY = baseY
+    wrap._axBaseX = wrap._axBaseX or baseX
+    wrap._axBaseY = wrap._axBaseY or baseY
+    baseX, baseY = wrap._axBaseX, wrap._axBaseY
 
     local offset = ax.util:ScreenScaleH(12)
     wrap:SetPos(baseX, baseY + offset)
@@ -93,14 +94,27 @@ local function AnimateBackButtonOut(parent, backButton)
     backButton:SetEnabled(false)
     backButton:SetToggled(false)
 
+    -- Deep reset bms.button specific variables so it doesn't get stuck orange
+    backButton:SetWasHovered(false)
+    backButton.lastToggledState = false
+    backButton.lastFillHeightTarget = 0
+    if ( isfunction(backButton.SetFillHeightMotion) ) then
+        backButton:SetFillHeightMotion(0)
+    else
+        backButton.FillHeightMotion = 0
+    end
+    backButton.textColorMotion = backButton.textColor
+    backButton:SetTextColorInternal(backButton.textColor)
+
     local baseX = wrap._axBaseX or wrap:GetX()
     local baseY = wrap._axBaseY or wrap:GetY()
-    wrap._axBaseX = baseX
-    wrap._axBaseY = baseY
+    wrap._axBaseX = wrap._axBaseX or baseX
+    wrap._axBaseY = wrap._axBaseY or baseY
+    baseX, baseY = wrap._axBaseX, wrap._axBaseY
 
     local offset = ax.util:ScreenScaleH(12)
     wrap:MoveTo(baseX, baseY + offset, 0.2, 0, -1, function()
-        if ( IsValid(parent) and IsValid(backButton) and IsValid(wrap) and parent.activePanel != parent.options ) then
+        if ( IsValid(parent) and IsValid(backButton) and IsValid(wrap) and parent.activePanel != parent.options and parent.activePanel != parent.create ) then
             backButton:SetVisible(false)
             wrap:SetVisible(false)
             wrap:SetPos(baseX, baseY)
@@ -224,12 +238,43 @@ function PANEL:Init()
         SetupMainUnderlineButton(createButton)
         table.insert(self.mainNavButtons, createButton)
         createButton.DoClick = function()
+            if ( (createButton.lastClick or 0) + 1 > SysTime() ) then return end
+            createButton.lastClick = SysTime()
+
+            if ( self.activePanel == self.create ) then
+                self.create:SlideDown()
+                self.splash:SlideToFront()
+                self.activePanel = self.splash
+                self:SetMainNavActive(nil)
+
+                if ( IsValid(self.optionsBackButton) ) then
+                    AnimateBackButtonOut(self, self.optionsBackButton)
+                end
+
+                return
+            end
+
+            if ( IsValid(self.activePanel) and self.activePanel != self.splash and self.activePanel != self.options ) then
+                self.activePanel:SlideDown()
+            end
+
             self.splash:SlideDown()
             self.create:SlideToFront()
+            self.activePanel = self.create
             self:SetMainNavActive(createButton)
+
+            if ( IsValid(self.optionsBackButton) ) then
+                timer.Remove("ax_options_back_hide_" .. tostring(self))
+                self.optionsBackButton:SetText("BACK")
+                AnimateBackButtonIn(self, self.optionsBackButton)
+            end
         end
 
-        self.create.OnHidden = function()
+        self.create.OnHidden = function(this)
+            if ( isfunction(this.ResetHoverStates) ) then
+                this:ResetHoverStates()
+            end
+
             createButton.mainUnderlineActive = false
         end
     end
@@ -245,9 +290,23 @@ function PANEL:Init()
         SetupMainUnderlineButton(loadButton)
         table.insert(self.mainNavButtons, loadButton)
         loadButton.DoClick = function()
+            if ( (loadButton.lastClick or 0) + 1 > SysTime() ) then return end
+            loadButton.lastClick = SysTime()
+
+            if ( self.activePanel == self.load ) then return end
+
+            if ( IsValid(self.activePanel) and self.activePanel != self.splash ) then
+                self.activePanel:SlideDown()
+            end
+
             self.splash:SlideDown()
             self.load:SlideToFront()
+            self.activePanel = self.load
             self:SetMainNavActive(loadButton)
+
+            if ( IsValid(self.optionsBackButton) ) then
+                AnimateBackButtonOut(self, self.optionsBackButton)
+            end
         end
 
         self.load.OnHidden = function()
@@ -266,6 +325,9 @@ function PANEL:Init()
         SetupMainUnderlineButton(self.optionsButton)
         table.insert(self.mainNavButtons, self.optionsButton)
         self.optionsButton.DoClick = function()
+            if ( (self.optionsButton.lastClick or 0) + 1 > SysTime() ) then return end
+            self.optionsButton.lastClick = SysTime()
+
             if ( self.activePanel == self.options ) then
                 self.options:SlideDown()
                 self.splash:SlideToFront()
@@ -500,6 +562,9 @@ function PANEL:Init()
         SetupMainUnderlineButton(workshopButton)
         table.insert(self.mainNavButtons, workshopButton)
         workshopButton.DoClick = function()
+            if ( (workshopButton.lastClick or 0) + 1 > SysTime() ) then return end
+            workshopButton.lastClick = SysTime()
+
             local timerID = "ax_workshop_button_state_" .. tostring(self)
 
             if ( IsValid(self) ) then
@@ -648,6 +713,9 @@ function PANEL:Init()
         backButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
         backButton:SetFillHeightHover(1)
         backButton:SetToggled(false)
+        backButton.GetToggled = function()
+            return false
+        end
         backButton:SetAlpha(255)
         backButton:SetEnabled(false)
         backButton:SetVisible(false)
@@ -670,6 +738,22 @@ function PANEL:Init()
         self.optionsBackWrap._axBaseY = self.optionsBackWrap:GetY()
 
         backButton.DoClick = function()
+            -- Force reset hover state on click to prevent "sticky" hover effects
+            backButton.inertia = 0
+            if ( isfunction(backButton.SetFillHeightMotion) ) then
+                backButton:SetFillHeightMotion(0)
+            else
+                backButton.FillHeightMotion = 0
+            end
+            backButton:SetWasHovered(false)
+
+            -- Deep reset bms.button specific variables so it doesn't get stuck orange
+            backButton:SetToggled(false)
+            backButton.lastToggledState = false
+            backButton.lastFillHeightTarget = 0
+            backButton.textColorMotion = backButton.textColor
+            backButton:SetTextColorInternal(backButton.textColor)
+
             if ( self.activePanel == self.options ) then
                 self.options:SlideDown()
                 self.splash:SlideToFront()
@@ -677,6 +761,18 @@ function PANEL:Init()
                 self:SetMainNavActive(nil)
 
                 AnimateBackButtonOut(self, backButton)
+            elseif ( self.activePanel == self.create ) then
+                if ( !IsValid(self.create.currentTab) or self.create.currentTab.index <= 1 ) then
+                    self.create:SlideDown()
+
+                    self.splash:SlideToFront()
+                    self.activePanel = self.splash
+                    self:SetMainNavActive(nil)
+
+                    AnimateBackButtonOut(self, backButton)
+                else
+                    self.create:NavigateToPreviousTab(self.create.currentTab)
+                end
             end
         end
 
@@ -709,6 +805,10 @@ function PANEL:Init()
     discordButton:SetWide(ax.util:ScreenScale(64))
     discordButton:SetFillColor(BMS_BUTTON_HOVER_COLOR)
     discordButton:SetFillHeightHover(1)
+    discordButton:SetToggled(false)
+    discordButton.GetToggled = function()
+        return false
+    end
     discordButton.PaintAdditional = function(this, width, height)
         local iconW, iconH = GetRatioSize(BMS_DISCORD_ICON:Width(), BMS_DISCORD_ICON:Height(), width * 0.82, height * 0.82)
         local iconX = math.floor((width - iconW) * 0.5)

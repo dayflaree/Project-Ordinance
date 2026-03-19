@@ -12,7 +12,7 @@
 */
 
 FACTION.name = "Security Division"
-FACTION.description = "The Security Division is the vigilant backbone of Black Mesa, entrusted with safeguarding every corridor and sector of the facility. Operating on distinct colored shifts that designate responsibility for specific areas, these officers carry clearance levels averaging around Level 3 and stand as the final arbiters at controlled access points and security checkpoints. After reporting to their assigned facilities and settling into secure quarters, they don their standard blue uniforms complete with black ties, dark blue pants, assault boots, and protective gear, while being armed with a range of weaponry from reliable sidearms to heavier ordnance—ever prepared to enforce protocol and maintain order."
+FACTION.description = "The Security Division is the vigilant backbone of Black Mesa, entrusted with safeguarding every corridor and sector of the facility."
 FACTION.color = Color(25, 25, 170, 255)
 FACTION.isDefault = true
 
