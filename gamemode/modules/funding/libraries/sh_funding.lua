@@ -132,20 +132,9 @@ function MODULE.funding:EnsureStructureWithDefaults()
 
     -- Reports buckets
     self.data.reports = self.data.reports or { facility = {}, world = {} }
-    -- Seed example report entries if empty for visibility
-    if (#self.data.reports.facility == 0 and #self.data.reports.world == 0) then
-        table.insert(self.data.reports.facility, 1, { title = "Quarterly Budget Rollup", body = "Administration posted the latest budget distribution across sectors.", date = os.time(), severity = "info" })
-        table.insert(self.data.reports.world, 1, { title = "Federal Appropriations Bill", body = "Appropriations committee advanced funding bill; R&D incentives likely.", date = os.time(), severity = "warning" })
-    end
 
     -- Grants list (max 3)
     self.data.grants = self.data.grants or {}
-    if (#self.data.grants == 0) then
-        self.data.grants = {
-            { id = "g1", title = "DOE Safety Compliance Grant", objective = "Pass facility-wide safety audit.", amount = 25, deadline = os.time() + 7*24*3600, progress = 0.2, completed = false, claimed = false },
-            { id = "g2", title = "NNSA Containment Upgrade", objective = "Install and certify new containment seals in R&D labs.", amount = 40, deadline = os.time() + 12*24*3600, progress = 0.0, completed = false, claimed = false },
-        }
-    end
 
     -- History points for trend
     self.data.history = self.data.history or { self:GetGlobal() }
