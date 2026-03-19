@@ -89,6 +89,15 @@ local function AnimateBackButtonOut(parent, backButton)
         return
     end
 
+    if ( IsValid(parent.optionsSubnav) and parent.optionsSubnav:IsVisible() ) then
+        parent.optionsSubnav:Stop()
+        parent.optionsSubnav:SizeTo(parent.optionsSubnav:GetWide(), 0, 0.2, 0, -1, function()
+            if ( IsValid(parent) and IsValid(parent.optionsSubnav) ) then
+                parent.optionsSubnav:SetVisible(false)
+            end
+        end)
+    end
+
     backButton:Stop()
     wrap:Stop()
     backButton:SetEnabled(false)
@@ -238,8 +247,8 @@ function PANEL:Init()
         SetupMainUnderlineButton(createButton)
         table.insert(self.mainNavButtons, createButton)
         createButton.DoClick = function()
-            if ( (createButton.lastClick or 0) + 1 > SysTime() ) then return end
-            createButton.lastClick = SysTime()
+            if ( (self.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            self.lastButtonClickTime = SysTime()
 
             if ( self.activePanel == self.create ) then
                 self.create:SlideDown()
@@ -254,7 +263,7 @@ function PANEL:Init()
                 return
             end
 
-            if ( IsValid(self.activePanel) and self.activePanel != self.splash and self.activePanel != self.options ) then
+            if ( IsValid(self.activePanel) and self.activePanel != self.splash ) then
                 self.activePanel:SlideDown()
             end
 
@@ -290,10 +299,21 @@ function PANEL:Init()
         SetupMainUnderlineButton(loadButton)
         table.insert(self.mainNavButtons, loadButton)
         loadButton.DoClick = function()
-            if ( (loadButton.lastClick or 0) + 1 > SysTime() ) then return end
-            loadButton.lastClick = SysTime()
+            if ( (self.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            self.lastButtonClickTime = SysTime()
 
-            if ( self.activePanel == self.load ) then return end
+            if ( self.activePanel == self.load ) then
+                self.load:SlideDown()
+                self.splash:SlideToFront()
+                self.activePanel = self.splash
+                self:SetMainNavActive(nil)
+
+                if ( IsValid(self.optionsBackButton) ) then
+                    AnimateBackButtonOut(self, self.optionsBackButton)
+                end
+
+                return
+            end
 
             if ( IsValid(self.activePanel) and self.activePanel != self.splash ) then
                 self.activePanel:SlideDown()
@@ -325,24 +345,14 @@ function PANEL:Init()
         SetupMainUnderlineButton(self.optionsButton)
         table.insert(self.mainNavButtons, self.optionsButton)
         self.optionsButton.DoClick = function()
-            if ( (self.optionsButton.lastClick or 0) + 1 > SysTime() ) then return end
-            self.optionsButton.lastClick = SysTime()
+            if ( (self.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            self.lastButtonClickTime = SysTime()
 
             if ( self.activePanel == self.options ) then
                 self.options:SlideDown()
                 self.splash:SlideToFront()
                 self.activePanel = self.splash
                 self:SetMainNavActive(nil)
-
-                if ( IsValid(self.optionsSubnav) ) then
-                    local targetHeight = self.optionsSubnavTargetHeight or self.optionsSubnav:GetTall()
-
-                    self.optionsSubnav:SizeTo(self.optionsSubnav:GetWide(), 0, 0.2, 0, -1, function()
-                        if ( IsValid(self.optionsSubnav) ) then
-                            self.optionsSubnav:SetVisible(false)
-                        end
-                    end)
-                end
 
                 if ( IsValid(self.optionsBackButton) ) then
                     timer.Remove("ax_options_back_hide_" .. tostring(self))
@@ -562,8 +572,8 @@ function PANEL:Init()
         SetupMainUnderlineButton(workshopButton)
         table.insert(self.mainNavButtons, workshopButton)
         workshopButton.DoClick = function()
-            if ( (workshopButton.lastClick or 0) + 1 > SysTime() ) then return end
-            workshopButton.lastClick = SysTime()
+            if ( (self.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            self.lastButtonClickTime = SysTime()
 
             local timerID = "ax_workshop_button_state_" .. tostring(self)
 
@@ -738,6 +748,9 @@ function PANEL:Init()
         self.optionsBackWrap._axBaseY = self.optionsBackWrap:GetY()
 
         backButton.DoClick = function()
+            if ( (self.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            self.lastButtonClickTime = SysTime()
+
             -- Force reset hover state on click to prevent "sticky" hover effects
             backButton.inertia = 0
             if ( isfunction(backButton.SetFillHeightMotion) ) then
@@ -784,12 +797,8 @@ function PANEL:Init()
             self.optionsButton.mainUnderlineActive = false
         end
 
-        if ( IsValid(self.optionsSubnav) ) then
-            self.optionsSubnav:SizeTo(self.optionsSubnav:GetWide(), 0, 0.2, 0, -1, function()
-                if ( IsValid(self.optionsSubnav) ) then
-                    self.optionsSubnav:SetVisible(false)
-                end
-            end)
+        if ( IsValid(self.optionsBackButton) ) then
+            AnimateBackButtonOut(self, self.optionsBackButton)
         end
     end
 
@@ -816,6 +825,9 @@ function PANEL:Init()
         ax.render.DrawMaterial(0, iconX, iconY, iconW, iconH, color_white, BMS_DISCORD_ICON)
     end
     discordButton.DoClick = function()
+        if ( (self.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+        self.lastButtonClickTime = SysTime()
+
         gui.OpenURL("https://discord.gg/McHbSUAdUg")
     end
 

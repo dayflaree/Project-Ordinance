@@ -23,6 +23,9 @@ function PANEL:Init()
     self.characterList:StartAtBottom()
 
     self:CreateNavigation(self.characterList, "back", function()
+        if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+        ax.gui.main.lastButtonClickTime = SysTime()
+
         self:SlideDown()
         parent.splash:SlideToFront()
     end)
@@ -66,6 +69,9 @@ function PANEL:PopulateCharacterList()
         button:SetTall(self.characters:GetWide() / 8)
 
         button.DoClick = function()
+            if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            ax.gui.main.lastButtonClickTime = SysTime()
+
             ax.net:Start("character.load", v.id)
         end
 
@@ -97,6 +103,9 @@ function PANEL:PopulateCharacterList()
         deleteButton:SetContentAlignment(5)
         deleteButton.width = 0
         deleteButton.DoClick = function()
+            if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+            ax.gui.main.lastButtonClickTime = SysTime()
+
             self:PopulateDeletePanel(v)
         end
 
@@ -187,9 +196,15 @@ function PANEL:PopulateDeletePanel(character)
     end
 
     self:CreateNavigation(self.deleteContainer, "back", function()
+        if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+        ax.gui.main.lastButtonClickTime = SysTime()
+
         self.characterList:SlideToFront()
         self.deletePanel:SlideRight()
     end, "confirm", function()
+        if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+        ax.gui.main.lastButtonClickTime = SysTime()
+
         ax.net:Start("character.delete", character.id)
 
         self:PopulateCharacterList()

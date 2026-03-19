@@ -591,6 +591,9 @@ if ( factionVar ) then
             createBtn:SetAlpha(0)
             createBtn:SetVisible(false)
             createBtn.DoClick = function()
+                if ( (ax.gui.main.lastButtonClickTime or 0) + 0.3 > SysTime() ) then return end
+                ax.gui.main.lastButtonClickTime = SysTime()
+
                 table.Empty(payload or {})
                 payload.faction = v.index
 
