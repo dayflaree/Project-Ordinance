@@ -15,6 +15,7 @@ MODULE.name = "Funding"
 MODULE.description = "A module for managing funding and financial transactions within the game."
 MODULE.author = "dayflare"
 
--- Parallax module bootstrap
--- Keep this module self-contained and do not touch framework files.
 MODULE.autoload = true
+
+-- Configurable starting global budget (USD). Represents ~1 month of ops.
+MODULE.startGlobal = 275000000

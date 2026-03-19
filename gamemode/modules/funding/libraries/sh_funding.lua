@@ -2,12 +2,13 @@
 local MODULE = MODULE
 
 MODULE.funding = MODULE.funding or {}
+MODULE.funding.schemaVersion = 1
 
 -- Internal store (server-authoritative). Clients receive snapshots via net.
 -- Extended to support a realistic dashboard: ordered allocations, reports,
 -- grants, and time-series history for the trend graph.
 MODULE.funding.data = MODULE.funding.data or {
-    global = 100,
+    global = MODULE.startGlobal or 100,
     -- Ordered allocations shown in the UI. We keep stable string IDs so we
     -- don't depend on runtime numeric enum values.
     -- id: unique stable key, label: human name, amount: current funds
@@ -30,15 +31,135 @@ MODULE.funding.data = MODULE.funding.data or {
         -- { id, title, objective, amount, deadline, progress, completed, claimed }
     },
     -- Time-series values for right-side trend (latest last)
-    history = { 100 },
+    history = { MODULE.startGlobal or 100 },
+    -- Per-allocation time-series (id -> {values})
+    allocationHistory = {},
+    -- Structured event feed (audit trail)
+    events = {}, -- { {type, title, body, ts, meta={}} }
+    -- Alert rule placeholders (to be evaluated server-side later)
+    alertRules = { -- simple shape: { id -> { threshold, severity } }
+        -- e.g., security_low = { target = "security", lt = 10, severity = "warning" }
+    },
+    -- Forecast placeholders (read-only projections)
+    forecast = {
+        global = {},       -- array of numbers (future points)
+        allocations = {}   -- id -> { future points }
+    },
+    -- Action shells (permission-checked operations; no logic yet)
+    actions = {
+        -- { id = "request_transfer", label = "Request Transfer", roles = {"ADMIN"}, enabled = false }
+    },
     -- Legacy fields maintained for compatibility (not rendered directly)
     factions = {},   -- [factionID] = amount
     sub = {}         -- [factionID] = { [divisionID] = amount }
 }
 
+-- Deterministic operations cost model (non-payroll)
+-- Monthly costs in USD and time scaling to real seconds
+MODULE.funding.ops = MODULE.funding.ops or {
+    monthlyUSDByCategory = {
+        utilities = 62000000,       -- power, HVAC, water
+        infrastructure = 34000000,  -- maintenance, repairs
+        medical_ops = 18000000,     -- medbay, supplies
+        supplies_logistics = 26000000,
+        security_ops = 22000000,    -- non-payroll
+        rnd_ops = 38000000,         -- consumables, runtime
+        compliance_safety = 8000000,
+    },
+    monthSeconds = 432000,         -- lore scale: 1 month = 5 real days
+    tickSeconds = 5                -- must match server timer interval
+}
+
+function MODULE.funding:GetMonthlyOpsTotal()
+    local t = 0
+    local m = self.ops and self.ops.monthlyUSDByCategory or {}
+    for _, v in pairs(m) do t = t + (tonumber(v) or 0) end
+    return t
+end
+
+function MODULE.funding:ComputeOpsTickCost()
+    local monthly = self:GetMonthlyOpsTotal()
+    local monthSec = (self.ops and self.ops.monthSeconds) or 3600
+    local tickSec = (self.ops and self.ops.tickSeconds) or 5
+    if monthSec <= 0 or tickSec <= 0 then return 0 end
+    -- Spread the monthly total evenly across the configured month duration
+    local perSecond = monthly / monthSec
+    return perSecond * tickSec
+end
+
 -- Accessors (shared-safe; on client this reflects last known snapshot)
 function MODULE.funding:GetGlobal()
     return (self.data and self.data.global) or 0
+end
+
+-- Ensure structure + seed visible defaults (server only)
+function MODULE.funding:EnsureStructureWithDefaults()
+    self.data = self.data or {}
+    -- allocations in required order and labels
+    self.data.allocations = {
+        { id = "admin",     label = "Administrative Funding",   amount = self:GetAllocationAmount("admin") },
+        { id = "logistics", label = "Logistics Funding",        amount = self:GetAllocationAmount("logistics") },
+        { id = "security",  label = "Security Division",        amount = self:GetAllocationAmount("security") },
+        { id = "rnd",       label = "Research & Development",   amount = self:GetAllocationAmount("rnd") },
+        { id = "survey",    label = "Survey Team",              amount = self:GetAllocationAmount("survey") },
+        { id = "bio",       label = "Biological Sciences",      amount = self:GetAllocationAmount("bio") },
+        { id = "service",   label = "Service Department",       amount = self:GetAllocationAmount("service") },
+    }
+
+    -- If everything is zero, seed simple visible amounts relative to global
+    local allZero = true
+    for _, r in ipairs(self.data.allocations) do if (tonumber(r.amount) or 0) > 0 then allZero = false break end end
+    local g = tonumber(self.data.global or 100) or 100
+    if allZero then
+        local seed = {
+            admin = math.floor(g * 0.28),
+            logistics = math.floor(g * 0.14),
+            security = math.floor(g * 0.18),
+            rnd = math.floor(g * 0.24),
+            survey = math.floor(g * 0.07),
+            bio = math.floor(g * 0.06),
+            service = math.max(0, g - (math.floor(g * 0.28)+math.floor(g*0.14)+math.floor(g*0.18)+math.floor(g*0.24)+math.floor(g*0.07)+math.floor(g*0.06)))
+        }
+        for _, r in ipairs(self.data.allocations) do r.amount = seed[r.id] or 0 end
+    end
+
+    -- Reports buckets
+    self.data.reports = self.data.reports or { facility = {}, world = {} }
+    -- Seed example report entries if empty for visibility
+    if (#self.data.reports.facility == 0 and #self.data.reports.world == 0) then
+        table.insert(self.data.reports.facility, 1, { title = "Quarterly Budget Rollup", body = "Administration posted the latest budget distribution across sectors.", date = os.time(), severity = "info" })
+        table.insert(self.data.reports.world, 1, { title = "Federal Appropriations Bill", body = "Appropriations committee advanced funding bill; R&D incentives likely.", date = os.time(), severity = "warning" })
+    end
+
+    -- Grants list (max 3)
+    self.data.grants = self.data.grants or {}
+    if (#self.data.grants == 0) then
+        self.data.grants = {
+            { id = "g1", title = "DOE Safety Compliance Grant", objective = "Pass facility-wide safety audit.", amount = 25, deadline = os.time() + 7*24*3600, progress = 0.2, completed = false, claimed = false },
+            { id = "g2", title = "NNSA Containment Upgrade", objective = "Install and certify new containment seals in R&D labs.", amount = 40, deadline = os.time() + 12*24*3600, progress = 0.0, completed = false, claimed = false },
+        }
+    end
+
+    -- History points for trend
+    self.data.history = self.data.history or { self:GetGlobal() }
+    if (#self.data.history < 2) then
+        table.insert(self.data.history, self:GetGlobal())
+    end
+
+    -- Per-allocation history containers
+    self.data.allocationHistory = self.data.allocationHistory or {}
+    for _, r in ipairs(self.data.allocations or {}) do
+        self.data.allocationHistory[r.id] = self.data.allocationHistory[r.id] or { tonumber(r.amount) or 0 }
+        if (#self.data.allocationHistory[r.id] < 2) then
+            table.insert(self.data.allocationHistory[r.id], tonumber(r.amount) or 0)
+        end
+    end
+
+    -- Ensure containers for scaffolding fields
+    self.data.events = self.data.events or {}
+    self.data.alertRules = self.data.alertRules or {}
+    self.data.forecast = self.data.forecast or { global = {}, allocations = {} }
+    self.data.actions = self.data.actions or {}
 end
 
 function MODULE.funding:SetGlobal(amount)
@@ -124,14 +245,38 @@ function MODULE.funding:PushHistoryPoint(value)
     end
 end
 
+-- Push one point for each allocation into per-allocation histories
+function MODULE.funding:PushAllocationHistoryPoints()
+    self:EnsureStructureWithDefaults()
+    local maxLen = 240
+    for _, r in ipairs(self.data.allocations or {}) do
+        local id = r.id
+        self.data.allocationHistory[id] = self.data.allocationHistory[id] or {}
+        table.insert(self.data.allocationHistory[id], tonumber(r.amount) or 0)
+        if (#self.data.allocationHistory[id] > maxLen) then
+            table.remove(self.data.allocationHistory[id], 1)
+        end
+    end
+end
+
 -- Helpers to serialise a compact snapshot
 function MODULE.funding:BuildSnapshot()
+    if (SERVER) then
+        -- Ensure structure before sending to clients
+        self:EnsureStructureWithDefaults()
+    end
     return {
+        schemaVersion = self.schemaVersion,
         global = self:GetGlobal(),
         allocations = self.data.allocations or {},
         reports = self.data.reports or { facility = {}, world = {} },
         grants = self.data.grants or {},
         history = self.data.history or {},
+        allocationHistory = self.data.allocationHistory or {},
+        events = self.data.events or {},
+        alertRules = self.data.alertRules or {},
+        forecast = self.data.forecast or { global = {}, allocations = {} },
+        actions = self.data.actions or {},
         factions = self.data.factions or {},
         sub = self.data.sub or {}
     }
@@ -145,7 +290,40 @@ function MODULE.funding:ApplySnapshot(snap)
     self.data.reports = istable(snap.reports) and snap.reports or (self.data.reports or { facility = {}, world = {} })
     self.data.grants = istable(snap.grants) and snap.grants or (self.data.grants or {})
     self.data.history = istable(snap.history) and snap.history or (self.data.history or {})
+    self.data.allocationHistory = istable(snap.allocationHistory) and snap.allocationHistory or (self.data.allocationHistory or {})
+    self.data.events = istable(snap.events) and snap.events or (self.data.events or {})
+    self.data.alertRules = istable(snap.alertRules) and snap.alertRules or (self.data.alertRules or {})
+    self.data.forecast = istable(snap.forecast) and snap.forecast or (self.data.forecast or { global = {}, allocations = {} })
+    self.data.actions = istable(snap.actions) and snap.actions or (self.data.actions or {})
     -- legacy for compatibility
     self.data.factions = istable(snap.factions) and snap.factions or (self.data.factions or {})
     self.data.sub = istable(snap.sub) and snap.sub or (self.data.sub or {})
+end
+
+-- Event feed helpers (scaffolding)
+function MODULE.funding:AddEvent(evType, title, body, meta)
+    self:EnsureStructureWithDefaults()
+    local e = { type = evType or "info", title = title or "", body = body or "", ts = os.time(), meta = meta or {} }
+    table.insert(self.data.events, 1, e)
+    -- cap feed size
+    if (#self.data.events > 200) then table.remove(self.data.events) end
+    return e
+end
+
+-- Alert framework scaffolding (no real evaluation yet)
+function MODULE.funding:SetAlertRules(rules)
+    self:EnsureStructureWithDefaults()
+    if istable(rules) then self.data.alertRules = rules end
+end
+
+-- Forecast scaffolding
+function MODULE.funding:SetForecast(forecast)
+    self:EnsureStructureWithDefaults()
+    if istable(forecast) then self.data.forecast = forecast end
+end
+
+-- Actions scaffolding
+function MODULE.funding:SetActions(list)
+    self:EnsureStructureWithDefaults()
+    if istable(list) then self.data.actions = list end
 end
