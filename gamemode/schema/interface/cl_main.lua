@@ -232,8 +232,26 @@ function PANEL:Init()
     local buttons = {}
     hook.Run("CreateMainMenuButtons", self, buttons)
 
+    -- BMRP schema uses an EditablePanel for nav; it has no AddItem.
+    -- Safely attach any externally provided buttons.
     for _, button in ipairs(buttons) do
-        self.nav:AddItem(button)
+        if ( IsValid(button) ) then
+            if ( isfunction(self.nav.AddItem) ) then
+                -- Future-proofing if nav becomes a scroller later
+                self.nav:AddItem(button)
+            else
+                button:SetParent(self.nav)
+                if ( isfunction(button.Dock) ) then
+                    button:Dock(LEFT)
+                end
+                if ( isfunction(button.DockMargin) and ax and ax.util and ax.util.ScreenScale ) then
+                    button:DockMargin(0, 0, ax.util:ScreenScale(4), 0)
+                end
+            end
+
+            -- Track for active underline state handling (no-op if control lacks visuals)
+            table.insert(self.mainNavButtons, button)
+        end
     end
 
     -- Now create our own buttons
