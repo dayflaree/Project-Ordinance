@@ -16,6 +16,3 @@ MODULE.description = "A module for managing funding and financial transactions w
 MODULE.author = "dayflare"
 
 MODULE.autoload = true
-
--- Configurable starting global budget (USD). Represents ~1 month of ops.
-MODULE.startGlobal = 275000000

@@ -7,8 +7,9 @@ MODULE.funding.schemaVersion = 1
 -- Internal store (server-authoritative). Clients receive snapshots via net.
 -- Extended to support a realistic dashboard: ordered allocations, reports,
 -- grants, and time-series history for the trend graph.
+local START_FALLBACK = 275000000
 MODULE.funding.data = MODULE.funding.data or {
-    global = MODULE.startGlobal or 100,
+    global = ax.config:Get("funding.start_global", START_FALLBACK),
     -- Ordered allocations shown in the UI. We keep stable string IDs so we
     -- don't depend on runtime numeric enum values.
     -- id: unique stable key, label: human name, amount: current funds
@@ -31,7 +32,7 @@ MODULE.funding.data = MODULE.funding.data or {
         -- { id, title, objective, amount, deadline, progress, completed, claimed }
     },
     -- Time-series values for right-side trend (latest last)
-    history = { MODULE.startGlobal or 100 },
+    history = { ax.config:Get("funding.start_global", START_FALLBACK) },
     -- Per-allocation time-series (id -> {values})
     allocationHistory = {},
     -- Structured event feed (audit trail)
@@ -78,11 +79,11 @@ function MODULE.funding:GetMonthlyOpsTotal()
 end
 
 function MODULE.funding:ComputeOpsTickCost()
+    -- Deprecated: left for compatibility with old hooks
     local monthly = self:GetMonthlyOpsTotal()
     local monthSec = (self.ops and self.ops.monthSeconds) or 3600
     local tickSec = (self.ops and self.ops.tickSeconds) or 5
     if monthSec <= 0 or tickSec <= 0 then return 0 end
-    -- Spread the monthly total evenly across the configured month duration
     local perSecond = monthly / monthSec
     return perSecond * tickSec
 end
@@ -95,6 +96,12 @@ end
 -- Ensure structure + seed visible defaults (server only)
 function MODULE.funding:EnsureStructureWithDefaults()
     self.data = self.data or {}
+    if (SERVER) then
+        local configured = ax.config:Get("funding.start_global", START_FALLBACK)
+        if (not self.data.global or self.data.global <= 100) then
+            self.data.global = configured
+        end
+    end
     -- allocations in required order and labels
     self.data.allocations = {
         { id = "admin",     label = "Administrative Funding",   amount = self:GetAllocationAmount("admin") },
@@ -109,7 +116,7 @@ function MODULE.funding:EnsureStructureWithDefaults()
     -- If everything is zero, seed simple visible amounts relative to global
     local allZero = true
     for _, r in ipairs(self.data.allocations) do if (tonumber(r.amount) or 0) > 0 then allZero = false break end end
-    local g = tonumber(self.data.global or 100) or 100
+    local g = tonumber(self.data.global or ax.config:Get("funding.start_global", START_FALLBACK)) or START_FALLBACK
     if allZero then
         local seed = {
             admin = math.floor(g * 0.28),

@@ -9,7 +9,8 @@ if (SERVER) then
         local current = tonumber(MODULE.funding:GetGlobal() or 0) or 0
         -- Only override the placeholder/default small value; respect saved states.
         if (current <= 100) then
-            MODULE.funding:SetGlobal(MODULE.startGlobal or 275000000)
+            local startAmount = ax.config:Get("funding.start_global", 275000000)
+            MODULE.funding:SetGlobal(startAmount)
             MODULE.funding:PushHistoryPoint(MODULE.funding:GetGlobal())
             MODULE.funding:PushAllocationHistoryPoints()
         end
