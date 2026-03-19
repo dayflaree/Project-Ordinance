@@ -26,7 +26,7 @@ ITEM.data = nil -- Shadow any inherited class-level data to ensure instance uniq
 ITEM:AddAction("check", {
     name = "Check Water Level",
     icon = "parallax/icons/glass-half.png",
-    OnRun = function(action, item, ply)
+    OnRun = function(action, ply, item)
         local amount = item:GetData("water", 0)
         local status = "empty"
         
@@ -52,7 +52,7 @@ ITEM:AddAction("check", {
 ITEM:AddAction("fill", {
     name = "Fill Watering Can",
     icon = "parallax/icons/drop-fill.png",
-    CanUse = function(action, item, ply)
+    CanUse = function(action, ply, item)
         if ( !IsValid(ply) ) then return false end
         
         local plants = ax.module:Get("plants")
@@ -67,7 +67,7 @@ ITEM:AddAction("fill", {
         
         return true
     end,
-    OnRun = function(action, item, ply)
+    OnRun = function(action, ply, item)
         local plants = ax.module:Get("plants")
         local sinkData = plants and plants:GetSinkInteraction(ply)
         if ( !sinkData ) then return false end
